@@ -8,20 +8,21 @@
 
 #container {
 	position: absolute;
-	width:740px;
-	top: 35px;
-	left: 150px;
-	padding:10px;
-	margin:0 auto;
-	z-index:0;
-	height: 609px;
+	width	: 640px;
+	height	: 500px;
+	top		: 135px;
+	left	: 200px;
+	padding	: 10px;
+	margin	: 0 auto;
+	z-index	: 0;
+	
 }
 
 
 #example {
-	width:740px;
-	height:600px;
-	position:relative;
+	width	: 640px;
+	height	: 500px;
+	position: relative;
 }
 
 /*
@@ -30,9 +31,9 @@
 
 #slides {
 	position:absolute;
-	top:15px;
-	left:4px;
-	z-index:-1;
+	top		:15px;
+	left	:4px;
+	z-index	:-1;
 }
 
 /*
@@ -44,11 +45,11 @@
 */
 
 .slides_container {
-	width:740px;
-	height:600px;
-	overflow:hidden;
-	position:relative;
-	display:none;
+	width	: 640px;
+	height	: 500px;
+	overflow: hidden;
+	position: relative;
+	display	: none;
 }
 
 /*
@@ -61,10 +62,10 @@
 */
 
 #slides .slide {
-	padding:20px;
-	width:410px;
-	height:410px;
-	display:block;
+	padding		:20px;
+	width		:740px;
+	height		:600px;
+	display		:block;
 }
 
 
@@ -89,8 +90,9 @@
 	Set to display none, prevents content flash
 */
 #slides_novedades .slides_container {
-	width:250px;
-	display:none;
+	width	: 250px;
+	height	: 250px;
+	display : none;
 }
 
 /*
@@ -102,7 +104,20 @@
 */
 
 #slides_novedades .slides_container div {
-	width:250px;
-	height:250px;
-	display:block;
+	width	:250px;
+	height	:250px;
+	display	:block;
+}
+
+/************************************************************
+ * BANNER PRODUCTOS
+ *************************************************************/
+ 
+ #container_productos{
+	width	: 250px;
+	height	: 250px;
+	position: absolute;
+	top		: 180px;
+	left	: 5px;
+	z-index	: -1;
 }

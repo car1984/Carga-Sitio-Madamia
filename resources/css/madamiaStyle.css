@@ -160,11 +160,11 @@ h5{
 
 .capaLogo{
 	position: absolute;
-	width: 380px;
-	height:167px;
-	top: 230px;
-	left: 640px;
-	z-index: 0;
+	width	: 370px;
+	height	: 157px;
+	top		: 180px;
+	left	: 620px;
+	z-index	: 0;
 	background-image: url(../img/Home/SloganSolo.png);
 	}
 	
@@ -173,11 +173,11 @@ h5{
 	
 .capaTreeProductos{
 	position: absolute;
-	width: 213px;
-	height:306px;
-	top: 150px;
-	left: 810px;
-	z-index: 1;
+	width	: 213px;
+	height	: 310px;
+	top		: 33px;
+	left	: 810px;
+	z-index	: 0;
 	background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
 	}
 	

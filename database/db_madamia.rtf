@@ -1,0 +1,587 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 -- phpMyAdmin SQL Dump\
+-- version 3.3.9.2\
+-- http://www.phpmyadmin.net\
+--\
+-- Servidor: localhost\
+-- Tiempo de generaci\'f3n: 26-02-2013 a las 23:09:04\
+-- Versi\'f3n del servidor: 5.5.9\
+-- Versi\'f3n de PHP: 5.3.6\
+\
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";\
+\
+--\
+-- Base de datos: `madamia`\
+--\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `album`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:24\
+--\
+\
+CREATE TABLE `album` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `Nombre` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Fecha` date NOT NULL,\
+  `mostrar` tinyint(1) NOT NULL DEFAULT '0',\
+  PRIMARY KEY (`Id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=20 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `album`\
+--\
+\
+INSERT INTO `album` VALUES(2, 'Prueba1', '2011-11-23', 0);\
+INSERT INTO `album` VALUES(3, 'Prueba2', '2011-11-23', 0);\
+INSERT INTO `album` VALUES(4, 'Prueba3', '2012-01-31', 0);\
+INSERT INTO `album` VALUES(5, 'C.C. Cedritos', '2013-01-15', 0);\
+INSERT INTO `album` VALUES(6, 'C.C. Caobos', '2013-01-15', 0);\
+INSERT INTO `album` VALUES(7, 'Madamia', '2013-02-07', 0);\
+INSERT INTO `album` VALUES(8, 'Vision', '2013-02-07', 0);\
+INSERT INTO `album` VALUES(9, 'Mision', '2013-02-07', 0);\
+INSERT INTO `album` VALUES(10, 'Producto4', '2013-02-20', 1);\
+INSERT INTO `album` VALUES(11, 'Producto5', '2013-02-21', 1);\
+INSERT INTO `album` VALUES(12, 'Producto6', '2013-02-21', 1);\
+INSERT INTO `album` VALUES(13, 'Banner Home', '2013-02-25', 0);\
+INSERT INTO `album` VALUES(14, 'Banner Producto', '2013-02-25', 0);\
+INSERT INTO `album` VALUES(15, 'Banner Novedades', '2013-02-25', 0);\
+INSERT INTO `album` VALUES(16, 'Producto7', '2013-02-26', 1);\
+INSERT INTO `album` VALUES(17, 'Producto8', '2013-02-26', 1);\
+INSERT INTO `album` VALUES(19, 'Producto9', '2013-02-26', 1);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `categoria`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:24\
+--\
+\
+CREATE TABLE `categoria` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `Titulo_Esp` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Titulo_Ing` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  PRIMARY KEY (`Id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `categoria`\
+--\
+\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `celendario`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:25\
+--\
+\
+CREATE TABLE `celendario` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdSeccion` int(11) NOT NULL,\
+  `Fecha_Inicial` date NOT NULL,\
+  `Fecha_Final` date NOT NULL,\
+  `Hora_Inical` time NOT NULL,\
+  `Hora_Final` time NOT NULL,\
+  `Descripcion_Esp` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Descripcion_Ing` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Titulo_Esp` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Titulo_Ing` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `INDEX_Id_Seccion` (`IdSeccion`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `celendario`\
+--\
+\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `contenido`\
+--\
+-- Creaci\'f3n: 15-01-2013 a las 22:13:02\
+--\
+\
+CREATE TABLE `contenido` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdLista` int(11) NOT NULL,\
+  `Nombre_Esp` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Nombre_Ing` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Contenido_Esp` text COLLATE latin1_spanish_ci NOT NULL,\
+  `Contenido_Ing` text COLLATE latin1_spanish_ci NOT NULL,\
+  `Album_Id` int(11) DEFAULT NULL,\
+  `Url_GoogleMaps` text COLLATE latin1_spanish_ci,\
+  PRIMARY KEY (`Id`),\
+  KEY `idLista` (`IdLista`),\
+  KEY `fk_Contenido_Album1` (`Album_Id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=10 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `contenido`\
+--\
+\
+INSERT INTO `contenido` VALUES(1, 1, 'Madamia', 'Madamia', '<p style=\\\\"text-align: center;\\\\">Madamia&reg; Pasteler&iacute;a - Caf&eacute;&nbsp;es una empresa dedicada&nbsp;a la producci&oacute;n y comercializaci&oacute;n&nbsp;de&nbsp; postres, tortas, ponqu&eacute;s, pasabocasy bebidas a base de caf&eacute;;as&iacute; como&nbsp; la creaci&oacute;n de pasteles&nbsp;para todo tipo de celebraci&oacute;n,&nbsp;nuestra caracter&iacute;stica principal es la innovaci&oacute;n&nbsp;y personalizaci&oacute;n de cada una de estas,&nbsp;dejando llevar la imaginaci&oacute;n de&nbsp; nuestros clientes a&nbsp;las manos de nuestros pasteleros.</p>', '<p>Madamia&reg; Pasteler&iacute;a - Caf&eacute;&nbsp;es una empresa dedicada&nbsp;a la producci&oacute;n y comercializaci&oacute;n&nbsp;de&nbsp; postres, tortas, ponqu&eacute;s, pasabocasy bebidas a base de caf&eacute;;as&iacute; como&nbsp; la creaci&oacute;n de pasteles&nbsp;para todo tipo de celebraci&oacute;n,&nbsp;nuestra caracter&iacute;stica principal es la innovaci&oacute;n&nbsp;y personalizaci&oacute;n de cada una de estas,&nbsp;dejando llevar la imaginaci&oacute;n de&nbsp; nuestros clientes a&nbsp;las manos de nuestros pasteleros.</p>', 7, '');\
+INSERT INTO `contenido` VALUES(2, 1, 'Mision', 'Mision', '<p>Los productos&nbsp; de Madamia&reg;&nbsp; son elaborados con formulas y materiales naturales y&nbsp; de la mejor calidad para darle al cliente&nbsp; la mayor satisfacci&oacute;n a la hora de degustarlos y superar sus expectativas de sabor y calidad, en cada momento de celebraci&oacute;n, reuni&oacute;n&nbsp; o simplemente cuando quieran deleitar los sentidos con alguno de nuestros productos. Todo esto es posible brindando lo mejor de nuestro recurso humano, usando buenas pr&aacute;cticas de manufactura, con la m&aacute;s alta calidad en nuestros procesos que&nbsp; son cuidadosamente verificados. De igual modo dando un excelente servicio al cliente&nbsp; teniendo en cuenta siempre sus gustos y preferencias.</p>', '<p>Los productos&nbsp; de Madamia&reg;&nbsp; son elaborados con formulas y materiales naturales y&nbsp; de la mejor calidad para darle al cliente&nbsp; la mayor satisfacci&oacute;n a la hora de degustarlos y superar sus expectativas de sabor y calidad, en cada momento de celebraci&oacute;n, reuni&oacute;n&nbsp; o simplemente cuando quieran deleitar los sentidos con alguno de nuestros productos. Todo esto es posible brindando lo mejor de nuestro recurso humano, usando buenas pr&aacute;cticas de manufactura, con la m&aacute;s alta calidad en nuestros procesos que&nbsp; son cuidadosamente verificados. De igual modo dando un excelente servicio al cliente&nbsp; teniendo en cuenta siempre sus gustos y preferencias.</p>', 9, '');\
+INSERT INTO `contenido` VALUES(3, 1, 'Vision', 'Vision', '<p>Crear innovadoras y deliciosas tortas y postres,</p>\\r\\n<p>encantando a los clientes y</p>\\r\\n<p>proporcionando momentos inolvidables.</p>', '<p>Crear innovadoras y deliciosas tortas y postres,</p>\\r\\n<p>encantando a los clientes y</p>\\r\\n<p>proporcionando momentos inolvidables.</p>', 8, '');\
+INSERT INTO `contenido` VALUES(4, 2, 'C.C. Cedritos', 'C.C. Cedritos', 'C.C. Cedritos</br>\\r\\nCalle 151 N19-13</br>\\r\\nTel 031 614-6263</br>', '<p>C.C. Cedritos</p>', 5, '<iframe width="440" height="195" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;q=Macadamia,+La+Calera,+Cundinamarca,+Colombia&amp;aq=&amp;sll=4.75262,-73.95305&amp;sspn=0.024763,0.038152&amp;ie=UTF8&amp;geocode=FeyESAAd5pCX-w&amp;split=0&amp;hq=&amp;hnear=Macadamia,+La+Calera,+Cundinamarca,+Colombia&amp;ll=4.75262,-73.95305&amp;spn=0.012381,0.019076&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>');\
+INSERT INTO `contenido` VALUES(5, 2, 'C.C. Caobos', 'C.C. Caobos', 'C.C. Caobos', 'C.C. Caobos', 6, '<iframe width="440" height="195" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;q=Macadamia,+La+Calera,+Cundinamarca,+Colombia&amp;aq=&amp;sll=4.75262,-73.95305&amp;sspn=0.024763,0.038152&amp;ie=UTF8&amp;geocode=FeyESAAd5pCX-w&amp;split=0&amp;hq=&amp;hnear=Macadamia,+La+Calera,+Cundinamarca,+Colombia&amp;ll=4.75262,-73.95305&amp;spn=0.012381,0.019076&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;q=Macadamia,+La+Calera,+Cundinamarca,+Colombia&amp;aq=&amp;sll=4.75262,-73.95305&amp;sspn=0.024763,0.038152&amp;ie=UTF8&amp;geocode=FeyESAAd5pCX-w&amp;split=0&amp;hq=&amp;hnear=Macadamia,+La+Calera,+Cundinamarca,+Colombia&amp;ll=4.75262,-73.95305&amp;spn=0.012381,0.019076&amp;t=m&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">Ver mapa m\'e1s grande</a></small>');\
+INSERT INTO `contenido` VALUES(7, 3, 'Banner Principal', 'Banner Principal', '<p>Banner Principal Bebes.</p>', '<p>Banner Principal Bebes.</p>', NULL, '');\
+INSERT INTO `contenido` VALUES(8, 3, 'Banner Productos', 'Banner Productos', '<p>Banner producto izquierda superior&nbsp;</p>', '<p>Banner producto izquierda superior&nbsp;</p>', NULL, '');\
+INSERT INTO `contenido` VALUES(9, 3, 'Banner Novedades', 'Banner Novedades', '<p>Banner novedades derecha inferior&nbsp;</p>', '<p>Banner novedades derecha inferior&nbsp;</p>', NULL, '<p>Banner novedades derecha inferior&nbsp;</p>');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `directorio`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:25\
+--\
+\
+CREATE TABLE `directorio` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdSeccion` int(11) NOT NULL,\
+  `Nombre` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Telefono` varchar(10) COLLATE latin1_spanish_ci NOT NULL,\
+  `Mail` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `Id Seccion` (`IdSeccion`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `directorio`\
+--\
+\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `documentos`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:25\
+--\
+\
+CREATE TABLE `documentos` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdSeccion` int(11) NOT NULL,\
+  `Nombre` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Telefono` varchar(10) COLLATE latin1_spanish_ci NOT NULL,\
+  `Mail` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Fecha_Registro` date NOT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `INDEX_Id_Seccion` (`IdSeccion`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `documentos`\
+--\
+\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `foto`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:26\
+--\
+\
+CREATE TABLE `foto` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdAlbun` int(11) NOT NULL,\
+  `Imagen` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Descripcion_Esp` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Descripcion_Ing` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `IdAlbum` (`IdAlbun`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=46 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `foto`\
+--\
+\
+INSERT INTO `foto` VALUES(1, 2, '../resources/csm/album/album2/TortaProductos.png', '3 leches 01', '#');\
+INSERT INTO `foto` VALUES(2, 3, '../resources/csm/album/album3/TortaProductos.png', 'Guanabana 01', '#');\
+INSERT INTO `foto` VALUES(8, 5, '../resources/csm/album/album5/16g.jpg', 'Cedritos', 'Cedritos');\
+INSERT INTO `foto` VALUES(9, 6, '../resources/csm/album/album6/BestIrishPub2005.jpg', 'Caobos', 'Caobos');\
+INSERT INTO `foto` VALUES(10, 7, '../resources/csm/album/album7/Fondo-Madamia.png', 'Fondo Madamia', 'Fondo Madamia');\
+INSERT INTO `foto` VALUES(11, 7, '../resources/csm/album/album7/Fondo-Titulo-Madamia.png', 'Titulo Madamia', 'Titulo Madamia');\
+INSERT INTO `foto` VALUES(12, 8, '../resources/csm/album/album8/Fondo-Vision.png', 'Fondo Vision', 'Fondo Vision');\
+INSERT INTO `foto` VALUES(13, 8, '../resources/csm/album/album8/Fondo-Titulo-Vision.png', 'Titulo Vision ', 'Titulo Vision ');\
+INSERT INTO `foto` VALUES(14, 9, '../resources/csm/album/album9/Fondo-Mision.png', 'Fondo Mision', 'Fondo Mision');\
+INSERT INTO `foto` VALUES(15, 9, '../resources/csm/album/album9/Fondo-Titulo-Mision.png', 'Titulo Mision', 'Titulo Mision');\
+INSERT INTO `foto` VALUES(18, 10, '../resources/csm/album/album10/TortaProductos.png', 'Chocolate 01', '#');\
+INSERT INTO `foto` VALUES(20, 4, '../resources/csm/album/album4/TortaProductos.png', 'Mora 01', '#');\
+INSERT INTO `foto` VALUES(21, 4, '../resources/csm/album/album4/3Leches.png', 'Mora 02', '#');\
+INSERT INTO `foto` VALUES(22, 2, '../resources/csm/album/album2/3Leches.png', '3 leches 02', '#');\
+INSERT INTO `foto` VALUES(23, 3, '../resources/csm/album/album3/CategoriaTortas.png', 'Guanabana 02', '#');\
+INSERT INTO `foto` VALUES(25, 11, '../resources/csm/album/album11/TortaProductos.png', 'Institucional 01', '#');\
+INSERT INTO `foto` VALUES(26, 12, '../resources/csm/album/album12/TortaProductos.png', 'institucional test', '#');\
+INSERT INTO `foto` VALUES(27, 13, '../resources/csm/album/album13/Ninia.png', 'Ni\'c3\'b1a', 'Ni\'c3\'b1a');\
+INSERT INTO `foto` VALUES(28, 13, '../resources/csm/album/album13/Bebe-cara-Ponque.png', 'Bebe Cara Ponque', 'Bebe Cara Ponque');\
+INSERT INTO `foto` VALUES(29, 13, '../resources/csm/album/album13/Bebe-risas.png', 'Bebe Risas', 'Bebe Risas');\
+INSERT INTO `foto` VALUES(30, 13, '../resources/csm/album/album13/Bebe-Vela-1.png', 'Bebe Vela 1', 'Bebe Vela 1');\
+INSERT INTO `foto` VALUES(34, 13, '../resources/csm/album/album13/Ninio-Pastel.png', 'Ni\'c3\'b1o Pastel', 'Ni\'c3\'b1o Pastel');\
+INSERT INTO `foto` VALUES(35, 14, '../resources/csm/album/album14/15-102.png', '15 102', '15 102');\
+INSERT INTO `foto` VALUES(36, 14, '../resources/csm/album/album14/15-103-SOMBRERO.png', 'Sombrero', 'Sombrero');\
+INSERT INTO `foto` VALUES(37, 14, '../resources/csm/album/album14/BOD06.png', 'Bodo', 'Bodo');\
+INSERT INTO `foto` VALUES(38, 14, '../resources/csm/album/album14/caf_-pepas-y-mo_o.png', 'Cafe, Pepas y Mo\'c3\'b1o', 'Cafe, Pepas y Mo\'c3\'b1o');\
+INSERT INTO `foto` VALUES(39, 14, '../resources/csm/album/album14/libros.png', 'Libros', 'Libros');\
+INSERT INTO `foto` VALUES(40, 14, '../resources/csm/album/album14/mascara-carnaval-2.png', 'Mascara Carnaval', 'Mascara Carnaval');\
+INSERT INTO `foto` VALUES(41, 14, '../resources/csm/album/album14/star-wars.png', 'Star Wars', 'Star Wars');\
+INSERT INTO `foto` VALUES(42, 14, '../resources/csm/album/album14/tenista.png', 'Tenista', 'Tenista');\
+INSERT INTO `foto` VALUES(43, 16, '../resources/csm/album/album16/Madisushy.png', 'Madisushy', '#');\
+INSERT INTO `foto` VALUES(44, 17, '../resources/csm/album/album17/Torta-de-manzana.png', 'Torta Manzana', '#');\
+INSERT INTO `foto` VALUES(45, 19, '../resources/csm/album/album19/Twist.png', 'Twist', '#');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `lista_contenido`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:26\
+--\
+\
+CREATE TABLE `lista_contenido` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdSeccion` int(11) NOT NULL,\
+  `Nombre` varchar(100) COLLATE latin1_spanish_ci NOT NULL,\
+  `Fondo` varchar(200) COLLATE latin1_spanish_ci DEFAULT NULL,\
+  `Fotos` tinyint(1) DEFAULT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `IdSeccion` (`IdSeccion`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=4 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `lista_contenido`\
+--\
+\
+INSERT INTO `lista_contenido` VALUES(1, 10, 'Madamia', '#', 1);\
+INSERT INTO `lista_contenido` VALUES(2, 8, 'Lista Puntos Venta', '#', 1);\
+INSERT INTO `lista_contenido` VALUES(3, 4, 'Home', '#', 0);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `precio_producto`\
+--\
+-- Creaci\'f3n: 05-12-2012 a las 21:38:07\
+--\
+\
+CREATE TABLE `precio_producto` (\
+  `id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdProducto` int(11) NOT NULL,\
+  `Nombre` varchar(45) DEFAULT NULL,\
+  `Valor` varchar(45) DEFAULT NULL,\
+  PRIMARY KEY (`id`),\
+  KEY `IdProducto` (`IdProducto`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=90 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `precio_producto`\
+--\
+\
+INSERT INTO `precio_producto` VALUES(1, 14, 'Precio 1', '100');\
+INSERT INTO `precio_producto` VALUES(2, 14, 'Precio 2', '200');\
+INSERT INTO `precio_producto` VALUES(3, 15, 'Precio 1', '100');\
+INSERT INTO `precio_producto` VALUES(4, 15, 'Precio 2', '200');\
+INSERT INTO `precio_producto` VALUES(5, 16, 'Peque\'c3\'b1a', '100');\
+INSERT INTO `precio_producto` VALUES(6, 16, 'Mediana', '150');\
+INSERT INTO `precio_producto` VALUES(7, 16, 'Grande', '200');\
+INSERT INTO `precio_producto` VALUES(8, 17, 'Peque\'c3\'b1a', '100');\
+INSERT INTO `precio_producto` VALUES(9, 17, 'Mediana', '150');\
+INSERT INTO `precio_producto` VALUES(10, 17, 'Grande', '200');\
+INSERT INTO `precio_producto` VALUES(47, 17, '1 libra', '1000');\
+INSERT INTO `precio_producto` VALUES(48, 18, 'peque\'c3\'b1a', '1000');\
+INSERT INTO `precio_producto` VALUES(49, 18, 'mediana', '15000');\
+INSERT INTO `precio_producto` VALUES(50, 18, 'grande', '20000');\
+INSERT INTO `precio_producto` VALUES(72, 4, 'Peque\'c3\'b1a', '10000');\
+INSERT INTO `precio_producto` VALUES(73, 4, 'Mediana', '15000');\
+INSERT INTO `precio_producto` VALUES(74, 4, 'Grande', '20000');\
+INSERT INTO `precio_producto` VALUES(86, 1, 'Precio 100 kl', '2000');\
+INSERT INTO `precio_producto` VALUES(87, 6, 'Peque\'c3\'b1a ', '20000');\
+INSERT INTO `precio_producto` VALUES(88, 6, 'Mediana', '30000');\
+INSERT INTO `precio_producto` VALUES(89, 6, 'Grande', '35000');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `producto`\
+--\
+-- Creaci\'f3n: 11-12-2012 a las 21:00:02\
+--\
+\
+CREATE TABLE `producto` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdSeccion` int(11) NOT NULL,\
+  `IdAlbum` int(11) NOT NULL,\
+  `Nombre_Esp` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Nombre_Ing` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Descripcion_Esp` text COLLATE latin1_spanish_ci NOT NULL,\
+  `Descripcion_Ing` text COLLATE latin1_spanish_ci NOT NULL,\
+  `IdTipoProducto` int(11) DEFAULT NULL,\
+  `populate` int(11) NOT NULL,\
+  `top10` int(1) NOT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `INDEX_IdSeccion` (`IdSeccion`),\
+  KEY `CONS_IdAlbum_idx` (`IdAlbum`),\
+  KEY `CONS_IdTipoProducto_idx` (`IdTipoProducto`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=11 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `producto`\
+--\
+\
+INSERT INTO `producto` VALUES(1, 26, 2, 'Tradicional', '#', '<p>Torta de 3 Leches Tradicional</p>', '#', 1, 28, 1);\
+INSERT INTO `producto` VALUES(2, 26, 3, 'Guanabana', '#', '<p>Torta de 3 Luches de Guanabana</p>', '#', 1, 9, 1);\
+INSERT INTO `producto` VALUES(3, 26, 4, 'Mora', '#', '<p>Torta de 3 Luches de Mora</p>', '#', 1, 5, 0);\
+INSERT INTO `producto` VALUES(4, 27, 10, 'Torta de Chocolate', '#', '<p>Torta de Chocolate&nbsp;Torta de Chocolate&nbsp;Torta de Chocolate&nbsp;Torta de Chocolate&nbsp;Torta de Chocolate</p>', '#', 1, 0, 0);\
+INSERT INTO `producto` VALUES(5, 6, 11, 'Primer Producto Institucional', '#', '<p>Primer Producto Institucional&nbsp;Primer Producto Institucional&nbsp;Primer Producto Institucional&nbsp;Primer Producto&nbsp;</p>', '#', 2, 0, 0);\
+INSERT INTO `producto` VALUES(6, 6, 12, 'Institucionales 02', '#', '<p>Tortas Institucionales test Tortas Institucionales test Tortas Institucionales test</p>', '#', 2, 0, 0);\
+INSERT INTO `producto` VALUES(7, 6, 16, 'Madisushy', '#', '<p>Madisushy</p>', '#', 2, 2, 1);\
+INSERT INTO `producto` VALUES(8, 6, 17, 'Torta Manzana', '#', '<p>Torta Manzana</p>', '#', 2, 2, 1);\
+INSERT INTO `producto` VALUES(10, 6, 19, 'Twist', '#', '<p>Twist</p>', '#', 2, 2, 1);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `promociones`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:26\
+--\
+\
+CREATE TABLE `promociones` (\
+  `id` int(11) NOT NULL AUTO_INCREMENT,\
+  `Seccion_Id` int(11) NOT NULL,\
+  `Fecha_Inicio` date NOT NULL,\
+  `Fecha_Fin` date NOT NULL,\
+  `Desccripcion_Esp` text COLLATE latin1_spanish_ci NOT NULL,\
+  `Descripcion_Eng` text COLLATE latin1_spanish_ci NOT NULL,\
+  PRIMARY KEY (`id`),\
+  KEY `fk_Promociones_Seccion1` (`Seccion_Id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `promociones`\
+--\
+\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `seccion`\
+--\
+-- Creaci\'f3n: 28-11-2012 a las 20:12:30\
+--\
+\
+CREATE TABLE `seccion` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `IdPapa` int(11) NOT NULL,\
+  `Tipo_Seccion` int(11) NOT NULL,\
+  `Nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL,\
+  `Imagen` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Titulo_Esp` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Titulo_Eng` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Posicion` int(11) NOT NULL,\
+  PRIMARY KEY (`Id`),\
+  KEY `Tipo_Seccion` (`Tipo_Seccion`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=34 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `seccion`\
+--\
+\
+INSERT INTO `seccion` VALUES(4, 0, 1, 'Inicio', '#', 'inicio', 'Home', 1);\
+INSERT INTO `seccion` VALUES(5, 0, 2, 'Productos', '#', 'Home Productos', 'Home Productos', 2);\
+INSERT INTO `seccion` VALUES(6, 0, 3, 'Institucionales', '#', 'Institucionales', 'Institucionales', 3);\
+INSERT INTO `seccion` VALUES(7, 0, 2, 'Especiales', '#', 'Especiales', 'Especiales', 4);\
+INSERT INTO `seccion` VALUES(8, 0, 4, 'Puntos de venta', '#', 'Puntos de venta', 'Productos de venta', 5);\
+INSERT INTO `seccion` VALUES(9, 0, 5, 'Trabaje con Nosotros', '#', 'Trabaje con Nosotros', 'Trabaje con Nosotros', 6);\
+INSERT INTO `seccion` VALUES(10, 0, 6, 'Madamia', '#', 'Madamia', 'Madamia', 7);\
+INSERT INTO `seccion` VALUES(11, 0, 7, 'Contactenos', '#', 'Contactenos', 'Contact', 8);\
+INSERT INTO `seccion` VALUES(12, 5, 3, 'Tortas', '../resources/csm/img/Seccion/CategoriaTortas.png', 'Tortas', 'Tortas', 1);\
+INSERT INTO `seccion` VALUES(14, 5, 3, 'Postres', '../resources/csm/img/Seccion/CategoriaPostres.png', 'Postres', 'Postres', 2);\
+INSERT INTO `seccion` VALUES(15, 5, 3, 'Ponques', '#', 'Ponques', 'Ponques', 3);\
+INSERT INTO `seccion` VALUES(16, 5, 3, 'Ojaldres', '#', 'Ojaldres', 'Ojaldres', 4);\
+INSERT INTO `seccion` VALUES(17, 5, 3, 'Pasabocas', '#', 'Pasabocas', 'Pasabocas', 5);\
+INSERT INTO `seccion` VALUES(18, 7, 3, 'Baby Shower', '#', 'Baby Shower', 'Baby Shower', 1);\
+INSERT INTO `seccion` VALUES(19, 7, 3, 'Bautizo', '#', 'Bautizo', 'Bautizo', 2);\
+INSERT INTO `seccion` VALUES(20, 7, 3, 'Primera Comunion', '#', 'Primera Comunion', 'Primera Comunion', 3);\
+INSERT INTO `seccion` VALUES(21, 7, 3, 'Cumpleanos', '#', 'Cumpleanos', 'Cumpleanos', 4);\
+INSERT INTO `seccion` VALUES(22, 7, 3, 'Grados', '#', 'Grados', 'Grados', 5);\
+INSERT INTO `seccion` VALUES(23, 7, 3, 'Quince Anos', '#', 'Quince A\'f1os', 'Quince A\'f1os', 6);\
+INSERT INTO `seccion` VALUES(24, 7, 3, 'Bodas', '#', 'Bodas', 'Bodas', 7);\
+INSERT INTO `seccion` VALUES(25, 7, 3, 'Personalizados', '#', 'Personalizados', 'Personalizados', 8);\
+INSERT INTO `seccion` VALUES(26, 12, 3, '3 Leches', '../resources/csm/img/Seccion/3Leches.png', 'Leches', 'Leches', 1);\
+INSERT INTO `seccion` VALUES(27, 12, 3, 'Chocolate', '../resources/csm/img/Seccion/Chocolate.png', 'Chocolate', 'Chocolate', 2);\
+INSERT INTO `seccion` VALUES(28, 12, 3, 'Semifrias', '../resources/csm/img/Seccion/Semifrias.png', 'Semifrias', 'Semifrias', 3);\
+INSERT INTO `seccion` VALUES(29, 12, 3, 'Magdalenas', '../resources/csm/img/Seccion/Magdalenas.png', 'Magdalenas', 'Magdalenas', 4);\
+INSERT INTO `seccion` VALUES(30, 14, 3, 'Chesse Cake', '../resources/csm/img/Seccion/Cheesecakes.png', 'Chesse Cake', 'Chesse Cake', 1);\
+INSERT INTO `seccion` VALUES(31, 14, 3, 'Muss', '../resources/csm/img/Seccion/Mosusses.png', 'Muss', 'Muss', 2);\
+INSERT INTO `seccion` VALUES(32, 14, 3, 'Flanes', '../resources/csm/img/Seccion/Flanes.png', 'Flanes', 'Flanes', 3);\
+INSERT INTO `seccion` VALUES(33, 14, 3, 'Mas Postres', '../resources/csm/img/Seccion/Mas-Postres.png', 'Mas Postres', 'Mas Postres', 4);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `TipoProducto`\
+--\
+-- Creaci\'f3n: 28-11-2012 a las 20:34:15\
+--\
+\
+CREATE TABLE `TipoProducto` (\
+  `Id` int(11) NOT NULL,\
+  `Nombre` varchar(45) NOT NULL,\
+  `Descripcion` varchar(45) NOT NULL,\
+  PRIMARY KEY (`Id`)\
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;\
+\
+--\
+-- Volcar la base de datos para la tabla `TipoProducto`\
+--\
+\
+INSERT INTO `TipoProducto` VALUES(1, 'Productos', 'Productos');\
+INSERT INTO `TipoProducto` VALUES(2, 'Institucionales', 'Institucionales');\
+INSERT INTO `TipoProducto` VALUES(3, 'Especiales', 'Especiales');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `tipo_seccion`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:25\
+--\
+\
+CREATE TABLE `tipo_seccion` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `Descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,\
+  `URL_Usuraio` varchar(200) COLLATE latin1_spanish_ci NOT NULL,\
+  `Popup` tinyint(1) NOT NULL,\
+  PRIMARY KEY (`Id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=8 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `tipo_seccion`\
+--\
+\
+INSERT INTO `tipo_seccion` VALUES(1, 'Home', 'index.php', 0);\
+INSERT INTO `tipo_seccion` VALUES(2, 'Home productos', 'homeProductos.php', 0);\
+INSERT INTO `tipo_seccion` VALUES(3, 'Productos', 'productos.php', 1);\
+INSERT INTO `tipo_seccion` VALUES(4, 'Puntos de Venta', 'puntosVenta.php', 1);\
+INSERT INTO `tipo_seccion` VALUES(5, 'Trabaje con Nosotros', 'trabajeNosotros.php', 1);\
+INSERT INTO `tipo_seccion` VALUES(6, 'Madamia', 'madamia.php', 1);\
+INSERT INTO `tipo_seccion` VALUES(7, 'Contactenos', 'contactenos.php', 1);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Estructura de tabla para la tabla `usuario`\
+--\
+-- Creaci\'f3n: 25-11-2012 a las 10:53:25\
+--\
+\
+CREATE TABLE `usuario` (\
+  `Id` int(11) NOT NULL AUTO_INCREMENT,\
+  `Usuario` varchar(20) COLLATE latin1_spanish_ci NOT NULL,\
+  `Clave` varchar(20) COLLATE latin1_spanish_ci NOT NULL,\
+  `Mail` varchar(50) COLLATE latin1_spanish_ci NOT NULL,\
+  PRIMARY KEY (`Id`)\
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=4 ;\
+\
+--\
+-- Volcar la base de datos para la tabla `usuario`\
+--\
+\
+INSERT INTO `usuario` VALUES(2, 'admin', 'admin123', 'admin@algo.com');\
+INSERT INTO `usuario` VALUES(3, 'car1984', 'pwd123456', 'car1984@gmail.com');\
+\
+--\
+-- Filtros para las tablas descargadas (dump)\
+--\
+\
+--\
+-- Filtros para la tabla `celendario`\
+--\
+ALTER TABLE `celendario`\
+  ADD CONSTRAINT `FK_IdSeccion` FOREIGN KEY (`IdSeccion`) REFERENCES `seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `contenido`\
+--\
+ALTER TABLE `contenido`\
+  ADD CONSTRAINT `fk_Contenido_Album1` FOREIGN KEY (`Album_Id`) REFERENCES `album` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,\
+  ADD CONSTRAINT `idLista` FOREIGN KEY (`IdLista`) REFERENCES `lista_contenido` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `directorio`\
+--\
+ALTER TABLE `directorio`\
+  ADD CONSTRAINT `Id Seccion` FOREIGN KEY (`IdSeccion`) REFERENCES `seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `documentos`\
+--\
+ALTER TABLE `documentos`\
+  ADD CONSTRAINT `CONS_Id_Seccion` FOREIGN KEY (`IdSeccion`) REFERENCES `seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `foto`\
+--\
+ALTER TABLE `foto`\
+  ADD CONSTRAINT `IdAlbum` FOREIGN KEY (`IdAlbun`) REFERENCES `album` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `lista_contenido`\
+--\
+ALTER TABLE `lista_contenido`\
+  ADD CONSTRAINT `IdSeccion` FOREIGN KEY (`IdSeccion`) REFERENCES `seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `producto`\
+--\
+ALTER TABLE `producto`\
+  ADD CONSTRAINT `CONS_IdAlbum` FOREIGN KEY (`IdAlbum`) REFERENCES `album` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,\
+  ADD CONSTRAINT `CONS_IdSeccion` FOREIGN KEY (`IdSeccion`) REFERENCES `seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,\
+  ADD CONSTRAINT `CONS_IdTipoProducto` FOREIGN KEY (`IdTipoProducto`) REFERENCES `TipoProducto` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `promociones`\
+--\
+ALTER TABLE `promociones`\
+  ADD CONSTRAINT `fk_Promociones_Seccion1` FOREIGN KEY (`Seccion_Id`) REFERENCES `seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+--\
+-- Filtros para la tabla `seccion`\
+--\
+ALTER TABLE `seccion`\
+  ADD CONSTRAINT `Tipo_Seccion` FOREIGN KEY (`Tipo_Seccion`) REFERENCES `tipo_seccion` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;\
+\
+\
+<div class="capaTreeProductos">\
+              <div class="treeProductos">\
+       				\
+                    <ul id="navigation">\
+		\
+                    <?php\
+           \
+                    if($_GET)\
+                    \{\
+                        $IdSeccion = $_GET["IdSeccion"];\
+                        displayMenu($IdSeccion);\
+                                               \
+                    \}\
+            \
+                     ?>\
+                    </ul>   	\
+    \
+    	      </div>\
+            </div>}

@@ -10,21 +10,34 @@
 
 <head>
 
-<link rel="stylesheet" href="../resources/css/menu/style.css" type="text/css" />
-<link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
 
-<link rel="stylesheet" href="../resources/plugins/Carousel/Slides/examples/Linking/css/carouselHome.css"/>
-  <!-- Add jQuery library -->
+<!-- Estilos Madamia -->
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/style.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/madamiaStyle.css" />
+<link rel="stylesheet" type="text/css" href="../resources/plugins/Carousel/Slides/examples/Linking/css/carouselHome.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/plugins/Treeview/jquery.treeview/jquery.treeview.css" />
+<link rel="stylesheet" type="text/css" href="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.css" media="screen" />
+ 
+<!-- jQuery library -->
 <script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/lib/jquery-1.8.2.min.js"></script>
    
-<script src="../resources/plugins/TabSlideOut/tabSlideOut/js/jquery.tabSlideOut.v1.3.js" type="text/javascript"></script>
+<!-- jQuery FancyBox main -->
+<script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.js" ></script>
 
- 
-<!-- Add fancyBox main JS and CSS files -->
-<script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.js"></script>
-<link rel="stylesheet" type="text/css" href="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.css" media="screen" />
-<script src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js"></script>
-<script src="../resources/plugins/Carousel/jcycle/jquery.cycle.all.js" ></script>
+<!-- jQuery Slides -->
+<script type="text/javascript" src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js" ></script>
+
+<!-- jQuery Cycle -->
+<script type="text/javascript" src="../resources/plugins/Carousel/jcycle/jquery.cycle.all.js"></script>
+
+<!-- jQuery TabSlideOut -->
+<script src="../resources/plugins/TabSlideOut/tabSlideOut/js/jquery.tabSlideOut.v1.3.js" ></script>
+
+<!-- jQuery TreeView -->
+<script type="text/javascript" src="../resources/plugins/Treeview/jquery.treeview/lib/jquery.cookie.js" ></script>
+<script type="text/javascript" src="../resources/plugins/Treeview/jquery.treeview/jquery.treeview.js" ></script>
+<script type="text/javascript" src="../resources/plugins/Treeview/jquery.treeview/demo/demo.js" ></script>
+
 <script>
         $(function(){
                 // Set starting slide to 1
@@ -69,14 +82,10 @@
         });
         
         $(document).ready(function() {
-            $('#slideshow1').cycle({
-                        speed:    300,
-                        timeout:  1000,
-                        shuffle:  {left:-300, top:30},
-                        clip:     'zoom',
-                        fx:       'all',
-                        before:   function(c,n,o) {$(o.caption).html(o.currFx);},
-                        caption:  '#caption1'
+            $('#slides_productos').cycle({
+                        fx:    'zoom', 
+                        sync:  false, 
+                        delay: -2000 
             });
 
         });
@@ -139,13 +148,23 @@
     <div class="capaLogo">
     </div>
     
-     <div id="slideshow1">
-        <img src="http://cloud.github.com/downloads/malsup/cycle/beach1.jpg" width="200" height="200" />
-        <img src="http://cloud.github.com/downloads/malsup/cycle/beach2.jpg" width="200" height="200" />
-        <img src="http://cloud.github.com/downloads/malsup/cycle/beach3.jpg" width="200" height="200" />
+     <div id="container_productos">
+         <div id="slides_productos">
+           <?php
+				
+               //Se obtienen las fotos pertenecientes al album del Productos
+               $fotosBannerP = DAOFactory::getFotoDAO()->queryByIdAlbun($ALBUM_B_PRODUCTOS);
+
+               //Se recorren las fotos encontradas
+                for ($i=0;$i<count ($fotosBannerP);$i++)
+                    //Se coloca las imagenes que contenga el Album
+                    echo "<img  height='250px' height='250px'src='".$fotosBannerP[$i]->imagen."'/>";
+
+
+           ?>
+         </div>
      </div>
 
-        <br />
 				
      <div id="container">
         <div id="example">
@@ -166,7 +185,7 @@
                             $tmpPathImg =$fotos[$i]->imagen;
 
                             echo "<div class='slide'>";
-                            echo "<img  height='600px' height='600px'src='".$tmpPathImg."'/>";
+                            echo "<img  height='500px' height='500px'src='".$tmpPathImg."'/>";
                             echo "</div>";
                     }
 
