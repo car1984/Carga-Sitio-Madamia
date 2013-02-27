@@ -1,0 +1,133 @@
+10
+
+dir
+0
+https://sos-the-pub.googlecode.com/svn/The_pub/class/generated/class/mysql/ext
+https://sos-the-pub.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2c5cc4c4-99c0-8731-5dff-8608cf1a2c7e
+
+AlbumMySqlExtDAO.class.php
+file
+
+
+
+add
+
+CategoriaMySqlExtDAO.class.php
+file
+
+
+
+add
+
+CelendarioMySqlExtDAO.class.php
+file
+
+
+
+add
+
+ContenidoMySqlExtDAO.class.php
+file
+
+
+
+add
+
+DirectorioMySqlExtDAO.class.php
+file
+
+
+
+add
+
+DocumentosMySqlExtDAO.class.php
+file
+
+
+
+add
+
+FotoMySqlExtDAO.class.php
+file
+
+
+
+add
+
+ListaContenidoMySqlExtDAO.class.php
+file
+
+
+
+add
+
+PrecioProductoMySqlExtDAO.class.php
+file
+
+
+
+add
+
+ProductoMySqlExtDAO.class.php
+file
+
+
+
+add
+
+PromocionesMySqlExtDAO.class.php
+file
+
+
+
+add
+
+SeccionMySqlExtDAO.class.php
+file
+
+
+
+add
+
+TipoProductoMySqlExtDAO.class.php
+file
+
+
+
+add
+
+TipoSeccionMySqlExtDAO.class.php
+file
+
+
+
+add
+
+UsuarioMySqlExtDAO.class.php
+file
+
+
+
+add
+

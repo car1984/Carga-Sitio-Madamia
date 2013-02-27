@@ -1,0 +1,63 @@
+10
+
+dir
+0
+https://sos-madamia.googlecode.com/svn/trunk/Madamia/resources/plugins/Lightbox
+https://sos-madamia.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5ecd293a-bad2-efeb-2f9b-bc6cc7346f83
+
+fancyapps-fancyBox-v2.1.3-0-gcd2bc9a.zip
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+fancybox
+dir
+
+
+
+add
+
+jquery-lightbox-0.5.zip
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+

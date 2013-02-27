@@ -1,0 +1,140 @@
+10
+
+dir
+0
+https://sos-the-pub.googlecode.com/svn/The_pub/class/generated/class/dao
+https://sos-the-pub.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2c5cc4c4-99c0-8731-5dff-8608cf1a2c7e
+
+AlbumDAO.class.php
+file
+
+
+
+add
+
+CategoriaDAO.class.php
+file
+
+
+
+add
+
+CelendarioDAO.class.php
+file
+
+
+
+add
+
+ContenidoDAO.class.php
+file
+
+
+
+add
+
+DAOFactory.class.php
+file
+
+
+
+add
+
+DirectorioDAO.class.php
+file
+
+
+
+add
+
+DocumentosDAO.class.php
+file
+
+
+
+add
+
+FotoDAO.class.php
+file
+
+
+
+add
+
+ListaContenidoDAO.class.php
+file
+
+
+
+add
+
+PrecioProductoDAO.class.php
+file
+
+
+
+add
+
+ProductoDAO.class.php
+file
+
+
+
+add
+
+PromocionesDAO.class.php
+file
+
+
+
+add
+
+SeccionDAO.class.php
+file
+
+
+
+add
+
+TipoProductoDAO.class.php
+file
+
+
+
+add
+
+TipoSeccionDAO.class.php
+file
+
+
+
+add
+
+UsuarioDAO.class.php
+file
+
+
+
+add
+

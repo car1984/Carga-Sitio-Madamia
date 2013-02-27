@@ -1,0 +1,70 @@
+10
+
+dir
+2
+https://sos-madamia.googlecode.com/svn/trunk/Madamia
+https://sos-madamia.googlecode.com/svn
+
+
+
+2012-12-06T11:52:52.842492Z
+2
+car1984@gmail.com
+has-props
+has-prop-mods
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5ecd293a-bad2-efeb-2f9b-bc6cc7346f83
+
+admin
+dir
+
+
+
+add
+
+frontend
+dir
+
+
+
+add
+
+global
+dir
+
+
+
+add
+
+index.php
+file
+0
+
+
+add
+
+nbproject
+dir
+
+
+
+add
+
+resources
+dir
+
+
+
+add
+

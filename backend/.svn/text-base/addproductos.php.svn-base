@@ -1,0 +1,225 @@
+<?php
+require_once('../include_dao.php');
+require_once('funciones.php');
+
+if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
+{
+    header('Location: ./');
+}
+else
+{
+    Cabecera('Productos');
+    ?>
+    <script language="javascript" type="text/javascript">
+        tinyMCE.init({
+                mode : "textareas",
+                theme : "advanced",
+                theme_advanced_buttons1 : "bold, italic, underline, separator, justifyleft, justifycenter, justifyright, justifyfull,|,formatselect,fontselect,fontsizeselect ",
+                theme_advanced_buttons2 : "bullist,numlist,separator,outdent,indent,separator,undo,redo",
+                theme_advanced_toolbar_location: "top",
+                theme_advanced_toolbar_align: "left"
+        });
+
+
+        $().ready(function() {
+                // validate the comment form when it is submitted
+                $("#FrmProductos").validate({
+
+                    rules: {
+                        cboCategoria:"required",
+                        txtNomProEsp:"required",
+                        txtNomProIng:"required",
+                        txtPrecio: {
+                            required:true,
+                            minlength:3,
+                            maxlength:6,
+                            number:true
+                        },
+                        txtProdEsp:"required",
+                        txtProdIng:"required",
+                        imgproducto:"required"
+                    },
+                    messages:{
+                        cboCategoria:"Debe seleccionar Categoria<br>",
+                        txtNomProEsp:"Se necesita nombre en Español<br>",
+                        txtNomProIng:"Se necesita nombre en Ingles<br>",
+                        txtPrecio:"Se necesita el precio<br>",
+                        txtProdEsp:"Se necesita la descripcion corta en Español<br>",
+                        txtProdIng:"Se necesita la descripcion corta en Ingles<br>",
+                        imgproducto:"Necesita una Imagen para Cargar<br>"
+                    },
+                    errorLabelContainer:$("#FrmProductos div.error")
+                });
+        });
+    </script>
+
+    <div>
+        <fieldset>
+            <legend>Seccion Productos</legend>
+            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" id ="FrmProductos">
+                <table id="tabla" cellpadding="0" cellspacing="0" width="100%" >
+                    <tr>
+                        <td width="50%"><label>Categoria del Producto:</label><br>
+                            <select name="cboCategoria" title="Seleccione una Categoria" id="cboCategoria" class="required ui-widget-content">
+                                <option value="">--Selecciones--</option>
+                                <?php
+                                $arr=DAOFactory::getCategoriaDAO()->queryAllOrderBy('id');
+                                for($i=0;$i<count($arr);$i++){
+                                    $row = $arr[$i];
+                                    echo "<option value='".$row->id."'> ".$row->tituloEsp."</opcion>";
+                                }
+                                ?>
+                            </select>
+                        <td width="50%"><label>Precio:</label> <br>
+                            <input type="text" name="txtPrecio" size="50" class="required ui-widget-content"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label>Imagen:</label><br>
+                            <input type="file" name="imgproducto" size="50" class="required ui-widget-content">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <label>Nombre del Producto en Español:</label><br>
+                            <input type="text" name="txtNomProEsp" size="50" class="required ui-widget-content"><br>
+                            <label>Descripcion del Producto (Español):</label><br>
+                            <textarea name="txtProdEsp" rows="10" cols="30" class="required ui-widget-content"></textarea>
+                        </td>
+                        <td valign="top">
+                            <label>Nombre del Producto en Ingles:</label><br>
+                            <input type="text" name="txtNomProIng" size="50" class="required ui-widget-content"><br>
+                            <label>Descripcion del Producto (Ingles):</label><br>
+                            <textarea name="txtProdIng" rows="10" cols="30" class="required ui-widget-content"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"> <br>
+                            <input class="submit-green" type="submit" value="Crear" style="width:100px;" />
+                            <input class="submit-gray" type="reset" value="Cancelar" style="width:100px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="error"></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+
+            <?php
+            if ($_POST)
+            {
+
+                $tabla = DAOFactory::getProductoDAO()->queryAllOrderBy('id');
+
+                if(count($tabla)>0)
+                {
+                    $row = $tabla[count($tabla)-1];
+                    $ultimoproducto = $row->id;
+                }
+                else
+                {
+                    $ultimoproducto=0;
+                }
+
+                $error_msg = '';
+                if($_POST['txtNomProEsp']=='')
+                {
+                    $error_msg = $error_msg.'Falta el Nombre en Español<br>';
+                }
+
+                if($_POST['txtNomProIng']=='')
+                {
+                    $error_msg = $error_msg . 'Falta el Nombre en Ingles<br>';
+                }
+
+                if($_POST['txtPrecio']=='')
+                {
+                    $error_msg = $error_msg.'Falta el Precio<br>';
+                }
+
+                if($_POST['txtProdEsp']=='')
+                {
+                    $error_msg = $error_msg . 'Falta Descripcion en Español<br>';
+                }
+
+                if($_POST['txtProdIng']=='')
+                {
+                    $error_msg = $error_msg . 'Falta Descripcion en Ingles<br>';
+                }
+
+                if($error_msg == '')
+                {
+                    $producto = new Producto();
+                    $producto->idCategoria = $_POST['cboCategoria'];
+                    $arr = DAOFactory::getSeccionDAO()->queryByNombre("Productos");
+                    for($i=0;$i<count($arr);$i++)
+                    {
+                        $row=$arr[$i];
+                        $producto->idSeccion= $row->id;
+                    }
+                    $producto->nombreEsp = $_POST['txtNomProEsp'];
+                    $producto->nombreIng = $_POST['txtNomProIng'];
+                    $producto->precio = $_POST['txtPrecio'];
+                    $producto->descripcionEsp=$_POST['txtProdEsp'];
+                    $producto->descripcionIng= $_POST['txtProdIng'];
+
+                    $nombre_archivo = quitar_caracteres_raros($_FILES['imgproducto']['name']);
+                    $tipo_archivo = $_FILES['imgproducto']['type'];
+                    $tamano_archivo = $_FILES['imgproducto']['size'];
+                    $ruta_archivo=$_FILES['imgproducto']['tmp_name'];
+                    echo "Nombre: $nombre_archivo <br>Tipo: $tipo_archivo <br>Tamaño: $tamano_archivo<br>Ruta donde se encuentra actualmente: $ruta_archivo<br>";
+                    $destination = '../resources/img_cms/albums/albumproducto'.$albumpost.'/';
+                    
+                    if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "jpg")|| strpos($tipo_archivo, "png")) && ($tamano_archivo < (500 * 1024) )))
+                    {
+                        echo '<span class="notification n-error">La extensión o el tamaño del fichero no es correcta.</span>';
+                        ?>
+                           <a class="btnGuardar" href="<?php echo $_SERVER['PHP_SELF'];?>?id=<?php echo $albumpost;?>">Probar Otra Vez</a>
+                         <?php
+
+                    }
+                    else
+                    {
+                        $transaction = new Transaction();
+                        DAOFactory::getProductoDAO()->insert($producto);
+                        if($producto->id > $ultimoproducto)
+                        {
+                            echo '<span class="notification n-success">Archivo Guardado.</span>';
+                            $nombredirectorio = '../resources/img_cms/albums/albumproducto'.$producto->id;
+                            mkdir($nombredirectorio, 0775);
+                            if(move_uploaded_file($ruta_archivo, $nombredirectorio.'/'.$nombre_archivo))
+                            {
+                                $producto->Imagen= $nombredirectorio.'/'.$nombre_archivo;
+                                DAOFactory::getProductoDAO()->updateImagen($producto);
+                                $transaction->commit();
+                                header('location: ./productos.php');
+                            }
+                            else
+                            {
+                                $transaction->rollback();
+                                echo '<span class="notification n-error">SE PRESENTO UN ERROR Y NO FUE POSIBLE FINALIZAR LA OPERACION</span>';
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    echo '<span class="notification n-error">'.$error_msg.'</span>';
+                }
+                //GrillaProductos();
+            }
+            else
+            {
+               //GrillaProductos();
+            }
+            ?>
+        </fieldset>
+    </div>
+    <?php
+    pie();
+}
+
+
+?>

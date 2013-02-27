@@ -1,0 +1,444 @@
+body{
+	padding:0;
+	margin:0;  
+}
+
+h3{
+	color:#FFF;
+	padding: 1px 35px 0px;
+	font-size:18px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+h4{
+	color:#000;
+	padding: 1px 85px 5px;
+	font-size:14px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+h5{
+	color:#000;
+	padding: 1px 35px 0px;
+	font-size:14px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+.fondoLigthBox{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/General/Fondo.png);
+	width:975px;
+	height: 680px;
+	float:none;
+	top: 0px;
+}
+
+.fondoTituloLigthBox{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/General/FondoTitulo.png);
+	width:284px;
+	height: 45px;
+	float:none;
+	top: 0px;
+}
+
+.textoTitulo{
+	color:#FFF;
+	padding: 12px 35px 0px 25px;
+	font-size:18px;
+	font-family:Verdana, Geneva, sans-serif;
+	
+	}
+/******************************** HOME **************************************/
+.fondoPrincipal{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/Home/FondoDobleHuecoBanner.png);
+	width:1024px;
+	height: 666px;
+	float:none;
+	top: 0px;
+}
+
+.fondoNinia{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/Home/Ninia.png);
+	width:1022px;
+	height: 628px;
+	float:none;
+	top: 0px;
+}
+
+.fondoPie{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/Home/Pata.jpg);
+	width:1023px;
+	height: 42px;
+	float:none;
+	top: 0px;
+	
+}
+
+.logoMadamia{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/Home/LogoMadamia.png);
+	background-repeat: no-repeat;
+	width:315px;
+	height: 88px;
+	float:none;
+	top: 0px;
+}
+
+.marcoAzul{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/Home/MarcoAzul.png);
+	width:290px;
+	height: 300px;
+	float:none;
+	top: 0px;
+}
+
+.slide-out-novedades {
+		width: 214px;
+		height:311px;
+	    color: #A94E7B;
+		background: ;
+		border: none;
+		opacity: 0.9;
+		-moz-opacity: 0.9;
+		filter:alpha(opacity=90);
+		background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
+		
+    }
+ 
+ 
+ .slide-out-registrese{
+		width: 214px;
+		height:311px;
+	    color: #A94E7B;
+		background: ;
+		border: none;
+		opacity: 0.9;
+		-moz-opacity: 0.9;
+		filter:alpha(opacity=90);
+		background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
+		
+    }
+
+.capaRedesSociales{
+	position: absolute;
+	width: 180px;
+	height:40px;
+	top: 580px;
+	left: 60px;
+	padding: 15px;
+	z-index: 1;
+	}
+	
+.capaBuscador{
+	position: absolute;
+	width: 120px;
+	height:20px;
+	top: 610px;
+	left: 760px;
+	padding: 10px;
+	z-index: 1;
+	}
+
+.capaLogo{
+	position: absolute;
+	width: 380px;
+	height:167px;
+	top: 230px;
+	left: 640px;
+	z-index: 0;
+	background-image: url(../img/Home/SloganSolo.png);
+	}
+	
+	
+/****************************** HOME PRODUCTOS ***********************************/
+	
+.capaTreeProductos{
+	position: absolute;
+	width: 213px;
+	height:306px;
+	top: 150px;
+	left: 810px;
+	z-index: 1;
+	background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
+	}
+	
+.treeProductos{
+	padding: 15px 15px 5px;/*10px 7px 3px 7px;*/	
+	}
+	
+/******************************** PRODUCTOS **************************************/
+
+.textoDescripcion{
+	/*         a    d   i     c  */
+	padding: 15px 15px 15px 15px;
+	font-size:14px;
+	font-family:Verdana, Geneva, sans-serif;
+	text-align: justify;
+}
+.fondoProductos{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/LightBoxProductos/FondoProductos.png);
+	width:975px;
+	height: 483px;
+	float:none;
+	top: 0px;
+}
+
+.fondoCarrete{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/LightBoxProductos/FondoCarrete.png);
+	width:970px;
+	height: 212px;
+	float:none;
+	top: 0px;
+}
+
+.fondoTituloTortas{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/LightBoxProductos/FondoTituloTortas.png);
+	width:284px;
+	height: 45px;
+	float:none;
+	top: 0px;
+}
+
+.capaTextoProductos{
+	position: absolute;
+	width: 251px;
+	height:88px;
+	top: 348px;
+	left: 252px;
+	z-index: 1;
+	background-image: url(../img/LightBoxProductos/FondoTextoInformacion.png);
+}
+
+.capaSeccionProductos{
+	position: absolute;
+	width: 200px;
+	height:200px;
+	top: 140px;
+	left: 30px;
+	z-index: 1;
+}
+/******************************** MADAMIA **************************************/
+.capaTextoMadamia{
+	position: absolute;
+	width: 353px;
+	height:494px;
+	top: 60px;
+	left: 562px;
+	z-index: 1;
+	background-image: url(../img/LightBoxMadamia/Marco-Contenidos.png);
+}
+
+.capaNavegacionMadamia{
+	position: absolute;
+	width: 180px;
+	height:40px;
+	top: 580px;
+	left: 60px;
+	padding: 15px;
+	z-index: 1;
+	}
+	
+.madamia_nav {
+    }
+
+
+.madamia_nav .head-nav { 
+    border-bottom: 0px solid #cfcec9;
+    border-top: 0px solid #cfcec9;
+    margin-top: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: right;
+    }
+
+.madamia_nav ul li{
+    display: inline;
+    }
+	
+
+
+/******************************** TRABAJE CON NOSOTROS ***********************************/
+
+.textoformulario{
+	color:#000;
+	padding: 15px 15px 15px 20px;
+	font-size:16px;
+	font-family:Verdana, Geneva, sans-serif;
+	
+	}
+input.txtFechas{
+		background: url(../img/LightBoxTrabajeNosotros/CampoFechaNacto.png) no-repeat;
+		width: 35px;
+		height: 10px;
+		padding: 10px;
+		border: none;
+		}
+		
+/******************************** CONTACTENOS **************************************/
+	
+input.txtContactenos{
+		background: url(../img/LightBoxContactenos/Campo-Amplio-general.png) no-repeat;
+		width: 170px;
+		height: 10px;
+		padding: 10px;
+		border: none;
+		}
+	
+
+input.txtFecha{
+		background:url(../img/LightBoxContactenos/Campo-fecha-de-cumple.png) no-repeat;
+		width: 18px;
+		height: 20px;
+		padding: 2px;
+		border: none;
+		}
+
+textarea{ 
+		background:url(../img/LightBoxContactenos/Espacio-pa-el-mensaje.png) no-repeat;
+		width: 444px;
+		height: 440px;
+		padding: 12px;
+		border: none;
+            }
+.botonContactenos {
+	background: url(../img/LightBoxContactenos/Enviar.png) no-repeat;
+    width: 145px;
+    height: 40px;
+	border-color:transparent
+    }
+
+/**************************** PUNTOS VENTA *********************************/
+ .capaMarcoPuntoVenta{
+	 margin: 0; 
+	 border: 0 none; 
+	 padding: 0; 
+	 background-image:url(../img/LightBoxPuntosVenta/Marrco-Display-Puntos-de-Venat.png);	 
+	 width:509px; 
+	 height: 481px; 
+	 float:none; 
+	 top: 0px;
+ }
+ 
+  .capaFondoMapa{
+	margin: 0;
+	border: 0 none;
+	padding: 12px 2px 2px 12px;
+	background-image:url(../img/LightBoxPuntosVenta/Fondo-para-Google-Maps.png);
+	width:454px;
+	height: 204px;
+	float:none;
+	top: 0px;
+	text-align: center;
+	vertical-align: middle;
+ }
+
+.capaCarrucelPV{
+	margin: 0;
+	border: 0 none;
+	width:760px;
+	height:120px;
+	float:right;
+ }
+ 
+ .capaMapa{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	width:440px;
+	height: 195px;
+	float:none;
+	top: 0px;
+ }
+ 
+.capaTituloMapa{
+	color:#B21F68;
+	font-size:16px;
+	font-family:Verdana, Geneva, sans-serif;
+	margin: 0;
+	border: 0 none;
+	padding: 80px 0px 0px 15px;
+	width:200px;
+	height: 80px;
+	float:none;
+	top: 0px;
+ }
+/* --------------------------------------------------------------
+ *  Redes sociales
+ * -------------------------------------------------------------- */
+
+
+.social_nav {
+    }
+
+
+.social_nav .head-nav { 
+    border-bottom: 5px solid #cfcec9;
+    border-top: 1px solid #cfcec9;
+    margin-top: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: right;
+    }
+
+.social_nav ul li{
+    display: inline;
+    }
+
+/************************************************
+* CAPTIFY CAPTION CARRUSEL
+************************************************/
+.caption-top, .caption-bottom {
+     background: #000000;
+     color: #ffffff;
+     cursor:default;
+     padding:2px;
+     font-size:11px;
+     text-align:center;
+}
+ 
+.caption-top {
+     border-width:0px;
+}
+ 
+.caption-bottom {
+     border-width:0px;
+}
+ 
+.caption a, .caption a {
+     background:#000;
+     border:none;
+     text-decoration:none;
+     padding:2px;
+}
+ 
+.caption a:hover, .caption a:hover {
+     background:#202020;
+}

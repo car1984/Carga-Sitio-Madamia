@@ -1,0 +1,70 @@
+10
+
+dir
+0
+https://sos-the-pub.googlecode.com/svn/The_pub/class/generated/class/sql
+https://sos-the-pub.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2c5cc4c4-99c0-8731-5dff-8608cf1a2c7e
+
+Connection.class.php
+file
+
+
+
+add
+
+ConnectionFactory.class.php
+file
+
+
+
+add
+
+ConnectionProperty.class.php
+file
+
+
+
+add
+
+QueryExecutor.class.php
+file
+
+
+
+add
+
+SqlQuery.class.php
+file
+
+
+
+add
+
+Transaction.class.php
+file
+
+
+
+add
+

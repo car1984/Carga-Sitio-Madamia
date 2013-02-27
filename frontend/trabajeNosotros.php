@@ -1,0 +1,137 @@
+<?php
+    require_once '../global/include.php';
+	
+    ini_set("display_errors", $DISPLAY_ERROR);
+    
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
+
+<link rel="stylesheet" href="../resources/plugins/Carousel/Slides/examples/Linking/css/global.css">
+	
+<script src="../resources/js/jquery-1.8.2.min.js"></script>
+	<script src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			// Set starting slide to 1
+			var startSlide = 1;
+			// Get slide number if it exists
+			if (window.location.hash) {
+				startSlide = window.location.hash.replace('#','');
+			}
+			// Initialize Slides
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				generatePagination: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				// Get the starting slide
+				start: startSlide,
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<form action="" method="post" enctype="multipart/form-data"> 
+<div class="fondoLigthBox">
+    <table width="960px"  border="0" cellpadding="0" cellspacing="0" align="center">
+          <tr >
+            <td colspan ='4' valign="top"> 
+              <div class="fondoTituloLigthBox">
+                   <div class='textoTitulo'>Trabaje con Nosotros</div>
+          		</div>
+                <br /><br />
+            </td>
+          </tr>
+          <tr>
+            <td width="241" > 
+              <div class ="textoformulario" > Nombre</div>
+            </td>
+            <td width="229" ><input type="text" class="txtContactenos" name="txtNombre" /></td>
+            <td width="229" ><div class ="textoformulario" >Experiencia</div></td>
+            <td width="229" ></td>
+          <tr>
+            <td > 
+              <div class ="textoformulario" >Edad</div>
+            </td>
+            <td ><input type="text" class="txtFechas" name="txtEdad" /></td>
+            <td ><div class ="textoformulario" >Tiempo</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtTiempo" /></td>
+           <tr>
+            <td > 
+              <div class ="textoformulario" >Fecha deNacto</div>
+            </td>
+            <td >
+            <input type="text" class="txtFechas" name="txtDia" />
+            <input type="text" class="txtFechas" name="txtMes" />
+            <input type="text" class="txtFechas" name="txtAno" />
+            </td>
+            <td ><div class ="textoformulario" >Empresa</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtEmpresa" /></td>
+           <tr>
+            <td > 
+              <div class ="textoformulario" >Cedula</div>
+            </td>
+            <td ><input type="text" class="txtContactenos" name="txtCedula" /></td>
+            <td ><div class ="textoformulario" >Cargo</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtCargo" /></td>
+          </tr>
+          <tr>
+            <td > 
+              <div class ="textoformulario" >Dirección</div>
+            </td>
+            <td ><input type="text" class="txtContactenos" name="txtDir" /></td>
+            <td ><div class ="textoformulario" >Permanencia</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtPermanencia" /></td>
+          </tr>
+          <tr>
+            <td ><div class ="textoformulario" >Telefono</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtTel" /></td>
+            <td ><div class ="textoformulario" >Motivo Retiro</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtRetiro" /></td>
+          </tr>
+          <tr>
+            <td ><div class ="textoformulario" >Ceular</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtCel" /></td>
+            <td >&nbsp;</td>
+            <td >&nbsp;</td>
+          </tr>
+          <tr>
+            <td ><div class ="textoformulario" >Nivel Educativo</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtEdu	" /></td>
+            <td >&nbsp;</td>
+            <td >&nbsp;</td>
+          </tr>
+          <tr>
+            <td ><div class="textoformulario">Foto</div></td>
+            <td ><input type="text" class="txtContactenos" name="txtTelefono" /></td>
+            <td >&nbsp;</td>
+            <td >&nbsp;</td>
+          </tr>
+          <tr>
+            <td > 
+              <div class ="textoformulario" ></div>
+            </td>
+            <td >&nbsp;</td>
+            <td ><div class ="textoformulario" >&nbsp;</div></td>
+            <td ><input type="submit" class="botonContactenos" value="" title="" /></td>
+          </tr>
+          <tr >
+            <td colspan ='4' valign="top" align="right"> 
+              <p>&nbsp;</p></td>
+          </tr>
+    </table>
+</div>
+</form>
+</body>
+</html>

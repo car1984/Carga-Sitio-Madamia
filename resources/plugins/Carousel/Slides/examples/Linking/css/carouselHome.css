@@ -1,0 +1,108 @@
+/************************************************************
+ * BANNER PRINCIPAL
+ *************************************************************/
+
+/*
+	Page Style
+*/
+
+#container {
+	position: absolute;
+	width:740px;
+	top: 35px;
+	left: 150px;
+	padding:10px;
+	margin:0 auto;
+	z-index:0;
+	height: 609px;
+}
+
+
+#example {
+	width:740px;
+	height:600px;
+	position:relative;
+}
+
+/*
+	Slideshow style
+*/
+
+#slides {
+	position:absolute;
+	top:15px;
+	left:4px;
+	z-index:-1;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	If height not specified height will be set by the slide content
+	Set to display none, prevents content flash
+*/
+
+.slides_container {
+	width:740px;
+	height:600px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	Offeset for the 20px of padding
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides .slide {
+	padding:20px;
+	width:410px;
+	height:410px;
+	display:block;
+}
+
+
+/************************************************************
+ * BANNER NOVEDADES
+ *************************************************************/
+
+#container_novedades {
+	width	: 250px;
+	height	: 250px;
+	position: absolute;
+	top		: 370px;
+	left	: 770px;
+	z-index	: -1;
+}
+
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#slides_novedades .slides_container {
+	width:250px;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_novedades .slides_container div {
+	width:250px;
+	height:250px;
+	display:block;
+}

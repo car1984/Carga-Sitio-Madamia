@@ -1,0 +1,42 @@
+10
+
+dir
+0
+https://sos-madamia.googlecode.com/svn/trunk/Madamia/global
+https://sos-madamia.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5ecd293a-bad2-efeb-2f9b-bc6cc7346f83
+
+include.php
+file
+
+
+
+add
+
+includeFunction.php
+file
+
+
+
+add
+

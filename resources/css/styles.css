@@ -1,0 +1,526 @@
+/* 
+    Document   : styles
+    Created on : 5/08/2011, 04:40:01 PM
+    Author     : Luis Fernando Beleño Ramos
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+BODY {
+	font: 8pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 10px 0px 10px 0px;
+	text-align: center;
+	background-color: #ebebeb;
+}
+
+label{
+    font-size: 12px;
+    font-family: Arial;
+}
+
+
+input {
+    font-size: 12px;
+    font-family: Arial;
+}
+
+textarea{
+    width: 90%
+}
+
+.Frmframe{
+    border: none;
+    overflow:hidden;
+}
+/*Botones con Formato*/
+input.submit-green {
+	background: url(../../resources/img/BackEnd/submit-green-bg.gif) top left repeat-x;
+	border: 0;
+	border-top: 1px solid #6bd091;
+	border-left: 1px solid #6bd091;
+	border-right: 1px solid #349c5c;
+	border-bottom: 1px solid #349c5c;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 2px 12px;
+	margin: 0px 10px 0 0;
+	cursor: pointer;
+	}
+
+input.submit-green-hover {
+	background-image: url(../../resources/img/BackEnd/submit-green-bg-hover.gif);
+	}
+
+input.submit-gray {
+	background: url(../../resources/img/BackEnd/submit-gray-bg.gif) top left repeat-x;
+	border: 0;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #888888;
+	border-bottom: 1px solid #888888;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 2px 12px;
+	margin: 0px 10px 0 0;
+	cursor: pointer;
+	}
+
+input.submit-gray-hover {
+	background-image: url(../../resources/img/BackEnd/submit-gray-bg-hover.gif);
+	}
+
+/*Fin Botones con Formato*/
+
+legend{
+    font-weight: bold;
+    font-family: Arial;
+}
+
+#contenedor{
+	text-align: left;
+	width: 1200px;
+	margin: auto;
+}
+#cabecera{
+	background: transparent url(../img/Home/LogoMadamia.png) no-repeat 0 0;
+	color: #FFF;
+	font-size:12pt;
+	font-weight: bold;
+	padding: 3px 3px 3px 10px;
+	height: 88px;
+}
+#cuerpo{
+	margin: 10px 0px 10px 0px;
+}
+#lateral{
+	width: 200px;
+	background-color: #999999;
+	float:left;
+}
+
+#principal{
+	margin-left: 205px;
+	background-color: #ffffff;
+	padding: 4px;
+}
+#pie{
+	background-color: #cccccc;
+	padding: 10px 10px 10px 10px;
+	text-align:right;
+}
+
+
+/* Menu lateral con acordeon*/
+#menu{
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-webkit-box-shadow:1px 1px 3px #888;
+	-moz-box-shadow:1px 1px 3px #888;
+}
+#menu li{border-bottom:1px solid #FFF;}
+#menu ul li, #menu li:last-child{border:none}
+#menu a{
+	display:block;
+	color:#FFF;
+	text-decoration:none;
+	font-family:'Helvetica', Arial, sans-serif;
+	font-size:13px;
+	padding:10px 10px 10px 10px;
+	text-shadow:1px 1px 1px #325179;
+        margin:0px
+}
+#menu a:hover{
+	color:#F9B855;
+	-webkit-transition: color 0.2s linear;
+}
+#menu ul a{background-color:#6594D1;}
+#menu ul a:hover{
+	background-color:#FFF;
+	color:#2961A9;
+	text-shadow:none;
+	-webkit-transition: color, background-color 0.2s linear;
+}
+#menu, #menu li ul{
+	display:block;
+	background-color:#8E1550;
+	margin:0px;
+	padding:0px;
+	width:200px;
+	list-style:none;
+	font-family: Arial,Helvetica,sans-serif;
+}
+#menu ul{
+    background-color:#6594D1;
+    list-style:none;
+    display:block;
+    margin:0px;
+    padding:0px;
+}
+
+#menu li ul {
+    display:none;
+    list-style:none;
+    margin:0px;
+    padding:0px;}
+
+/*Menu superior para historial*/
+
+#menuSuperior{
+    margin:0px;
+    padding: 0px;
+    font-family: Arial,Helvetica,sans-serif;
+    width: 100%;
+}
+#menuSuperior li {
+	display: inline;
+}
+#menuSuperior li a {
+	font-family: Arial;
+	font-size:11px;
+	text-decoration: none;
+	float:left;
+	padding: 10px;
+	background-color: #2175bc;
+	color: #fff;
+}
+#menuSuperior li a:hover {
+	background-color: #2586d7;
+}
+
+/*Notificaciones*/
+
+error{
+    color:#FF0000;
+}
+
+.notification {
+	display: block;
+	padding: 20px 20px 20px 45px;
+	border: 1px solid;
+	margin-bottom: 20px;
+	background-repeat: no-repeat;
+	background-position: 20px 20px;
+	}
+
+.n-success {
+	background-color: #a3e6bd;
+	border-color: #68d59b;
+	background-image: url(../../resources/img/BackEnd/notification-tick.gif);
+	}
+
+.n-information {
+	background-color: #9fddea;
+	border-color: #5fceea;
+	background-image: url(../../resources/img/BackEnd/notification-information.gif);
+	}
+
+.n-attention {
+	background-color: #f9e497;
+	border-color: #ffcb4f;
+	background-image: url(../../resources/img/BackEnd/notification-exclamation.gif);
+	}
+
+.n-error {
+	background-color: #ffc6ca;
+	border-color: #efb9c3;
+	background-image: url(../../resources/img/BackEnd/notification-slash.gif);
+	}
+
+/*Fin de notificaciones*/
+
+/*Modulos */
+
+div.module {
+	background: url(../../resources/img/BackEnd/module-body-left-bg.gif) no-repeat scroll bottom left;
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+	}
+
+div.module div.module-body {
+	background: url(../../resources/img/BackEnd/module-body-right-bg.gif) no-repeat scroll bottom right;
+	padding: 20px 3% 20px 3%; float: left; width: 94%;
+	}
+
+/* Percentage padding in the module dependant on the cell width */
+.grid_1 div.module div.module-body  { padding: 20px 8% 20px 8%; float: left; width: 84%; }
+.grid_2 div.module div.module-body  { padding: 20px 7% 20px 7%; float: left; width: 86%; }
+.grid_3 div.module div.module-body  { padding: 20px 6% 20px 6%; float: left; width: 88%; }
+.grid_4 div.module div.module-body  { padding: 20px 5% 20px 5%; float: left; width: 90%; }
+.grid_5 div.module div.module-body  { padding: 20px 4% 20px 4%; float: left; width: 92%; }
+.grid_6 div.module div.module-body  { padding: 20px 3% 20px 3%; float: left; width: 94%; }
+.grid_7 div.module div.module-body  { padding: 20px 2.75% 20px  2.75%; float: left; width: 94.5%; }
+.grid_8 div.module div.module-body  { padding: 20px 2.5% 20px 2.5%; float: left; width: 95%; }
+.grid_9 div.module div.module-body  { padding: 20px 2.25% 20px 2.25%; float: left; width: 95.5%; }
+.grid_10 div.module div.module-body { padding: 20px 2% 20px 2%; float: left; width: 96%; }
+.grid_11 div.module div.module-body { padding: 20px 1.75% 20px 1.75%; float: left; width: 96.5%; }
+.grid_12 div.module div.module-body { padding: 20px 1.5% 20px 1.5%; float: left; width: 97%; }
+
+
+
+div.module div.module-table-body {
+	background: url(../../resources/img/BackEnd/module-body-right-bg.gif) no-repeat scroll bottom right;
+	padding: 0;
+	float: left;
+	width: 100%;
+	}
+
+div.module h2 {
+    /* Sliding right image */
+    background: url(../../resources/img/BackEnd/module-header-left-bg.gif) no-repeat scroll top left;
+	display: block;
+	float: left;
+	height: 32px; /* CHANGE THIS VALUE ACCORDING TO IMAGE HEIGHT */
+	margin-right: 0px;
+	padding-right: 0px; /* CHENGE THIS VALUE ACCORDING TO RIGHT IMAGE WIDTH */
+	/* FONT PROPERTIES */
+	text-decoration: none;
+	color: #444444;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	width: 100%;
+	margin-bottom: 0;
+	letter-spacing: normal
+	}
+
+div.module h2 span {
+	/* Background left image */
+	background: url(../../resources/img/BackEnd/module-header-right-bg.gif) no-repeat top right;
+	display: block;
+	line-height: 20px; /* CHANGE THIS VALUE ACCORDING TO BUTTONG HEIGHT */
+	padding: 7px 0 5px 18px;
+
+	}
+
+div.module table {
+	width: 100%;
+	margin: 0 0 10px 0;
+	border-left: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	}
+
+div.module table.tr {
+	border-collapse: separate;
+	border-right: 1px solid #aaaaaa;
+	border-left: 1px solid #aaaaaa;
+	}
+
+div.module table th {
+	background-color: #eeeeee;
+	color: #444444;
+	padding: 5px;
+	text-align: left;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	}
+
+div.module table td {
+	background-color: #ffffff;
+	padding: 5px;;
+	border-right: 1px solid #d9d9d9;
+	}
+
+div.module table tr.odd td { /* You can use this style if you want to do zebra-colored tables with other technique than Table Sorter script used here */
+	background-color: #f1f5fa;
+	}
+
+.table-apply {
+	width: 40%; float: right; text-align: right; margin-right: 10px;
+	}
+
+
+/*Fin Modulos*/
+
+/* tablas para grilla*/
+table.tablesorter {
+	/*font-family:arial;
+	/*background-color: #CDCDCD;*/
+	/*margin:10px 0pt 15px;*/
+	font-size: 11px;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #fff;
+	font-size: 11px;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(../../resources/imgBackEnd//bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#f1f5fa;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../../resources/img/BackEnd/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(.../../resources/img/BackEnd/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #dddddd;
+}
+
+/* FIN tablas para grilla*/
+
+.pager {
+	display: block; padding: 0px 0px 0px 20px;  width: 40%; float: left;
+	}
+
+.pager .first,
+.pager .prev,
+.pager .next,
+.pager .last {
+	margin-bottom: -2px;
+	}
+
+
+/* Botones Link*/
+
+.btnGuardar {
+    background:url(../../resources/img/BackEnd/AddButton.png) no-repeat top left scroll #ffffff;
+    padding:5px 10px 10px 30px;
+    color:#2175bc;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+.btnInfo {
+    background:url(../../resources/img/BackEnd/MainInfoButton.png) no-repeat top left scroll #ffffff;
+    padding:5px 10px 10px 30px;
+    color:#2175bc;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.btnAplicar {
+    background:url(../../resources/img/BackEnd/ApplyButton.png) no-repeat top left scroll;
+    padding:5px 10px 10px 30px;
+    color:#2175bc;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+.bGuardar2 {
+    background:url(../../resources/img/BackEnd/SavetoSourceButton.png) no-repeat top left scroll #ffffff;
+	border:0px;
+    padding:5px 10px 10px 30px;
+    color:#2175bc;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.btnEli {
+    background:url(../img/BackEnd/gnome_edit_delete.png) no-repeat top left scroll ;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+/**** Estilos Botones *****/
+
+.BtnConsultar {
+    background:url(../../resources/img/BackEnd/guardar.png) no-repeat top left scroll #ffffff;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+	border-collapse:0;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.BtnCancelar {
+    background:url(../img/BackEnd/DeleteButton.png) no-repeat top left scroll #ffffff;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+	border-collapse:0;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.BtnGuardar {
+    background:url(../../resources/img/BackEnd/guardar.png) no-repeat top left scroll #ffffff;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+	border-collapse:0;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.BtnEliminar {
+    background:url(../img/BackEnd/gnome_edit_delete.png) no-repeat top left scroll ;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+.BtnModificar {
+    background:url(../img/BackEnd/pencil.png) no-repeat top left scroll ;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.BtnAgregar {
+    background:url(../img/BackEnd/AddButton.png) no-repeat top left scroll ;
+    padding:5px 10px 10px 30px;
+    border:0px;
+    font-weight: bold;
+    font-size: 15px;
+    /*border: 1px solid #2175bc;*/
+    text-decoration: none;
+    cursor:pointer;
+}

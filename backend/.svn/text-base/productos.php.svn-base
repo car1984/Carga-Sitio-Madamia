@@ -1,0 +1,86 @@
+<?php
+require_once('../include_dao.php');
+require_once('funciones.php');
+
+if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
+{
+    header('Location: ./');
+}
+else
+{
+    Cabecera('PRODUCTOS');
+    ?>
+<div>
+    <fieldset>
+        <legend>Produtos</legend>
+        <br>
+        <a href="addproductos.php" class="btnGuardar">Nuevo Producto</a>
+        <br>
+        <br>
+        <div id="contenido">
+        <?php GrillaProductos();?>
+        </div>
+    </fieldset>
+</div>
+<?php
+    pie();
+}
+function GrillaProductos()
+{
+    ?>
+
+    <div class="module">
+                <h2><span>Productos Disponibles</span></h2>
+            <div class="module-table-body">
+                <form action="">
+                    <table id="myTable" class="tablesorter" cellpadding="0" cellspacing="0">
+                   <thead>
+                        <tr>
+                            <th style="width:10%">Nombre en Español</th>
+                            <th style="width:10%">Nombre en Ingles</th>
+                            <th style="width:15%">Descripcion en Español</th>
+                            <th style="width:15%">Descripcion en Ingles</th>
+                            <th style="width:5%">Precio</th>
+                            <th style="width:5%">Operacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $tablaconsulta = DAOFactory::getProductoDAO()->queryAll();
+                        for($fila=0;$fila<count($tablaconsulta);$fila ++)
+                        {
+                            $row = $tablaconsulta[$fila];
+                            echo "<td>".$row->nombreEsp."</td>";
+                            echo "<td>".$row->nombreIng."</td>";
+                            echo "<td>".$row->descripcionEsp."</td>";
+                            echo "<td>".$row->descripcionIng."</td>";
+                            echo "<td style='text-align:right'>".$row->precio."</td>";
+                            echo "<td><a href='addproductos.php?id=".$row->id."'>Seleccionar</a></td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                </form>
+                <div class="pager" id="pager">
+                    <form action="">
+                        <div>
+                            <img class="first" src="../resources/img/arrow-stop-180.gif" alt="first"/>
+                        <img class="prev" src="../resources/img/arrow-180.gif"  alt="prev"/>
+                        <input type="text" class="pagedisplay input-short align-center"/>
+                        <img class="next" src="../resources/img/arrow.gif"  alt="next"/>
+                        <img class="last" src="../resources/img/arrow-stop.gif"  alt="last"/>
+                        <select class="pagesize input-short align-center">
+                            <option value="10" selected="selected">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                        </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<?php
+   return "";
+}
+?>
