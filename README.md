@@ -7,7 +7,11 @@ El administrador de contenidos contiene los sigueintes modulos:
 
 
 1- Administrador de contenidos y textos.
+
 2- Administrador de Imagenes y fotos.
+
 3- Administrador de Usuarios.
+
 4- Administrador de links.
+
 5- Administrador de Productos.
