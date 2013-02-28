@@ -213,8 +213,8 @@ h5{
 	border: 0 none;
 	padding: 0;
 	background-image:url(../img/LightBoxProductos/FondoProductos.png);
-	width:975px;
-	height: 483px;
+	width:970px;
+	height: 440px;
 	float:none;
 	top: 0px;
 }
@@ -245,7 +245,7 @@ h5{
 	position: absolute;
 	width: 251px;
 	height:88px;
-	top: 348px;
+	top: 330px;
 	left: 252px;
 	z-index: 1;
 	background-image: url(../img/LightBoxProductos/FondoTextoInformacion.png);

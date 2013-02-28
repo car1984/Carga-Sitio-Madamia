@@ -22,7 +22,7 @@
 	
 			jQuery('#mycarousel').jcarousel({
               wrap: 'circular',
-              visible: 6
+              visible: 4
             });
 	});
 	
@@ -55,8 +55,8 @@
 
 </head>
 <body> 
-    <table width="975px" height="217px" border="0" cellpadding="0" cellspacing="0" align="center">
-          <tr>
+    <table width="975px"  border="0" cellpadding="0" cellspacing="0" align="center">
+          <tr height="217px">
             <td valign="top">
             <div class="fondoCarrete">
             
@@ -125,10 +125,11 @@
                 
             </td>
           </tr>
+          <tr height="440px">
            <td valign="top"> 
 	      <iframe name="producto" 
                       id="producto" 
-                      height="483px" 
+                      height="440px" 
                       width="100%"  
                       frameborder="0" 
                       src="productosContain.php?IdSeccion=<?php echo $IdSeccion; ?>" >

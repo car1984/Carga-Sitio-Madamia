@@ -30,7 +30,7 @@
                         generatePagination: true,
                         play: 5000,
                         pause: 2500,
-                        hoverPause: true,
+                        hoverPause: false,
                         // Get the starting slide
                         start: startSlide,
                         animationComplete: function(current){
@@ -43,8 +43,8 @@
 </head>
 <body> 
 <div class="fondoProductos">
-    <table width="975px" border="0" cellpadding="0" cellspacing="0" align="center">
-          <tr>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+          <tr >
             <td valign="top"> 
                 <?php
 
@@ -126,7 +126,7 @@
                                         $tmpPathImg =$fotos[$i]->imagen;
 
                                         echo "<div class='slide'>";
-                                        echo "<img  height='400px' height='400px'src='".$tmpPathImg."'/>";
+                                        echo "<img  height='300px' height='300px'src='".$tmpPathImg."'/>";
                                         echo "</div>";
                                 }
                              }                
