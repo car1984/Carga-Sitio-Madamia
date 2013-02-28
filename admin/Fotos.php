@@ -65,7 +65,7 @@ function verItems()
 
     <div class="capaTabla">
             
-        <table id="myTable" cellpadding="0" cellspacing="0" border="0" width="440px">
+        <table id="myTable" cellpadding="2" cellspacing="2" border="0" width="440px">
 
             <tbody>
                 <?php
@@ -80,7 +80,7 @@ function verItems()
                     <?php
                         $row = $tablaconsulta[$fila];
 
-                        echo "<tr>";
+                        echo "<tr height='50px'>";
                         echo "<td width='80px' align='center' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'><img src='".$row->imagen."' width='50px'/></td>";
                         echo "<td width='240px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->descripcionEsp."</td>";
                         echo "<td width='60px' align='center' class='tablaAdmin'>".linkModificar('Fotos.php',$row->id,"Editar",0)."</td>";

@@ -50,11 +50,12 @@
         <td valign="top" height="20px">
             
             <ul id="menu">
+                <li><a target='adminContain' href="Contenido.php?idListaContenido=3&execute=open">Inicio</a></li>
                 <li><a target='adminContain' href="productos.php?idTipoProducto=1&execute=open">Productos</a></li>
                 <li><a target='adminContain' href="productos.php?idTipoProducto=2&execute=open">Institucionales</a></li>
                 <li><a target='adminContain' href="productos.php?idTipoProducto=3&execute=open">Especiales</a></li>
                 <li><a target='adminContain' href="puntosVenta.php">Puntos Venta</a></li>
-                <li><a target='adminContain' href="puntosVenta.php">Madamia</a></li>
+                <li><a target='adminContain' href="Contenido.php?idListaContenido=1&execute=open">Madamia</a></li>
             </ul>
  
         </td>
@@ -66,7 +67,7 @@
                       height="560px" 
                       width="100%"  
                       frameborder="0" 
-                      src="productos.php?idTipoProducto=1&execute=open">
+                      src="Contenido.php?idListaContenido=3&execute=open">
                             
               </iframe>
 	
