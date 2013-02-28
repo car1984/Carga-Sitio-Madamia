@@ -1,0 +1,43 @@
+/*******************************************************
+ *Fuentes MADAMIA
+ *******************************************************/
+@font-face {
+    font-family: "Segoe";
+    src: url(../font/segoepr.ttf);
+}
+
+@font-face {
+    font-family: "Segoe Bold";
+    src: url(../font/segoeprb.ttf);
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    src: url(../font/segoeui.ttf);
+}
+
+@font-face {
+    font-family: "Segoe UI Bold";
+    src: url(../font/segoeuib.ttf);
+}
+
+@font-face {
+    font-family: "Segoe UI Italics";
+    src: url(../font/segoeuii.ttf);
+}
+
+@font-face {
+    font-family: "Segoe UI Ligth";
+    src: url(../font/segoeuil.ttf);
+}
+
+@font-face {
+    font-family: "Segoe UI Bold Italics";
+    src: url(../font/segoeuiz.ttf);
+}
+
+@font-face {
+    font-family: "Segoe UI Semibold";
+    src: url(../font/seguisb.ttf);
+}
+

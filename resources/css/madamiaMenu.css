@@ -17,7 +17,7 @@ ul#menu {
 	height: 35px;
 	border:0px solid #eee;
 	padding-bottom:1px;
-	background-image:url(../../img/Home/Fondo-Menu-Superior.png);
+	background-image:url(../img/Home/Fondo-Menu-Superior.png);
 	border-left: 0;
 	border-top: 0;
 }
@@ -75,16 +75,13 @@ ul#menu ul li {
 
 /* Root Menu */
 ul#menu a {
-  padding: 9px 13px 5px;/*10px 7px 3px 7px;*/
+  padding: 4px 13px 5px;/*10px 7px 3px 7px;*/
   float: none !important; /*For Opera*/
   float: left; /*For IE*/
   display: block;
   color: #A94E7B;
-  text-decoration: none;
-  font-weight: bold;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:14px;
-  font-weight:bold;
+  font-family:Segoe;
+  font-size:15px;
   border-right:2px solid #8E1550;
   text-decoration: none;
   height: auto !important;
@@ -96,6 +93,8 @@ ul#menu a:hover,
 ul#menu li:hover a,
 ul#menu li.iehover a {
 	color: #8E1550;
+	font-family:Segoe;
+    font-size:15px;
 }
 
 /* 2nd Menu */
@@ -105,6 +104,7 @@ ul#menu li.iehover li a {
   background: #8E1550 ;/*#666*/
   border:none;
   color: #FFF;
+  font-family:Segoe UI Ligth;
 }
 
 /* 2nd Menu Hover Persistence */

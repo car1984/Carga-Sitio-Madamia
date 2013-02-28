@@ -10,7 +10,7 @@
 <head>
 
 <!-- Estilos Madamia -->
-<link rel="stylesheet" type="text/css" href="../resources/css/menu/style.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/madamiaMenu.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/madamiaStyle.css" />
 <link rel="stylesheet" type="text/css" href="../resources/plugins/Carousel/Slides/examples/Linking/css/carouselHome.css"/>
 <link rel="stylesheet" type="text/css" href="../resources/plugins/Treeview/jquery.treeview/jquery.treeview.css" />
