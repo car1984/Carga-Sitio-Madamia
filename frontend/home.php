@@ -66,11 +66,11 @@
                         startSlide = window.location.hash.replace('#','');
                 }
                 // Initialize Slides
-                $('#slides').slides({
+                $('#slides_productos').slides({
                         preload: true,
                         preloadImage: 'img/loading.gif',
                         generatePagination: false,
-                        play: 9000,
+                        play: 5000,
                         pause: 2500,
                         hoverPause: false,
                         // Get the starting slide
@@ -101,11 +101,12 @@
         });
         
         $(document).ready(function() {
-            $('#slides_productos').cycle({
+			 $('#slides_ninios').cycle({
                         fx:    'zoom', 
                         sync:  false, 
                         delay: -2000 
             });
+			
 
         });
 
@@ -169,6 +170,7 @@
     
      <div id="container_productos">
          <div id="slides_productos">
+          	<div class="slides_container">
            <?php
 				
                //Se obtienen las fotos pertenecientes al album del Productos
@@ -176,19 +178,23 @@
 
                //Se recorren las fotos encontradas
                 for ($i=0;$i<count ($fotosBannerP);$i++)
+				{
+					echo "<div >";
                     //Se coloca las imagenes que contenga el Album
                     echo "<img  height='250px' height='250px'src='".$fotosBannerP[$i]->imagen."'/>";
+					
+					echo "</div >";
+				}
 
 
            ?>
+           </div>
          </div>
      </div>
 
 				
-     <div id="container">
-        <div id="example">
-            <div id="slides">
-                <div class="slides_container">
+     <div id="container_ninios">
+         <div id="slides_ninios">
 
                     <?php
 
@@ -202,18 +208,13 @@
                     for ($i=0;$i<count ($fotos);$i++)
                     {
                             $tmpPathImg =$fotos[$i]->imagen;
-
-                            echo "<div class='slide'>";
                             echo "<img  height='500px' height='500px'src='".$tmpPathImg."'/>";
-                            echo "</div>";
                     }
 
                     ?>    
 
 
-                </div>
-            </div>
-        </div>              
+          </div>             
      </div>
               
        <div id="container_novedades">
