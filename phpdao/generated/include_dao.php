@@ -57,6 +57,10 @@
 	require_once('class/dto/Promocione.class.php');
 	require_once('class/mysql/PromocionesMySqlDAO.class.php');
 	require_once('class/mysql/ext/PromocionesMySqlExtDAO.class.php');
+	require_once('class/dao/RegistroDAO.class.php');
+	require_once('class/dto/Registro.class.php');
+	require_once('class/mysql/RegistroMySqlDAO.class.php');
+	require_once('class/mysql/ext/RegistroMySqlExtDAO.class.php');
 	require_once('class/dao/SeccionDAO.class.php');
 	require_once('class/dto/Seccion.class.php');
 	require_once('class/mysql/SeccionMySqlDAO.class.php');

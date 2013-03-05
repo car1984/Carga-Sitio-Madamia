@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-01-15 22:13
+ * @date: 2013-03-04 20:00
  */
 interface PromocionesDAO{
 

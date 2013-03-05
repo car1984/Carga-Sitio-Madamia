@@ -124,25 +124,10 @@ h5{
 	float:none;
 	top: 0px;
 }
-
-.slide-out-novedades {
-		width: 214px;
-		height:311px;
-	    color: #A94E7B;
-		background: ;
-		border: none;
-		opacity: 0.9;
-		-moz-opacity: 0.9;
-		filter:alpha(opacity=90);
-		background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
-		
-    }
- 
- 
+  
  .slide-out-registrese{
 		width: 214px;
 		height:311px;
-	    color: #A94E7B;
 		background: ;
 		border: none;
 		opacity: 0.9;
@@ -151,6 +136,12 @@ h5{
 		background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
 		
     }
+.formRegistrese{
+	color:#000;
+	padding: 10px 10px 10px 10px;
+	font-size:16px;
+	font-family:Segoe UI;
+}
 
 .capaRedesSociales{
 	position: absolute;

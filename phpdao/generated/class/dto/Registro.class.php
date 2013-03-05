@@ -1,17 +1,21 @@
 <?php
 	/**
-	 * Object represents table 'directorio'
+	 * Object represents table 'registro'
 	 *
      	 * @author: http://phpdao.com
      	 * @date: 2013-03-04 20:00	 
 	 */
-	class Directorio{
+	class Registro{
 		
 		var $id;
-		var $idSeccion;
 		var $nombre;
+		var $apellido;
+		var $cedula;
+		var $email;
 		var $telefono;
-		var $mail;
+		var $dia;
+		var $mes;
+		var $ano;
 		
 	}
 ?>

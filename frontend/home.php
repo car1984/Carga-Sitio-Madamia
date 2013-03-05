@@ -2,6 +2,25 @@
     require_once '../global/include.php';
     
     ini_set("display_errors", $DISPLAY_ERROR);
+	
+	if($_POST)
+	{
+            if(isset($_POST['BtnGuardar']))
+            {
+                $objRegistro = new Registro(); 
+                
+                $objRegistro->nombre    = $_POST['txtNombre'];
+                $objRegistro->apellido  = $_POST['txtApellido'];
+                $objRegistro->cedula    = $_POST['txtCedula'];
+                $objRegistro->email     = $_POST['txtEmail'];
+                $objRegistro->telefono  = $_POST['txtTelefono'];
+                $objRegistro->dia       = $_POST['txtDia'];
+                $objRegistro->mes       = $_POST['txtMes'];
+                $objRegistro->ano       = $_POST['txtAnio'];
+                
+                DAOFactory::getRegistroDAO()->insert($objRegistro);
+            }
+	}
     
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
@@ -37,7 +56,7 @@
 <script type="text/javascript" src="../resources/plugins/Treeview/jquery.treeview/lib/jquery.cookie.js" ></script>
 <script type="text/javascript" src="../resources/plugins/Treeview/jquery.treeview/jquery.treeview.js" ></script>
 <script type="text/javascript" src="../resources/plugins/Treeview/jquery.treeview/demo/demo.js" ></script>
-
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
 <script>
         $(function(){
                 // Set starting slide to 1
@@ -92,7 +111,7 @@
 
 </script>
  
-  <script>
+<script>
 	
 	$(document).ready(function(){	
 	
@@ -262,13 +281,67 @@
             </table>	 	
         </div>
 
-         
+        
             
-            <div class="slide-out-registrese">
-             
+        <div class="slide-out-registrese">
+    <div class="formRegistrese">
+              <form action="" method="post" enctype="multipart/form-data"> 
                 <a class="handleRegistrese" href="http://link-for-non-js-users">Content</a>
-                <br />Registro
+                <br />
+                <table border="0" cellspacing="0">
+                  <tr>
+                    <td>Nombre</td>
+                    <td>
+                    <input type="text"  name="txtNombre" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Apellido</td>
+                    <td>
+                       <input type="text"  name="txtApellido" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Cedula</td>
+                    <td>
+                      <input type="text" name="txtCedula" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>E-Mail</td>
+                    <td>
+                    <input type="text"  name="txtEmail" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Telefono</td>
+                    <td>
+                    <input type="text"  name="txtTelefono" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Fecha de Cumpleaños</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="center" valign="top">
+                     <input type="text" class="txtFecha" name="txtDia" />
+              <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
+<input type="text" class="txtFecha" name="txtMes" />
+       <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
+              <input type="text" class="txtFecha" name="txtAnio" />
+                     <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" valign="top" align="right">
+                    <br />
+                     <input type="submit" name='BtnGuardar' class="botonContactenos" value="" title="" />   
+                    </td>
+                  </tr>
+                </table>
                 
+                </form>
+                </div>
      	   </div>
 			
       
@@ -283,6 +356,7 @@
       </tr>
     </table>
   </div>
+
 </body>
 </html>
    

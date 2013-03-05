@@ -5,13 +5,13 @@
  * @author: http://phpdao.com
  * @date: 2013-03-04 20:00
  */
-interface DocumentosDAO{
+interface RegistroDAO{
 
 	/**
 	 * Get Domain object by primry key
 	 *
 	 * @param String $id primary key
-	 * @Return Documentos 
+	 * @Return Registro 
 	 */
 	public function load($id);
 
@@ -28,49 +28,61 @@ interface DocumentosDAO{
 	
 	/**
  	 * Delete record from table
- 	 * @param documento primary key
+ 	 * @param registro primary key
  	 */
-	public function delete($Id);
+	public function delete($id);
 	
 	/**
  	 * Insert record to table
  	 *
- 	 * @param Documentos documento
+ 	 * @param Registro registro
  	 */
-	public function insert($documento);
+	public function insert($registro);
 	
 	/**
  	 * Update record in table
  	 *
- 	 * @param Documentos documento
+ 	 * @param Registro registro
  	 */
-	public function update($documento);	
+	public function update($registro);	
 
 	/**
 	 * Delete all rows
 	 */
 	public function clean();
 
-	public function queryByIdSeccion($value);
-
 	public function queryByNombre($value);
+
+	public function queryByApellido($value);
+
+	public function queryByCedula($value);
+
+	public function queryByEmail($value);
 
 	public function queryByTelefono($value);
 
-	public function queryByMail($value);
+	public function queryByDia($value);
 
-	public function queryByFechaRegistro($value);
+	public function queryByMes($value);
 
+	public function queryByAno($value);
 
-	public function deleteByIdSeccion($value);
 
 	public function deleteByNombre($value);
 
+	public function deleteByApellido($value);
+
+	public function deleteByCedula($value);
+
+	public function deleteByEmail($value);
+
 	public function deleteByTelefono($value);
 
-	public function deleteByMail($value);
+	public function deleteByDia($value);
 
-	public function deleteByFechaRegistro($value);
+	public function deleteByMes($value);
+
+	public function deleteByAno($value);
 
 
 }

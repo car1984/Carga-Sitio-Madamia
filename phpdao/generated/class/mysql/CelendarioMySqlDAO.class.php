@@ -3,7 +3,7 @@
  * Class that operate on table 'celendario'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-01-15 22:13
+ * @date: 2013-03-04 20:00
  */
 class CelendarioMySqlDAO implements CelendarioDAO{
 

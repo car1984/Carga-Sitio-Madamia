@@ -6,12 +6,7 @@
  * @date: 27.11.2007
  */
 class ConnectionProperty{
-//	private static $host = 'mysql.madamia.com';
-//	private static $user = 'testmadamia';
-//	private static $password = 'mdmtest2012';
-//	private static $database = 'mdmpruebas';
-        
-        private static $host = 'localhost';
+	private static $host = 'localhost';
 	private static $user = 'root';
 	private static $password = 'root';
 	private static $database = 'madamia';

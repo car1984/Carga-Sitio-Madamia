@@ -92,6 +92,13 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return RegistroDAO
+	 */
+	public static function getRegistroDAO(){
+		return new RegistroMySqlExtDAO();
+	}
+
+	/**
 	 * @return SeccionDAO
 	 */
 	public static function getSeccionDAO(){
