@@ -59,7 +59,7 @@ h5{
 
 .textoTitulo{
 	color:#FFF;
-	padding: 12px 35px 0px 25px;
+	padding: 8px 30px 5px 25px;
 	font-size:18px;
 	font-family:Segoe;
 	
@@ -94,9 +94,9 @@ h5{
 	margin: 0;
 	border: 0 none;
 	padding: 0;
-	background-image:url(../img/Home/Pata.jpg);
+	background-image:url(../img/Home/FondoFooter.png);
 	width:1023px;
-	height: 42px;
+	height: 88px;
 	float:none;
 	top: 0px;
 	
@@ -194,10 +194,21 @@ h5{
 
 .textoDescripcion{
 	/*         a    d   i     c  */
-	padding: 15px 15px 15px 15px;
+	padding: 5px 15px 15px 15px;
 	font-size:14px;
-	font-family:Verdana, Geneva, sans-serif;
+	font-family:Segoe UI;
 	text-align: justify;
+}
+
+.textoDescripcionProducto{
+	/*         	  a   d   i   c  */
+	padding		: 0px 5px 5px 5px;
+	font-size	: 14px;
+	font-family	: Segoe UI;
+	text-align	: justify;
+	overflow	: scroll;
+	width		: 245px;
+	height		: 80px;
 }
 .fondoProductos{
 	margin: 0;

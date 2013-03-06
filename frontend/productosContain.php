@@ -144,7 +144,7 @@
                 </div>
                 
                 <div class="capaTextoProductos">
-                	<div class="textoDescripcion">
+                	<div class="textoDescripcionProducto">
                 	
                 <?php 
                    if(!$isSeccion) 
