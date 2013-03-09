@@ -214,7 +214,8 @@
                     ?>    
 
 
-          </div>             
+          </div>
+        
      </div>
               
        <div id="container_novedades">
@@ -274,12 +275,27 @@
 		</div>   
 
  		<div class="capaBuscador">
+          <form action="../admin/index.php" method="post" enctype="multipart/form-data"> 
             <table border="0" cellpadding="0" cellspacing="0">
-              <tr>
-                <td><img src="../resources/img/Home/CarritoCompras.png" /></td>
-                <td><img src="../resources/img/Home/Ingreso.png" /></td>
+              <tr valign="middle" align="center">
+                <td>
+                <img src="../resources/img/Home/CarritoCompras.png" />
+                
+                </td>
+                <td>
+                <img src="../resources/img/Home/ingresoTexto.png" />
+                </td>
+                <td>
+                   <input type="text" class="txtIngreso" name="txtTelefono" />
+                </td>
+                <td>
+                 <input type="submit" name='btnIngreso' class="botonIngreso" value="" title="" /> 
+                </td>
+                <td>
+                </td>
               </tr>
-            </table>	 	
+            </table>
+            </form>	 	
         </div>
 
         
@@ -351,6 +367,11 @@
       <tr>
       <td valign="top"> 
 		<div class="fondoPie">
+        	<div class="contenidoPie">
+            Oficinas y Planta de Producción: Telefono: 57-1 671 25 50 Calle 161 N 76-54 Bogotá, Colombia <br />
+            Servicio al cliente: <a href="mailto:info@madamia.com">E-Mail: info@madamia.com</a><br />
+            <a href="http://www.madamia.com">www.madamia.com</a>
+            </div>
 		</div>
         
         </td>

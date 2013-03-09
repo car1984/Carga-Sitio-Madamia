@@ -93,13 +93,17 @@ h5{
 .fondoPie{
 	margin: 0;
 	border: 0 none;
-	padding: 0;
 	background-image:url(../img/Home/FondoFooter.png);
 	width:1023px;
-	height: 88px;
-	float:none;
-	top: 0px;
-	
+	height: 88px;	
+}
+
+.contenidoPie{
+	padding: 10px 15px 15px 15px;
+	font-size:16px;
+	font-family:Segoe UI Bold;
+	text-align: center;
+	color:#8E1550;
 }
 
 .logoMadamia{
@@ -157,7 +161,7 @@ h5{
 	position: absolute;
 	width: 120px;
 	height:20px;
-	top: 610px;
+	top: 615px;
 	left: 760px;
 	padding: 10px;
 	z-index: 1;
@@ -172,6 +176,13 @@ h5{
 	z-index	: 0;
 	background-image: url(../img/Home/SloganSolo.png);
 	}
+
+.botonIngreso {
+	background: url(../img/Home/ingresoBoton.png) no-repeat;
+    width: 27px;
+    height: 21px;
+	border-color:transparent
+    }
 	
 	
 /****************************** HOME PRODUCTOS ***********************************/
@@ -190,6 +201,13 @@ h5{
 	padding: 15px 15px 5px;/*10px 7px 3px 7px;*/	
 	}
 	
+input.txtIngreso{
+	background: url(../img/Home/ingresoCampo.png) no-repeat;
+	width: 100px;
+	height: 19px;
+	padding: 2px;
+	border: none;
+	}
 /******************************** PRODUCTOS **************************************/
 
 .textoDescripcion{
