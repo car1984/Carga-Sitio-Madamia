@@ -279,6 +279,15 @@ input.txtIngreso{
 	left: 30px;
 	z-index: 1;
 }
+
+.capaImagenSeccionProductos{
+	position: absolute;
+	width: 150px;
+	height:150px;
+	top: 0px;
+	left: 760px;
+	z-index: 1;
+}
 /******************************** MADAMIA **************************************/
 .capaTextoMadamia{
 	position: absolute;

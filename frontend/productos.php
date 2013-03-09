@@ -122,6 +122,17 @@
                     
                 </ul>
             </div>
+
+
+                         
+	
+             <div class="capaImagenSeccionProductos">
+		   <?php
+            //Se selecciona la seccion pertienente
+            $seccion = DAOFactory::getSeccionDAO()->load($IdSeccion);
+          ?>
+           	    <img src="<?php echo $seccion->imagen;?>" width="150" height="150" />
+                </div>
                 
             </td>
           </tr>
