@@ -1,7 +1,119 @@
 <?php
     require_once '../global/include.php';
-	
+
+    //Importamos la función PHP class.phpmailer
+    require("../resources/plugins/PHPMailer/class.phpmailer.php");
+    
+    //Para visualizar errores
     ini_set("display_errors", $DISPLAY_ERROR);
+    
+     if ($_POST) {
+    
+        if ($_POST['action'] == "send") {
+            
+            $body_mail ="<table  border='0' cellpadding='0' cellspacing='0' align='center'>";
+            $body_mail.="<tr >";
+            $body_mail.="<td colspan ='4' valign='top'>";
+            $body_mail.="<div class='textoTitulo'>Trabaje con Nosotros</div>";
+            $body_mail.="</div>";
+            $body_mail.="<br />";
+            $body_mail.="</td>";
+            $body_mail.="</tr>";
+            $body_mail.="<tr>";
+            $body_mail.="<td width='241' >";
+            $body_mail.="<div class ='textoformulario' > Nombre</div>";
+            $body_mail.="</td>";
+            $body_mail.="<td width='229' >".$_POST['txtNombre']."</td>";
+            $body_mail.="<td width='229' ><div class ='textoformulario' >Experiencia</div></td>";
+            $body_mail.="<td width='229' ></td>";
+            $body_mail.="<tr>";
+            $body_mail.="<td >";
+            $body_mail.="<div class ='textoformulario' >Edad</div>";
+            $body_mail.="</td>";
+            $body_mail.="<td >".$_POST['txtEdad']."</td>";
+            $body_mail.="<td ><div class ='textoformulario' >Tiempo</div></td>";
+            $body_mail.="<td >".$_POST['txtTiempo']."</td>";
+            $body_mail.="<tr>";
+            $body_mail.="<td >";
+            $body_mail.="<div class ='textoformulario' >Fecha deNacto</div>";
+            $body_mail.="</td>";
+            $body_mail.="<td >";
+            $body_mail.=$_POST['txtDia']."/";
+            $body_mail.=$_POST['txtMes']."/";
+            $body_mail.=$_POST['txtAno'];
+            $body_mail.="</td>";
+            $body_mail.="<td ><div class ='textoformulario' >Empresa</div></td>";
+            $body_mail.="<td >".$_POST['txtEmpresa']."</td>";
+            $body_mail.="<tr>";
+            $body_mail.="<td >";
+            $body_mail.="<div class ='textoformulario' >Cedula</div>";
+            $body_mail.="</td>";
+            $body_mail.="<td >".$_POST['txtCedula']."</td>";
+            $body_mail.="<td ><div class ='textoformulario' >Cargo</div></td>";
+            $body_mail.="<td >".$_POST['txtCargo']."</td>";
+            $body_mail.="</tr>";
+            $body_mail.="<tr>";
+            $body_mail.="<td >";
+            $body_mail.="<div class ='textoformulario' >Dirección</div>";
+            $body_mail.="</td>";
+            $body_mail.="<td >".$_POST['txtDir']."</td>";
+            $body_mail.="<td ><div class ='textoformulario' >Permanencia</div></td>";
+            $body_mail.="<td >".$_POST['txtPermanencia']."</td>";
+            $body_mail.="</tr>";
+            $body_mail.="<tr>";
+            $body_mail.="<td ><div class ='textoformulario' >Telefono</div></td>";
+            $body_mail.="<td >".$_POST['txtTel']."</td>";
+            $body_mail.="<td ><div class ='textoformulario' >Motivo Retiro</div></td>";
+            $body_mail.="<td >".$_POST['txtRetiro']."</td>";
+            $body_mail.="</tr>";
+            $body_mail.="<tr>";
+            $body_mail.="<td ><div class ='textoformulario' >Ceular</div></td>";
+            $body_mail.="<td >".$_POST['txtCel']."</td>";
+            $body_mail.="<td >&nbsp;</td>";
+            $body_mail.="<td >&nbsp;</td>";
+            $body_mail.="</tr>";
+            $body_mail.="<tr>";
+            $body_mail.="<td ><div class ='textoformulario' >Nivel Educativo</div></td>";
+            $body_mail.="<td >".$_POST['txtEdu']."</td>";
+            $body_mail.="<td >&nbsp;</td>";
+            $body_mail.="<td >&nbsp;</td>";
+            $body_mail.="</tr>";
+            $body_mail.="<tr>";
+            $body_mail.="<td ><div class='textoformulario'>Foto</div></td>";
+            $body_mail.="<td >".$_POST['txtFoto']."</td>";
+            $body_mail.="<td >&nbsp;</td>";
+            $body_mail.="<td >&nbsp;</td>";
+            $body_mail.="</tr>";
+            $body_mail.="</table>";
+            
+            $mail = new PHPMailer();
+
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = "ssl";
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465;
+            $mail->Username = "car1984@gmail.com";
+            $mail->Password = "xz840205";
+            $mail->From = "no-reply@web.com";
+            $mail->FromName = "Madamia";
+            $mail->Subject = "Trabaje con Nosotros";
+            $mail->AltBody = "TEST";
+            $mail->MsgHTML('CORREO');
+        
+            $mail->AddAddress("car1984@gmail.com");
+            $mail->Body = $body_mail;
+            $mail->IsHTML(true);
+            
+            if (!$mail->Send()) {
+                echo "Error: " . $mail->ErrorInfo;
+            }
+            
+            echo "Mail enviado....";
+
+
+        }
+     }
     
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -108,13 +220,13 @@
           </tr>
           <tr>
             <td ><div class ="textoformulario" >Nivel Educativo</div></td>
-            <td ><input type="text" class="txtContactenos" name="txtEdu	" /></td>
+            <td ><input type="text" class="txtContactenos" name="txtEdu" /></td>
             <td >&nbsp;</td>
             <td >&nbsp;</td>
           </tr>
           <tr>
             <td ><div class="textoformulario">Foto</div></td>
-            <td ><input type="text" class="txtContactenos" name="txtTelefono" /></td>
+            <td ><input type="text" class="txtContactenos" name="txtFoto" /></td>
             <td >&nbsp;</td>
             <td >&nbsp;</td>
           </tr>
@@ -124,7 +236,10 @@
             </td>
             <td >&nbsp;</td>
             <td ><div class ="textoformulario" >&nbsp;</div></td>
-            <td ><input type="submit" class="botonContactenos" value="" title="" /></td>
+            <td >
+                <input type="submit" class="botonContactenos" value="" title="" />
+                <input type="hidden" name="action" value="send" />
+            </td>
           </tr>
           <tr >
             <td colspan ='4' valign="top" align="right"> 

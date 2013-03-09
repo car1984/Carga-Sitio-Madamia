@@ -1,7 +1,126 @@
 <?php
     require_once '../global/include.php';
-	
+
+    //Importamos la función PHP class.phpmailer
+    require("../resources/plugins/PHPMailer/class.phpmailer.php");
+    
+    //Para visualizar errores
     ini_set("display_errors", $DISPLAY_ERROR);
+    
+    
+    if ($_POST) {
+    
+        if ($_POST['action'] == "send") {
+
+
+            $str_mail ="<table border='0' cellpadding='0' cellspacing='0' align='center'>";
+            $str_mail.="<tr >";
+            $str_mail.="<td colspan ='3' valign='top'>";
+            $str_mail.="<div class='textoTitulo'> Contactenos </div>";
+            $str_mail.="</div>";
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="<tr>";
+            $str_mail.="<td>";
+            $str_mail.="<h4> Nombre</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td>";
+            $str_mail.= $_POST['txtNombre'];
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="<tr>";
+            $str_mail.="<td >";
+            $str_mail.="<h4>Apellido</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td >";
+            $str_mail.=$_POST['txtApellido'];
+            $str_mail.="</td>";
+            $str_mail.="<tr>";
+            $str_mail.="<td >";
+            $str_mail.="<h4>Ciudad</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td >";
+            $str_mail.= $_POST['txtCiudad'];
+            $str_mail.="</td>";
+            $str_mail.="<tr>";
+            $str_mail.="<td >";
+            $str_mail.="<h4>Direccion</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td >";
+            $str_mail.=$_POST['txtDireccion'];
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="<tr>";
+            $str_mail.="<td >";
+            $str_mail.="<h4>E-mail</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td >";
+            $str_mail.=$_POST['txtEmail'];
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="<tr>";
+            $str_mail.="<td >";
+            $str_mail.="<h4>Telefono</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td >";
+            $str_mail.=$_POST['txtTelefono'];
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="<tr>";
+            $str_mail.="<td '><h4>Fecha de Cumpleaños</h4></td>";
+            $str_mail.="<td colspan ='2' align='center' valign='top'>";
+            $str_mail.=$_POST['txtDia'] . '/';
+            $str_mail.=$_POST['txtMes'] . '/';
+            $str_mail.=$_POST['txtAnio'];
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="<tr>";
+            $str_mail.="<td >";
+            $str_mail.="<h4>Mensaje:</h4>";
+            $str_mail.="</td>";
+            $str_mail.="<td >";
+            $str_mail.=$_POST['txtarea'];
+            $str_mail.="</td>";
+            $str_mail.="</tr>";
+            $str_mail.="</table>";
+            
+            //echo $str_mail;
+            //$str_mail="Saludo";
+            
+            $mail = new PHPMailer();
+
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = "ssl";
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465;
+            $mail->Username = "car1984@gmail.com";
+            $mail->Password = "xz840205";
+            $mail->From = "no-reply@web.com";
+            $mail->FromName = "Madamia";
+            $mail->Subject = "Mensaje Contactenos";
+            $mail->AltBody = "TEST";
+            $mail->MsgHTML('CORREO');
+        
+            /*
+            $mail->Host = "localhost";
+            $mail->From = "xxxwarfare@msn.com";
+            $mail->FromName = "Madamia";
+            $mail->Subject ='Correo Automatico Madamia';
+            */
+            $mail->AddAddress("car1984@gmail.com");
+            $mail->Body = $str_mail;
+            $mail->IsHTML(true);
+            
+            if (!$mail->Send()) {
+                echo "Error: " . $mail->ErrorInfo;
+            }
+            
+            echo "Mail enviado....";
+    }
+}
+     
+     
     
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -107,18 +226,19 @@
           </tr>
           <tr>
             <td colspan ='2' align="center" valign="top">
-              <input type="text" class="txtFecha" name="txtDia" />
+              <input type="text" class="txtFecha" name="txtDia" maxlength="2" />
               <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
-<input type="text" class="txtFecha" name="txtMes" />
+              <input type="text" class="txtFecha" name="txtMes" maxlength="2"/>
        <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
-              <input type="text" class="txtFecha" name="txtAnio" />
+              <input type="text" class="txtFecha" name="txtAnio" maxlength="2"/>
                      <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
             </td>
           </tr>
           <tr >
             <td colspan ='3' valign="top" align="right"> 
               <br />
-                <input type="submit" class="botonContactenos" value="" title="" />   
+                <input type="submit" class="botonContactenos" value="" title="" /> 
+                <input type="hidden" name="action" value="send" />
             </td>
           </tr>
     </table>
