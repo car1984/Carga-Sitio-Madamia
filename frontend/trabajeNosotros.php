@@ -78,16 +78,10 @@
             $body_mail.="<td >&nbsp;</td>";
             $body_mail.="<td >&nbsp;</td>";
             $body_mail.="</tr>";
-            $body_mail.="<tr>";
-            $body_mail.="<td ><div class='textoformulario'>Foto</div></td>";
-            $body_mail.="<td >".$_POST['txtFoto']."</td>";
-            $body_mail.="<td >&nbsp;</td>";
-            $body_mail.="<td >&nbsp;</td>";
-            $body_mail.="</tr>";
             $body_mail.="</table>";
             
             $mail = new PHPMailer();
-
+            
             $mail->IsSMTP();
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = "ssl";
@@ -100,7 +94,26 @@
             $mail->Subject = "Trabaje con Nosotros";
             $mail->AltBody = "TEST";
             $mail->MsgHTML('CORREO');
-        
+            
+            if ($_FILES['fileimg']['name'] != '') {
+                if (!is_dir($PATH_FOTOS)) {
+                    mkdir($PATH_FOTOS);
+                }
+                
+                $tipo_archivo       = $_FILES['fileimg']['type'];
+                $tamano_archivo     = $_FILES['fileimg']['size'];
+                $ruta_archivo       = $_FILES['fileimg']['tmp_name'];
+                
+                $destination = $PATH_FOTOS.$_FILES['fileimg']['name'];
+                
+                if(!move_uploaded_file($ruta_archivo, $destination)){
+                    echo "Error Upload Foto....";
+                }
+                
+                $mail->AddAttachment($destination,$_FILES['fileimg']['name']);
+            }
+            
+
             $mail->AddAddress("car1984@gmail.com");
             $mail->Body = $body_mail;
             $mail->IsHTML(true);
@@ -226,12 +239,12 @@
           </tr>
           <tr>
             <td ><div class="textoformulario">Foto</div></td>
-            <td ><input type="text" class="txtContactenos" name="txtFoto" /></td>
+            <td ><input name="fileimg" type="file" ></td>
             <td >&nbsp;</td>
             <td >&nbsp;</td>
           </tr>
           <tr>
-            <td > 
+            <td >    
               <div class ="textoformulario" ></div>
             </td>
             <td >&nbsp;</td>

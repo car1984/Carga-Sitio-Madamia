@@ -18,6 +18,7 @@
 
     //Variables globales para el administrador de contenido
     static $PATH_ALBUM = '../resources/csm/album/album';
+    static $PATH_FOTOS = '../resources/csm/img/Fotos/';
 
     static $NOTI_ERROR      = 'ERROR';
     static $NOTI_SUCCESS    = 'SUCCESS'; 
