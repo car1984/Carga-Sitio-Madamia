@@ -223,8 +223,6 @@ ini_set("display_errors", $DISPLAY_ERROR);
                     </tr>
                     <tr>
                         <td colspan="2" align="right"> <br>
-           
-                          <?php echo btnCrear(); ?>
 
                             <button class="BtnGuardar" onclick="closeME();">
                                 <span></span>
