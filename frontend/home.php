@@ -80,9 +80,40 @@
                                 window.location.hash = '#' + current;
                         }
                 });
+				 // Initialize Slides
+                $('#slides_productos_over').slides({
+                        preload: true,
+                        preloadImage: 'img/loading.gif',
+                        generatePagination: false,
+                        play: 5000,
+                        pause: 2500,
+                        hoverPause: false,
+                        // Get the starting slide
+                        start: startSlide,
+                        animationComplete: function(current){
+                                // Set the slide number as a hash
+                                window.location.hash = '#' + current;
+                        }
+                });
                 
                    // Initialize Slides
                 $('#slides_novedades').slides({
+                        preload: true,
+                        preloadImage: 'img/loading.gif',
+                        generatePagination: false,
+                        play: 5000,
+                        pause: 2500,
+                        hoverPause: false,
+                        // Get the starting slide
+                        start: startSlide,
+                        animationComplete: function(current){
+                                // Set the slide number as a hash
+                                window.location.hash = '#' + current;
+                        }
+                });
+                
+                   // Initialize Slides
+                $('#slides_novedades_over').slides({
                         preload: true,
                         preloadImage: 'img/loading.gif',
                         generatePagination: false,
@@ -168,26 +199,47 @@
     <div class="capaLogo">
     </div>
     
-     <div id="container_productos">
-         <div id="slides_productos">
+    <div id="container_productos_over">
+    	<div id="slides_productos_over">
           	<div class="slides_container">
-           <?php
+            
+             <?php
 				
                //Se obtienen las fotos pertenecientes al album del Productos
                $fotosBannerP = DAOFactory::getFotoDAO()->queryByIdAlbun($ALBUM_B_PRODUCTOS);
 
                //Se recorren las fotos encontradas
                 for ($i=0;$i<count ($fotosBannerP);$i++)
-				{
-					echo "<div >";
-                    //Se coloca las imagenes que contenga el Album
-                    echo "<img  height='250px' height='250px'src='".$fotosBannerP[$i]->imagen."'/>";
-					
-					echo "</div >";
-				}
+                {
+                        echo "<div >";
+                        //Se coloca las imagenes que contenga el Album
+                        echo "<a  class='fancybox fancybox.iframe' href='productos.php?IdSeccion=5'>";
+                        echo "<div style='height:250px; height:'250px'>";
+                        echo "</div >";
+                        echo "</a>";
+                        echo "</div >";
+                }
 
 
            ?>
+            </div>
+         </div>
+    </div>
+    
+     <div id="container_productos">
+         <div id="slides_productos">
+          	<div class="slides_container">
+           <?php
+
+               //Se recorren las fotos encontradas
+                for ($i=0;$i<count ($fotosBannerP);$i++){
+                    echo "<div >";
+                    //Se coloca las imagenes que contenga el Album
+                    echo "<img  height='250px' height='250px'src='" . $fotosBannerP[$i]->imagen . "'/>";
+
+                    echo "</div >";
+                }
+                ?>
            </div>
          </div>
      </div>
@@ -217,8 +269,8 @@
           </div>
         
      </div>
-              
-       <div id="container_novedades">
+          
+        <div id="container_novedades">
             <div id="slides_novedades">
                 <div class="slides_container">
                     <?php
@@ -227,11 +279,8 @@
 
                            for ($i=0;$i<count($listaProdutos);$i++)
                            {
-                               //Se obtiene el album del producto
-                               $albumProducto = DAOFactory::getAlbumDAO()->load($listaProdutos[$i]->idAlbum);
-
                                //Se obtienen las fotos pertenecientes al album del Producto
-                               $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($albumProducto->id);
+                               $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($listaProdutos[$i]->idAlbum);
 
                                $tmpPathImg =$listaFotos[0]->imagen;
 
@@ -242,6 +291,33 @@
                                echo "</a>";
                               
                                echo "</div>";
+
+
+                           }
+
+                   ?>
+                </div>
+            </div>
+       </div>
+          
+       <div id="container_novedades_over">
+            <div id="slides_novedades_over">
+                <div class="slides_container">
+                    <?php
+
+                           for ($i=0;$i<count($listaProdutos);$i++)
+                           {
+                               //Se obtienen las fotos pertenecientes al album del Producto
+                               $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($listaProdutos[$i]->idAlbum);
+
+                               $tmpPathImg =$listaFotos[0]->imagen;
+
+                                echo "<div >";
+                                //Se coloca las imagenes que contenga el Album
+                                echo "<a  class='fancybox fancybox.iframe' href='productos.php?IdSeccion=".$listaProdutos[$i]->idSeccion."&IdProducto=".$listaProdutos[$i]->id."'>";
+                                echo "<div style='height:250px; height:'250px'></div >";
+                                echo "</a>";
+                                echo "</div >";
 
 
                            }

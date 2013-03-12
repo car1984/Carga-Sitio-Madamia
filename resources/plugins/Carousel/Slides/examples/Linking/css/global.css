@@ -4,12 +4,12 @@
 
 #container {
 	position: absolute;
-	width:300px;
-	height:300px;
-	top: 0px;
-	left: 550px;
-	margin:0 auto;
-	z-index:0;
+	width	: 400px;
+	height	: 350px;
+	top		: 0px;
+	left	: 550px;
+	margin	: 0 auto;
+	z-index		:0;
 }
 
 #frame {
@@ -22,8 +22,8 @@
 }
 
 #example {
-	width:300px;
-	height:300px;
+	width	: 400px;
+	height	: 350px;
 	position:relative;
 }
 
@@ -47,8 +47,8 @@
 */
 
 .slides_container {
-	width:300px;
-	height:300px;
+	width	: 400px;
+	height	: 350px;
 	overflow:hidden;
 	position:relative;
 	display:none;
@@ -65,8 +65,8 @@
 
 #slides .slide {
 	padding:20px;
-	width:300px;
-	height:300px;
+	width	: 400px;
+	height	: 350px;
 	display:block;
 }
 

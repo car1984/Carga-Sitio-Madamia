@@ -60,7 +60,7 @@
                     //Se selecciona la seccion pertienente
                     $seccion = DAOFactory::getSeccionDAO()->load($IdSeccion);
                     
-                    if (isset ($_GET["IdProducto"]))
+                    if (isset ($_GET["IdProducto"])&&$_GET["IdProducto"]!=0)
                     {
                       $IdProducto = $_GET["IdProducto"];
                       
@@ -91,7 +91,7 @@
                         }
                         
                     }
-                      
+
                       
                  ?> 
 
@@ -126,7 +126,7 @@
                                         $tmpPathImg =$fotos[$i]->imagen;
 
                                         echo "<div class='slide'>";
-                                        echo "<img  height='300px' height='300px'src='".$tmpPathImg."'/>";
+                                        echo "<img  height='250px' height='250px'src='".$tmpPathImg."'/>";
                                         echo "</div>";
                                 }
                              }                

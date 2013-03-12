@@ -55,6 +55,46 @@
 }
 
 /************************************************************
+ * BANNER NOVEDADES
+ *************************************************************/
+
+#container_novedades_over {
+	width	: 300px;
+	height	: 250px;
+	position: absolute;
+	top		: 370px;
+	left	: 770px;
+	z-index	: 1;
+}
+
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#slides_novedades_over .slides_container {
+	width	: 300px;
+	height	: 250px;
+	display : none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_novedades_over .slides_container div {
+	width	: 300px;
+	height	: 250px;
+	display	: block;
+}
+
+/************************************************************
  * BANNER PRODUCTOS
  *************************************************************/
  
@@ -88,6 +128,45 @@
 */
 
 #slides_productos .slides_container div {
+	width	: 300px;
+	height	: 250px;
+	display	: block;
+}
+
+/************************************************************
+ * BANNER PRODUCTOS OVER
+ *************************************************************/
+ 
+ #container_productos_over{
+	width	: 300px;
+	height	: 250px;
+	position: absolute;
+	top		: 180px;
+	left	: 0px;
+	z-index	: 1;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#slides_productos_over .slides_container {
+	width	: 300px;
+	height	: 250px;
+	display : none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_productos_over .slides_container div {
 	width	: 300px;
 	height	: 250px;
 	display	: block;

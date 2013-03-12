@@ -63,11 +63,18 @@
             	<ul class="jcarousel-skin-tango" id="mycarousel">
                   <?php
                     
-                    $IdSeccion;
+                    $IdSeccion =0;
+                    $IdProducto=0;
                     
                     if($_GET)
                     {
-                        $IdSeccion = $_GET["IdSeccion"];
+                        if (isset ($_GET["IdSeccion"]))
+                            $IdSeccion = $_GET["IdSeccion"];
+                        
+                        if (isset ($_GET["IdProducto"]))
+                            $IdProducto = $_GET["IdProducto"];
+                        
+                        
                         
                         //Se obtienen los productos de la sección
                         $productos = DAOFactory::getProductoDAO()->queryByIdSeccion($IdSeccion);
@@ -127,12 +134,12 @@
                          
 	
              <div class="capaImagenSeccionProductos">
-		   <?php
-            //Se selecciona la seccion pertienente
-            $seccion = DAOFactory::getSeccionDAO()->load($IdSeccion);
-          ?>
+              <?php
+                //Se selecciona la seccion pertienente
+                $seccion = DAOFactory::getSeccionDAO()->load($IdSeccion);
+              ?>
            	    <img src="<?php echo $seccion->imagen;?>" width="150" height="150" />
-                </div>
+             </div>
                 
             </td>
           </tr>
@@ -143,7 +150,7 @@
                       height="440px" 
                       width="100%"  
                       frameborder="0" 
-                      src="productosContain.php?IdSeccion=<?php echo $IdSeccion; ?>" >
+                      src="productosContain.php?IdSeccion=<?php echo $IdSeccion; ?>&IdProducto=<?php echo $IdProducto; ?>" >
                             
               </iframe>
             </td>
