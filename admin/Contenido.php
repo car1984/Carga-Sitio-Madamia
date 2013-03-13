@@ -11,92 +11,64 @@ function actualizarItem()
     global $NOTI_ERROR;
     global $NOTI_SUCCESS;
     
-    $tabla = DAOFactory::getProductoDAO()->queryAllOrderBy('id');
+
+    $ultimo=0;
+    $tabla = DAOFactory::getContenidoDAO()->queryAllOrderBy('id');
 
     if(count($tabla)>0)
     {
         $row = $tabla[count($tabla)-1];
-        $ultimoproducto = $row->id;
-    }
-    else
-    {
-        $ultimoproducto=0;
+        $ultimo = $row->id;
     }
 
     $error_msg = '';
-    if($_POST['txtNomProEsp']=='')
+    if($_POST['TxtNameEsp']=='')
     {
-        $error_msg = $error_msg.'Falta el Nombre <br>';
+        $error_msg = $error_msg.'Falta el Nombre En Español<br>';
+    }
+    if($_POST['TxtContEsp']=='')
+    {
+        $error_msg = $error_msg.'Falta el Contenido En Español<br>';
     }
 
-
-    if($_POST['txtProdEsp']=='')
-    {
-        $error_msg = $error_msg . 'Falta Descripcion<br>';
-    }
-
-
+    
     if($error_msg == '')
     {
-        $producto = new Producto();
-
-        $producto->id               = $_POST['IdProducto'];
-        $producto->idSeccion        = $_POST['cboSeccion'];
-        $producto->idAlbum          = $_POST['cboAlbum'];
-        $producto->idTipoProducto   = $_POST['cboTipoProducto'];
-        $producto->populate         = $_POST['Populate'];
-        $producto->nombreEsp        = $_POST['txtNomProEsp'];
-        $producto->descripcionEsp   = $_POST['txtProdEsp'];
-        $producto->top10            = $_POST['top10'];
-        $producto->nombreIng        = "#";
-        $producto->descripcionIng   = "#";
-
-
+        
         $transaction = new Transaction();
-        
-        //Se actualiza el procto
-        DAOFactory::getProductoDAO()->update($producto);
-        
-        //Se elimina toda la lista
-        DAOFactory::getPrecioProductoDAO()->deleteByIdProducto($producto->id);
-        
-        
-        $cantPrecio = $_POST['contPrecio'];
-        
-        //Se crean todos los precios
-        for ($i=0;$i<$cantPrecio;$i++)
-        {
-            $precio = new PrecioProducto();
-
-            $Id =$i+1;
-            if(isset ($_POST['txtNomPrecio'.$Id]) && 
-               isset ($_POST['txtPrecio'.$Id])){
                 
-                $precio->idProducto=$producto->id;
-                $precio->nombre    =$_POST['txtNomPrecio'.$Id];
-                $precio->valor     =$_POST['txtPrecio'.$Id];
+        //Se crea el contenido
+        $oContenido = new Contenido();
+        $oContenido->id             = $_POST['Idcontenido'];
+        $oContenido->idLista        = $_POST['ListContenido'];
+        $oContenido->albumId        = $_POST['IdALbum'];
+        $oContenido->nombreEsp      = $_POST['TxtNameEsp'];
+        $oContenido->nombreIng      = $_POST['TxtNameIng'];
+        $oContenido->contenidoEsp   = $_POST['TxtContEsp'];
+        $oContenido->contenidoIng   = $_POST['TxtContIng'];
+        $oContenido->urlGoogleMaps  = $_POST['TxtGoogleMaps'];
 
-                DAOFactory::getPrecioProductoDAO()->insert($precio);
-            }
-        }
-
-
+        DAOFactory::getContenidoDAO()->update($oContenido);
+        
         $transaction->commit();
 
-        $strNotificacion  = '<b>Producto Actualizado Correctamente</b>';
-        $strNotificacion .= '<br><br><a href="javascript:parent.jQuery.fancybox.close();">Cerrar Ventana</a>';
+        if($oContenido->id > $ultimo)
+        {               
+            $strNotificacion  = '<b>Contenido Actualizado Correctamente</b>';
+            $strNotificacion .= '<br><br><a href="javascript:parent.jQuery.fancybox.close();">Cerrar Ventana</a>';
             
-        //Notificacion
-        notificacion($strNotificacion, $NOTI_SUCCESS);
-        
-        $popUp=0;
-        
-        //verItems();
-        
+            //Notificacion
+            notificacion($strNotificacion, $NOTI_SUCCESS);
+            
+            $popUp = 0;
+            
+            //Muestro Los Items
+            //verItems();
+        }
+ 
 
     }
-    else
-    {
+    else{ 
         //Notificacion
         notificacion($error_msg, $NOTI_ERROR);
     }
@@ -125,18 +97,9 @@ function agregarItem()
     {
         $error_msg = $error_msg.'Falta el Nombre En Español<br>';
     }
-    if($_POST['TxtNameIng']=='')
-    {
-        $error_msg = $error_msg.'Falta el Nombre En Ingles<br>';
-    }
-
     if($_POST['TxtContEsp']=='')
     {
         $error_msg = $error_msg.'Falta el Contenido En Español<br>';
-    }
-    if($_POST['TxtContIng']=='')
-    {
-        $error_msg = $error_msg.'Falta el Contenido En Ingles<br>';
     }
     
     if($error_msg == '')
@@ -156,7 +119,6 @@ function agregarItem()
         
         //Se crea el contenido
         $oContenido = new Contenido();
-        $oContenido->id             = $_POST['TxtAux'];
         $oContenido->idLista        = $_POST['ListContenido'];
         $oContenido->albumId        = $objAlbum->id;
         $oContenido->nombreEsp      = $_POST['TxtNameEsp'];
@@ -165,7 +127,7 @@ function agregarItem()
         $oContenido->contenidoIng   = $_POST['TxtContIng'];
         $oContenido->urlGoogleMaps  = $_POST['TxtGoogleMaps'];
 
-        DAOFactory::getProductoDAO()->insert($oContenido);
+        DAOFactory::getContenidoDAO()->insert($oContenido);
         
         $transaction->commit();
 
@@ -200,15 +162,15 @@ function eliminarItem()
     global $NOTI_SUCCESS;
     
     if($_GET){
-        $IdProducto = $_GET['Id'];
-        DAOFactory::getContenidoDAO()->delete($IdProducto);
+        $IdContenido = $_GET['Id'];
+        DAOFactory::getContenidoDAO()->delete($IdContenido);
         notificacion("Contenido Eliminado",$NOTI_SUCCESS );
     }
     else{
         notificacion("Error Eliminando Contenido",$NOTI_ERROR );
     }
     
-    verItems();
+    verModulo();
     
     return "";
     
@@ -227,8 +189,15 @@ function verItems()
                     </thead>
                     <tbody>
                         <?php
-                        $_SESSION['idListaContenido'] = $_GET["idListaContenido"];
-                        $idListaContenido             = $_GET["idListaContenido"];
+                        $idListaContenido;
+                        if(isComandDelete()){
+                            $idListaContenido = $_SESSION['idListaContenido'];
+                        }
+                        else{
+                            $_SESSION['idListaContenido'] = $_GET["idListaContenido"];
+                            $idListaContenido             = $_GET["idListaContenido"];
+                        }
+                        
                         $tablaconsulta = DAOFactory::getContenidoDAO()->queryByIdLista($idListaContenido);
                         for($fila=0;$fila<count($tablaconsulta);$fila ++)
                         {
@@ -263,7 +232,13 @@ function verModulo()
 
 function verHeader()
 {
-    $idListaContenido  = $_GET["idListaContenido"];
+    $idListaContenido;
+    
+    if(isComandDelete())
+        $idListaContenido = $_SESSION['idListaContenido'];
+    else
+        $idListaContenido  = $_GET["idListaContenido"];
+    
     $objListaContenido = DAOFactory::getListaContenidoDAO()->load($idListaContenido);
 ?>
 

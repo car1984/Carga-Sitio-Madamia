@@ -23,36 +23,27 @@ ini_set("display_errors", $DISPLAY_ERROR);
                 $("#FrmProductos").validate({
 
                     rules: {
-                        cboCategoria:"required",
+                        cboTipoProducto:{ valueNotEquals: "-1" },
+                        cboSeccion:{ valueNotEquals: "-1" },
                         txtNomProEsp:"required",
-                        txtNomProIng:"required",
-                        txtPrecio: {
-                            required:true,
-                            minlength:3,
-                            maxlength:6,
-                            number:true
-                        },
-                        txtProdEsp:"required",
-                        txtProdIng:"required",
-                        imgproducto:"required"
+                        txtProdEsp:"required"
+
                     },
                     messages:{
-                        cboCategoria:"Debe seleccionar Categoria<br>",
-                        txtNomProEsp:"Se necesita nombre en Español<br>",
-                        txtNomProIng:"Se necesita nombre en Ingles<br>",
-                        txtPrecio:"Se necesita el precio<br>",
-                        txtProdEsp:"Se necesita la descripcion corta en Español<br>",
-                        txtProdIng:"Se necesita la descripcion corta en Ingles<br>",
-                        imgproducto:"Necesita una Imagen para Cargar<br>"
+                        cboTipoProducto:"Debe seleccionar el Tipo Producto<br>",
+                        cboSeccion:"Debe seleccionar la Sección<br>",
+                        txtNomProEsp:"Se necesita el nombre del Producto<br>",
+                        txtProdEsp:"Se necesita la descripcion corta del Producto<br>"
+                        
                     },
                     errorLabelContainer:$("#FrmProductos div.error")
                 });
                 
-            $("#FrmProductos").submit(function(){
-                parent.fancyBoxClose();
-            });
-
-
+                // add the rule here
+                $.validator.addMethod("valueNotEquals", function(value, element, arg){
+                  return arg != value;
+                 }, "Value must not equal arg.");
+                
         });
         
         
@@ -84,9 +75,15 @@ ini_set("display_errors", $DISPLAY_ERROR);
         
         
         function closeME() {
-            event.preventDefault();
-            parent.$.fancybox.close();
-            $('#FrmProductos').submit();
+            if ($("#FrmProductos").valid()){
+                event.preventDefault();
+                parent.$.fancybox.close();
+                $('#FrmProductos').submit();
+            }else{
+                
+                var div = document.getElementById('error');
+                div.style.visibility = 'visible';
+            }
         }
  
     </script>
@@ -137,6 +134,16 @@ ini_set("display_errors", $DISPLAY_ERROR);
                 <input type="hidden" value="<?php echo $producto->populate;?>" id="Populate" name="Populate" />
                 
                 <table id="tabla" cellpadding="0" cellspacing="0" width="100%" >
+                    <tr>
+                        <td colspan="2"><br />
+                            <div id="error" class="error" style="background-color: #ffc6ca;
+                                                                  border-color: #efb9c3;
+                                                                  border-style: solid solid solid solid;
+                                                                  border-width: 2px;
+                                                                  padding: 5px;
+                                                                  visibility:hidden;"></div>
+                        </td>
+                    </tr>
                     <tr>
                         <td width="50%"><label><br />
                         Tipo Producto:</label><br>
@@ -227,11 +234,6 @@ ini_set("display_errors", $DISPLAY_ERROR);
                             <button class="BtnGuardar" onclick="closeME();">
                                 <span></span>
                             </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <div class="error"></div>
                         </td>
                     </tr>
                 </table>

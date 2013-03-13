@@ -222,7 +222,7 @@ function eliminarItem()
         notificacion("Error Eliminando Producto",$NOTI_ERROR );
     }
     
-    verItems();
+    verModulo();
     
     return "";
     
@@ -241,8 +241,15 @@ function verItems()
                     </thead>
                     <tbody>
                         <?php
-                        $_SESSION['idTipoProducto'] = $_GET["idTipoProducto"];
-                        $idTipoProducto             = $_GET["idTipoProducto"];
+                        $idTipoProducto;
+                        if(isComandDelete()){
+                            $idTipoProducto = $_SESSION['idTipoProducto'];
+                        }
+                        else{
+                            $_SESSION['idTipoProducto'] = $_GET["idTipoProducto"];
+                            $idTipoProducto             = $_GET["idTipoProducto"];
+                        }
+                        
                         $tablaconsulta = DAOFactory::getProductoDAO()->queryByIdTipoProducto($idTipoProducto);
                         for($fila=0;$fila<count($tablaconsulta);$fila ++)
                         {
@@ -277,7 +284,12 @@ function verModulo()
 
 function verHeader()
 {
-    $idTipoProducto  = $_GET["idTipoProducto"];
+    $idTipoProducto;
+    if(isComandDelete())
+        $idTipoProducto = $_SESSION['idTipoProducto'];
+    else
+        $idTipoProducto = $_GET["idTipoProducto"];
+    
     $objTipoProducto = DAOFactory::getTipoProductoDAO()->load($idTipoProducto);
 ?>
 
