@@ -1,3 +1,9 @@
+/*******************************************************
+ *Fuentes MADAMIA
+ *******************************************************/
+@import url('madamiaFont.css');
+
+
 /* --------------------------------------------------------------
  * Style - nombre Header
  * -------------------------------------------------------------- */
@@ -17,7 +23,7 @@
 		width: 250px;
 		height:25px;
 	}
-
+		
 .tablaAdmin{
 	    text-decoration: none;
         color: #A94E7B;
@@ -54,6 +60,54 @@
 	left: 0px;*/
  }
  
+ /********************************************************************
+ /* FORMULARIOS ADMINISTRADOR
+ /********************************************************************/
+ 
+ input { 	
+		border: 2px solid #A94E7B; 
+		margin-bottom: .5em;
+		border-radius: 5px; 
+		width: 150px;
+		height: 25px; }
+
+ input.error { 
+		border: 2px solid red;
+		border-radius: 5px;
+		width: 150px;
+		height: 25px;  }
+
+ input.fecha { 
+		border: 2px solid #A94E7B;
+		border-radius: 5px;
+		width: 50px;
+		height: 25px;  }
+
+ input.fecha.error { 
+		border: 2px solid red;
+		border-radius: 5px;
+		width: 50px;
+		height: 25px;  }
+		
+
+ label {
+		font-size:16px;
+		font-family:Segoe UI;
+		color: #A94E7B }
+		
+ label.error {
+	 	font-size:16px;
+		font-family:Segoe UI;
+		padding-left: 16px;
+		margin-left: .3em;
+        color: red; }
+
+label.valid {
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
 #contenedor{
 margin:0 auto;/*para centrarlo el contenedor debe poseer este margen*/
 padding:0;

@@ -12,7 +12,7 @@
 
     <title>.:: Madamia Admin::.</title>
 
-<link rel="stylesheet" href="../resources/css/menu/style.css" type="text/css" />
+<link rel="stylesheet" href="../resources/css/madamiaMenu.css" type="text/css" />
 <link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
 
   <!-- Add jQuery library -->
@@ -50,11 +50,17 @@
         <td valign="top" height="20px">
             
             <ul id="menu">
-                <li><a target='adminContain' href="Contenido.php?idListaContenido=3&execute=open">Inicio</a></li>
+                <li>
+                    <a target='adminContain' href="Contenido.php?idListaContenido=3&execute=open">Inicio</a>
+                    <ul>
+                      <li><a target='adminContain' href="Contenido.php?idListaContenido=3&execute=open">Banner Principal</a></li>  
+                      <li><a target='adminContain' href="Registro.php?execute=open">Registros</a></li>
+                    </ul>
+                </li>
                 <li><a target='adminContain' href="productos.php?idTipoProducto=1&execute=open">Productos</a></li>
                 <li><a target='adminContain' href="productos.php?idTipoProducto=2&execute=open">Institucionales</a></li>
                 <li><a target='adminContain' href="productos.php?idTipoProducto=3&execute=open">Especiales</a></li>
-                <li><a target='adminContain' href="puntosVenta.php">Puntos Venta</a></li>
+                <li><a target='adminContain' href="Contenido.php?idListaContenido=2&execute=open"">Puntos Venta</a></li>
                 <li><a target='adminContain' href="Contenido.php?idListaContenido=1&execute=open">Madamia</a></li>
             </ul>
  

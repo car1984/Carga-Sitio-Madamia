@@ -3,7 +3,7 @@
  * Class that operate on table 'registro'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-03-04 20:00
+ * @date: 2013-03-16 20:04
  */
 class RegistroMySqlDAO implements RegistroDAO{
 
@@ -65,9 +65,9 @@ class RegistroMySqlDAO implements RegistroDAO{
 		$sqlQuery->set($registro->cedula);
 		$sqlQuery->set($registro->email);
 		$sqlQuery->set($registro->telefono);
-		$sqlQuery->setNumber($registro->dia);
-		$sqlQuery->setNumber($registro->mes);
-		$sqlQuery->setNumber($registro->ano);
+		$sqlQuery->set($registro->dia);
+		$sqlQuery->set($registro->mes);
+		$sqlQuery->set($registro->ano);
 
 		$id = $this->executeInsert($sqlQuery);	
 		$registro->id = $id;
@@ -88,9 +88,9 @@ class RegistroMySqlDAO implements RegistroDAO{
 		$sqlQuery->set($registro->cedula);
 		$sqlQuery->set($registro->email);
 		$sqlQuery->set($registro->telefono);
-		$sqlQuery->setNumber($registro->dia);
-		$sqlQuery->setNumber($registro->mes);
-		$sqlQuery->setNumber($registro->ano);
+		$sqlQuery->set($registro->dia);
+		$sqlQuery->set($registro->mes);
+		$sqlQuery->set($registro->ano);
 
 		$sqlQuery->setNumber($registro->id);
 		return $this->executeUpdate($sqlQuery);
@@ -143,21 +143,21 @@ class RegistroMySqlDAO implements RegistroDAO{
 	public function queryByDia($value){
 		$sql = 'SELECT * FROM registro WHERE dia = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
+		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
 	public function queryByMes($value){
 		$sql = 'SELECT * FROM registro WHERE mes = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
+		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
 	public function queryByAno($value){
 		$sql = 'SELECT * FROM registro WHERE ano = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
+		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
@@ -200,21 +200,21 @@ class RegistroMySqlDAO implements RegistroDAO{
 	public function deleteByDia($value){
 		$sql = 'DELETE FROM registro WHERE dia = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
+		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
 	public function deleteByMes($value){
 		$sql = 'DELETE FROM registro WHERE mes = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
+		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
 	public function deleteByAno($value){
 		$sql = 'DELETE FROM registro WHERE ano = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($value);
+		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
