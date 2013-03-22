@@ -193,7 +193,7 @@
  
         </td>
       </tr>
-      <tr height="630px">
+      <tr height="627px">
       <td valign="top" >    
 	
     <div class="capaLogo">
@@ -374,7 +374,7 @@
             </form>	 	
         </div>
 
-        
+        <div class="capaTituloNovedades"></div>
             
         <div class="slide-out-registrese">
     <div class="formRegistrese">
@@ -383,51 +383,57 @@
                 <br />
                 <table border="0" cellspacing="0">
                   <tr>
-                    <td>Nombre</td>
-                    <td>
-                    <input type="text"  name="txtNombre" />
+                    <td width="52">Nombre</td>
+                    <td width="129">
+                    <input type="text"  class="txtIngreso" name="txtNombre" />
                     </td>
                   </tr>
                   <tr>
-                    <td>Apellido</td>
+                    <td><br /> Apellido</td>
                     <td>
-                       <input type="text"  name="txtApellido" />
+                       <br /><input type="text" class="txtIngreso"  name="txtApellido" />
                     </td>
                   </tr>
                   <tr>
-                    <td>Cedula</td>
+                    <td><br />Cedula</td>
                     <td>
-                      <input type="text" name="txtCedula" />
+                      <br /><input type="text" class="txtIngreso" name="txtCedula" />
                     </td>
                   </tr>
                   <tr>
-                    <td>E-Mail</td>
+                    <td><br />E-Mail</td>
                     <td>
-                    <input type="text"  name="txtEmail" />
+                    <br /><input type="text"  class="txtIngreso" name="txtEmail" />
                     </td>
                   </tr>
                   <tr>
-                    <td>Telefono</td>
+                    <td><br />Telefono</td>
                     <td>
-                    <input type="text"  name="txtTelefono" />
+                    <br /><input type="text"  class="txtIngreso" name="txtTelefono" />
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="2">Fecha de Cumpleaños</td>
+                    <td colspan="2"><br />Fecha de Cumpleaños</td>
                   </tr>
                   <tr>
                     <td colspan="2" align="center" valign="top">
-                     <input type="text" class="txtFecha" name="txtDia" />
-              <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
-<input type="text" class="txtFecha" name="txtMes" />
-       <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
-              <input type="text" class="txtFecha" name="txtAnio" />
-                     <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
+
+                     <div id="contenedorFlecha">
+                     	<div style="float:left">
+                     	<input type="text" class="txtFecha" name="txtDia" /></div>
+						<div class="flecha"></div>
+                        <div style="float:left">
+						<input type="text" class="txtFecha" name="txtMes" /></div>
+						<div class="flecha"></div>
+                        <div style="float:left">
+              			<input type="text" class="txtFecha" name="txtAnio" /></div>
+                     <div class="flecha"></div>
+                  
+                  </div>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" valign="top" align="right">
-                    <br />
                      <input type="submit" name='BtnGuardar' class="botonContactenos" value="" title="" />   
                     </td>
                   </tr>
@@ -444,9 +450,10 @@
       <td valign="top"> 
 		<div class="fondoPie">
         	<div class="contenidoPie">
-            Oficinas y Planta de Producción: Telefono: 57-1 671 25 50 Calle 161 N 76-54 Bogotá, Colombia <br />
-            Servicio al cliente: <a href="mailto:info@madamia.com">E-Mail: info@madamia.com</a><br />
-            <a href="http://www.madamia.com">www.madamia.com</a>
+            Telefono: 7-1 671 – 25 50, Calle 161 N 76-54 <br /><br />
+            Bogotá, Colombia<br /><br />
+           <a href="mailto:info@madamia.com">  E-Mail: info@madamia.com</a>
+            
             </div>
 		</div>
         

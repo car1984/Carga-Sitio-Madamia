@@ -64,9 +64,9 @@ ini_set("display_errors", $DISPLAY_ERROR);
           newdiv.setAttribute('id',divIdName);
           
           strHTML = "<label>Nombre:</label>";
-          strHTML +="<input type='text' name='txtNomPrecio"+num+"' size='30' class='required ui-widget-content'>";
+          strHTML +="<input type='text' name='txtNomPrecio"+num+"' size='30' >";
           strHTML +="<label>Precio:</label>"
-          strHTML +="<input type='text' name='txtPrecio"+num+"' size='10' class='required ui-widget-content'>";
+          strHTML +="<input type='text' name='txtPrecio"+num+"' size='10' >";
           strHTML +='<a href=\'javascript:;\' onclick=\'removeElement('+divIdName+')\'>Borrar</a>';
           
           newdiv.innerHTML = strHTML; 
@@ -147,7 +147,7 @@ ini_set("display_errors", $DISPLAY_ERROR);
                     <tr>
                         <td width="50%"><label><br />
                         Tipo Producto:</label><br>
-                            <select name="cboTipoProducto" title="Seleccione Tipo Producto" id="cboTipoProducto" class="required ui-widget-content">
+                            <select name="cboTipoProducto" title="Seleccione Tipo Producto" id="cboTipoProducto" >
                                 
                                 <?php ComboTipoProducto($objTipoProducto->id); ?>
                             </select>
@@ -155,7 +155,7 @@ ini_set("display_errors", $DISPLAY_ERROR);
                         <td width="50%"><label><br />
                         Sección:</label> <br>
                             
-                            <select name="cboSeccion" title="Seleccione una Seccion" id="cboSeccion"  class="required ui-widget-content">
+                            <select name="cboSeccion" title="Seleccione una Seccion" id="cboSeccion" >
                                 <?php ComboSeccionTipoSeccion($producto->idSeccion,3);?>
                             </select>
                         
@@ -166,7 +166,7 @@ ini_set("display_errors", $DISPLAY_ERROR);
                             <input type="hidden" value="<?php echo $producto->idAlbum;?>" id="cboAlbum" name="cboAlbum" />
                             <label><br />
                             Nombre:</label><br>
-                            <input type="text" name="txtNomProEsp" size="50" value="<?php echo $producto->nombreEsp;?>" class="required ui-widget-content"><br>
+                            <input type="text" name="txtNomProEsp" size="50" value="<?php echo $producto->nombreEsp;?>" ><br>
                         </td>
                         <td ><label><br />
                         Top 10:</label><br>
@@ -185,10 +185,11 @@ ini_set("display_errors", $DISPLAY_ERROR);
                                 }
  
                             ?>
-                            <input type="radio" name="top10" id="top10" value="1" <?php echo $CHECKED_SI; ?> />
                             <label for="top10">Si</label>
-                            <input type="radio" name="top10" id="top10" value="0" <?php echo $CHECKED_NO; ?>/>
+                            <input type="radio" name="top10" id="top10" value="1" <?php echo $CHECKED_SI; ?> />
                             <label for="top10">No</label>
+                            <input type="radio" name="top10" id="top10" value="0" <?php echo $CHECKED_NO; ?>/>
+                            
       
                         </td>
                     </tr>

@@ -176,7 +176,7 @@
           </tr>
           <tr>
             <td width="215px" > 
-              <h4> Nombre</h4>
+              <div class ="textoformulario" >Nombre</div>
             </td>
             <td width="215px" > 
               <input type="text" class="txtContactenos" name="txtNombre" />
@@ -185,21 +185,21 @@
               <textarea id="txtarea" name="txtarea" rows="22" cols="40"  onblur="if(this.value=='') this.value='Escribanos su mensaje...';" onFocus="if(this.value=='Escribanos su mensaje...') this.value='';">Escribanos su mensaje...</textarea></td>
           <tr>
             <td > 
-              <h4>Apellido</h4>
+              <div class ="textoformulario" >Apellido</div>
             </td>
             <td > 
               <input type="text" class="txtContactenos" name="txtApellido" />
             </td>
            <tr>
             <td > 
-              <h4>Ciudad</h4>
+              <div class ="textoformulario" >Ciudad</div>
             </td>
             <td > 
               <input type="text" class="txtContactenos" name="txtCiudad" />
             </td>
            <tr>
             <td > 
-              <h4>Direccion</h4>
+              <div class ="textoformulario" >Direccion</div>
             </td>
             <td > 
               <input type="text" class="txtContactenos" name="txtDireccion" />
@@ -207,7 +207,7 @@
           </tr>
           <tr>
             <td > 
-              <h4>E-mail</h4>
+              <div class ="textoformulario" >E-mail</div>
             </td>
             <td > 
               <input type="text" class="txtContactenos" name="txtEmail" />
@@ -215,23 +215,31 @@
           </tr>
           <tr>
             <td > 
-              <h4>Telefono</h4>
+              <div class ="textoformulario" >Telefono</div>
             </td>
             <td > 
               <input type="text" class="txtContactenos" name="txtTelefono" />
             </td>
           </tr>
           <tr>
-            <td colspan ='2'><h4>Fecha de Cumpleaños</h4></td>
+            <td colspan ='2'>
+            <div class ="textoformulario" >Fecha de Cumpleaños</div>
+            </td>
           </tr>
           <tr>
             <td colspan ='2' align="center" valign="top">
-              <input type="text" class="txtFecha" name="txtDia" maxlength="2" />
-              <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
-              <input type="text" class="txtFecha" name="txtMes" maxlength="2"/>
-       <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
-              <input type="text" class="txtFecha" name="txtAnio" maxlength="2"/>
-                     <img src="../resources/img/LightBoxContactenos/Flecha-de-Multiseleccion.png" width="21" height="24" />
+                     <div id="contenedorFlecha">
+                     	<div style="float:left">
+                     	<input type="text" class="txtFecha" name="txtDia" /></div>
+						<div class="flecha"></div>
+                        <div style="float:left">
+						<input type="text" class="txtFecha" name="txtMes" /></div>
+						<div class="flecha"></div>
+                        <div style="float:left">
+              			<input type="text" class="txtFecha" name="txtAnio" /></div>
+                     <div class="flecha"></div>
+                  
+                  </div>
             </td>
           </tr>
           <tr >

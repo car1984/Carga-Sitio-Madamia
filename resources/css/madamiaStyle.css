@@ -50,9 +50,9 @@ h5{
 	margin: 0;
 	border: 0 none;
 	padding: 0;
-	background-image:url(../img/General/FondoTitulo.png);
-	width:284px;
-	height: 45px;
+	background-image:url(../img/General/FondoTituloColorMadamia.png);
+	width:384px;
+	height: 44px;
 	float:none;
 	top: 0px;
 }
@@ -93,17 +93,17 @@ h5{
 .fondoPie{
 	margin: 0;
 	border: 0 none;
-	background-image:url(../img/Home/FondoFooter.png);
-	width:1023px;
-	height: 88px;	
+	background-image:url(../img/Home/FondoLaterales.png);
+	width: 100%;
+	height: 100%;	
 }
 
 .contenidoPie{
 	padding: 10px 15px 15px 15px;
-	font-size:16px;
-	font-family:Segoe UI Bold;
+	font-size:14px;
+	font-family:Segoe UI;
 	text-align: center;
-	color:#8E1550;
+	color:#FFF;
 }
 
 .logoMadamia{
@@ -138,13 +138,33 @@ h5{
 		-moz-opacity: 0.9;
 		filter:alpha(opacity=90);
 		background-image: url(../img/Home/Fondo_click_de_Productos_Institucionales_Especiales.png);
+		z-index: 10;
 		
     }
+
+ .flecha{
+		width: 24px;
+		height:24px;
+		border: none;
+		opacity: 0.9;
+		background:url(../img/LightBoxContactenos/Flecha-de-Multiseleccion.png) no-repeat;
+		float	: left;
+		
+    }
+#contenedorFlecha{
+	margin:0 auto;
+	padding:0;
+	width:160px;
+	text-align:center;
+	height:auto;
+	background:transparent;
+}
 .formRegistrese{
 	color:#000;
 	padding: 10px 10px 10px 10px;
 	font-size:16px;
 	font-family:Segoe UI;
+	z-index: 10;
 }
 
 .capaRedesSociales{
@@ -171,7 +191,7 @@ h5{
 	position: absolute;
 	width	: 370px;
 	height	: 157px;
-	top		: 180px;
+	top		: 140px;
 	left	: 620px;
 	z-index	: 0;
 	background-image: url(../img/Home/SloganSolo.png);
@@ -183,6 +203,26 @@ h5{
     height: 21px;
 	border-color:transparent
     }
+	
+
+input.txtRegistro{
+	background:url(../img/Home/registroCampo.png) no-repeat;
+	width: 120px;
+	height: 20px;
+	padding: 2px;
+	border: none;
+	}
+
+.capaTituloNovedades{
+	margin	: 0;
+	border	: 0 none;
+	position: absolute;
+	top		: 270px;
+	left	: 670px;
+	width 	: 411px;
+	height	: 182px;	
+	background-image:url(../img/Home/TituloNovedades.png);
+}
 	
 	
 /****************************** HOME PRODUCTOS ***********************************/
@@ -203,19 +243,20 @@ h5{
 	
 input.txtIngreso{
 	background: url(../img/Home/ingresoCampo.png) no-repeat;
-	width: 100px;
-	height: 19px;
-	padding: 2px;
+	width: 95px;
+	height: 12px;
+	padding: 3px;
 	border: none;
 	}
 /******************************** PRODUCTOS **************************************/
 
 .textoDescripcion{
-	/*         a    d   i     c  */
-	padding: 5px 15px 15px 15px;
-	font-size:14px;
-	font-family:Segoe UI;
-	text-align: justify;
+	/*         		a    d   a     i  */
+	padding		: 20px 25px 20px 25px;
+	font-size	: 12px;
+	font-family	: Segoe UI;
+	text-align	: justify;
+	color		: #8E1550;
 }
 
 .textoDescripcionProducto{
@@ -293,12 +334,42 @@ input.txtIngreso{
 	position: absolute;
 	width: 353px;
 	height:494px;
-	top: 60px;
+	top: 110px;
 	left: 562px;
 	z-index: 1;
 	background-image: url(../img/LightBoxMadamia/Marco-Contenidos.png);
 }
 
+.capaTituloMadamia{
+	position	: absolute;
+	width		: 353px;
+	height		: 54px;
+	top			: 70px;
+	left		: 562px;
+	text-align	: right;
+	vertical-align:bottom;
+	z-index		: 1;
+}
+
+.textoTituloMadamia{
+	color       : #8E1550;
+	font-size   : 24px;
+	font-family : Segoe;	
+}
+
+.textoTituloMision{
+	color       : #4FA5D5;
+	font-size   : 24px;
+	font-family : Segoe;
+}
+
+.textoTituloVision{
+	color       : #F02A89;
+	font-size   : 24px;
+	font-family : Segoe;
+}
+	
+	
 .capaNavegacionMadamia{
 	position: absolute;
 	width: 180px;
@@ -331,10 +402,10 @@ input.txtIngreso{
 /******************************** TRABAJE CON NOSOTROS ***********************************/
 
 .textoformulario{
-	color:#000;
-	padding: 15px 15px 15px 20px;
-	font-size:16px;
-	font-family:Verdana, Geneva, sans-serif;
+	color		: #8E1550;
+	padding		: 15px 15px 15px 20px;
+	font-size	: 16px;
+	font-family : Segoe UI;
 	
 	}
 input.txtFechas{
@@ -343,6 +414,7 @@ input.txtFechas{
 		height: 10px;
 		padding: 10px;
 		border: none;
+		float:left;
 		}
 		
 /******************************** CONTACTENOS **************************************/
@@ -485,4 +557,3 @@ textarea{
 .caption a:hover, .caption a:hover {
      background:#202020;
 }
-

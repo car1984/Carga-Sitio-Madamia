@@ -90,7 +90,7 @@ if($_GET)
                 float:none;
                 top: 0px;"> 
 
-    <table width="960px" border="0" cellpadding="0" cellspacing="0" align="center">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
             <td valign="top" > 
 <table border="0" cellpadding="0" cellspacing="0">
@@ -114,21 +114,19 @@ if($_GET)
   </tr>
 </table>
 
-      <div style = "margin: 0; 
-               border: 0 none; 
-               padding: 0;
-               background-image: url(<?PHP echo $listaFotos[1]->imagen; ?>);
-               width:195px; 
-               height: 44px;
-               float:left;
-               position: absolute; 
-               top: 40px;
-			   left: 0px;" >
-                    <?php 
-                      echo "<div class='textoTitulo'>".Idioma($contenido->nombreEsp, $contenido->nombreIng)."</div>";
-                    ?>
+    			<div class="fondoTituloLigthBox">
+                	<div class="textoTitulo">
+                    Madamia
+                    </div>
                 </div>
-                <div class="capaTextoMadamia">
+                
+                <div class="capaTituloMadamia">
+            	<?php 
+                  echo Idioma($contenido->nombreEsp, $contenido->nombreIng);
+                 ?>
+                </div>
+                
+          <div class="capaTextoMadamia">
                 	<div class="textoDescripcion">
                 	
                 <?php 
