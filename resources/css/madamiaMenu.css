@@ -75,13 +75,13 @@ ul#menu ul li {
 
 /* Root Menu */
 ul#menu a {
-  padding: 4px 13px 5px;/*10px 7px 3px 7px;*/
+  padding: 4px 14px 3px;/*10px 7px 3px 7px;*/
   float: none !important; /*For Opera*/
   float: left; /*For IE*/
   display: block;
   color: #A94E7B;
-  font-family:Segoe;
-  font-size:15px;
+  font-family	:Segoe Bold;
+  font-size	:16px;
   border-right:2px solid #8E1550;
   text-decoration: none;
   height: auto !important;
@@ -92,9 +92,9 @@ ul#menu a {
 ul#menu a:hover,
 ul#menu li:hover a,
 ul#menu li.iehover a {
-	color: #8E1550;
-	font-family:Segoe;
-    font-size:15px;
+	color		: #8E1550;
+	font-family	: Segoe Bold;
+    font-size	: 16px;
 }
 
 /* 2nd Menu */

@@ -234,6 +234,21 @@
         return "";
     }
     
+    function ComboGenericoValor($tablaconsulta,$id)
+    {
+        echo '<option value="-1">--Seleccionar--</option>';
+        
+        for($fila=0;$fila<count($tablaconsulta);$fila ++)
+        {
+            $row = $tablaconsulta[$fila];
+            
+            if ($row->id==$id) 
+                echo "<option class='impar' value='".$row->valor."' SELECTED >".$row->nombre."</option>";
+            else 
+                echo "<option class='impar' value='".$row->valor."'>".$row->nombre."</option>";
+        }
+        return "";
+    }
     
     // --------------------------------------------------------------------
     // Funciones Generales del Sistema
@@ -400,6 +415,12 @@
         $tablaconsulta = DAOFactory::getPrecioProductoDAO()->queryByIdProducto($id);
         ComboGenerico($tablaconsulta,$id);   
     }
+    
+    function ComboPrecioProducto_valor($id){
+        $tablaconsulta = DAOFactory::getPrecioProductoDAO()->queryByIdProducto($id);
+        ComboGenericoValor($tablaconsulta,$id);   
+    }
+    
    
     
 ?>

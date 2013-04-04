@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
 
-<link rel="stylesheet" href="../resources/plugins/Carousel/Slides/examples/Linking/css/global.css"/>
+<link rel="stylesheet" href="../resources/css/madamiaCarousel.css" type="text/css" />
 	
 <script src="../resources/js/jquery-1.8.2.min.js"></script>
 <script src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js"></script>
@@ -24,9 +24,9 @@
                         startSlide = window.location.hash.replace('#','');
                 }
                 // Initialize Slides
-                $('#slides').slides({
+                $('#slides_carousel_productos').slides({
                         preload: true,
-                        preloadImage: 'img/loading.gif',
+                        preloadImage: '../resources/img/General/loading.gif',
                         generatePagination: true,
                         play: 5000,
                         pause: 2500,
@@ -39,6 +39,13 @@
                         }
                 });
         });
+        
+        function jsEventChangePrecio(){
+            var myselect = document.getElementById("selPrecios");            
+            var myDiv = document.getElementById('valorPrecio');
+            myDiv.innerHTML = myselect.options[myselect.selectedIndex].value;
+        }
+        
 </script>
 </head>
 <body> 
@@ -95,7 +102,7 @@
                       
                  ?> 
 
-                <div class="fondoTituloTortas">
+                <div class="fondoTituloLigthBox">
                     <?php 
                     if($isSeccion)
                        echo "<div class='textoTitulo'>".Idioma($seccion->tituloEsp, $seccion->tituloEng)."</div>";  
@@ -104,9 +111,9 @@
                     ?>
                 </div>
                 
-                <div id="container">
+                <div id="container_carousel_productos">
                     <div id="example">
-                        <div id="slides">
+                        <div id="slides_carousel_productos">
                             <div class="slides_container">
                                 
                                     
@@ -126,7 +133,7 @@
                                         $tmpPathImg =$fotos[$i]->imagen;
 
                                         echo "<div class='slide'>";
-                                        echo "<img  height='250px' height='250px'src='".$tmpPathImg."'/>";
+                                        echo "<img width='350px' height='350px'src='".$tmpPathImg."'/>";
                                         echo "</div>";
                                 }
                              }                
@@ -162,6 +169,17 @@
             </td>
           </tr>
     </table>
+    <div class="contenedor-valor" id="valorPrecio"> </div>
+    <div id="contenedor-select" class="contenedor-select">
+             <select name="selPrecios" id="selPrecios" onChange="jsEventChangePrecio()">
+            	<?php ComboPrecioProducto_valor($producto->id); ?>
+            </select>
+        
+     <div>
+         <br></br>
+     
+      
+
 </div>
 
 </body>

@@ -11,9 +11,15 @@
 
 <link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
 
+<link rel="stylesheet" href="../resources/css/madamiaCarousel.css" type="text/css" />
+
 <script type="text/javascript" src="../resources/plugins/Carousel/jquery.jcarousel/js/jquery-1.6.2.js"></script>
 <script type="text/javascript" src="../resources/plugins/Carousel/jquery.jcarousel/js/jquery.jcarousel.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/plugins/Carousel/jquery.jcarousel/css/tango/skinProductos.css" />
+
+
+<!-- jQuery Slides -->
+<script type="text/javascript" src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js" ></script>
 
 <script type="text/javascript" >
 
@@ -26,6 +32,37 @@
 	});
 	
 </script>
+
+
+<script type="text/javascript" >
+       $(function(){
+                // Set starting slide to 1
+                var startSlide = 1;
+                
+                // Get slide number if it exists
+                if (window.location.hash) {
+                        startSlide = window.location.hash.replace('#',''			                );
+                }
+                
+                // Initialize Slides
+                $('#slides_puntos_venta').slides({
+                        preload: true,
+                        preloadImage: '../resources/img/General/loading.gif',
+                        generatePagination: false,
+                        play: 5000,
+                        pause: 2500,
+                        hoverPause: false,
+                        // Get the starting slide
+                        start: startSlide,
+                        animationComplete: function(current){
+                                // Set the slide number as a hash
+                                window.location.hash = '#' + current;
+                        }
+                });
+ 
+        });
+</script>
+
 </head>
 <body>
 
@@ -62,7 +99,7 @@ if($_GET)
 }
 
 ?>
-<div class="fondoLigthBox">
+<div class="fondoPuntosVenta">
     <table width="960px" border="0"  cellpadding="0" cellspacing="0"  align="center">
     <tr >
             <td colspan ='2' valign="top"> 
@@ -71,8 +108,8 @@ if($_GET)
           		</div>
             </td>
           </tr>
-          <tr >
-          	<td valign="top" >
+          <tr height="400px">
+          	<td height="478" valign="top" >
             <br /><br /><br />
             <div class="capaTituloMapa">
                 <?php
@@ -84,13 +121,11 @@ if($_GET)
             	<div class="capaMapa">
                 <?php
                    echo $objContenido->urlGoogleMaps;
-                ?>
-                </div>
+                ?></div>
             </div>
             </td>
             <td  valign="top" align="right">
-                 <div class="capaMarcoPuntoVenta">
-                  </div>
+                 
             </td>
           </tr>
           <tr>
@@ -125,6 +160,33 @@ if($_GET)
                     ?>
             </ul>
             </div>
+           
+           <div id="container_puntos_venta">
+            	<div id="slides_puntos_venta">
+                	<div class="slides_container">
+
+                    <?php
+
+                           $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($objContenido->albumId);
+
+                           for ($i=0;$i<count($listaFotos);$i++)
+                           {
+
+                               $tmpPathImg =$listaFotos[0]->imagen;
+
+                               echo "<div >";
+                               echo "<img  width='475px' height='475px' src='".$tmpPathImg."'/>";         
+                               echo "</div>";
+
+
+                           }
+						   
+					?>
+
+              </div>  
+		  </div>
+       </div>
+          
             </td>
           </tr>
  

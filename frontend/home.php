@@ -33,7 +33,7 @@
 <!-- Estilos Madamia -->
 <link rel="stylesheet" type="text/css" href="../resources/css/madamiaMenu.css" />
 <link rel="stylesheet" type="text/css" href="../resources/css/madamiaStyle.css" />
-<link rel="stylesheet" type="text/css" href="../resources/plugins/Carousel/Slides/examples/Linking/css/carouselHome.css"/>
+<link rel="stylesheet" href="../resources/css/madamiaCarousel.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../resources/plugins/Treeview/jquery.treeview/jquery.treeview.css" />
 <link rel="stylesheet" type="text/css" href="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.css" media="screen" />
  
@@ -68,7 +68,7 @@
                 // Initialize Slides
                 $('#slides_productos').slides({
                         preload: true,
-                        preloadImage: 'img/loading.gif',
+                        preloadImage: '../resources/img/General/loading.gif',
                         generatePagination: false,
                         play: 5000,
                         pause: 2500,
@@ -99,7 +99,7 @@
                    // Initialize Slides
                 $('#slides_novedades').slides({
                         preload: true,
-                        preloadImage: 'img/loading.gif',
+                        preloadImage: '../resources/img/General/loading.gif',
                         generatePagination: false,
                         play: 5000,
                         pause: 2500,
@@ -197,6 +197,8 @@
       <td valign="top" >    
 	
     <div class="capaLogo">
+    </div>
+    <div class="logoMadamia">
     </div>
     
     <div id="container_productos_over">
@@ -374,7 +376,9 @@
             </form>	 	
         </div>
 
-        <div class="capaTituloNovedades"></div>
+        <div class="capaTituloNovedades">
+        <img src="../resources/img/Home/TituloNovedades.png" width="341" height="112" />
+        </div>
             
         <div class="slide-out-registrese">
     <div class="formRegistrese">
@@ -450,12 +454,27 @@
       <td valign="top"> 
 		<div class="fondoPie">
         	<div class="contenidoPie">
-            Telefono: 7-1 671 – 25 50, Calle 161 N 76-54 <br /><br />
-            Bogotá, Colombia<br /><br />
-           <a href="mailto:info@madamia.com">  E-Mail: info@madamia.com</a>
+            	<div class="textoPie">
+            	Telefono: 7-1 671 – 25 50, Calle 161 N 76-54
+            	</div>
+            	<div class="textoPie">
+            	Bogotá, Colombia
+                </div>
+                <div class="textoPie">
+           		<a href="mailto:info@madamia.com">  E-Mail: info@madamia.com</a>
+                </div>
+                <div class="textoPie">
+                </div>
+                <div class="textoPie">
+                </div>
+                <div class="textoPie">
+                </div>
+                <div class="textoPie">
+                </div>
+           </div>
             
-            </div>
-		</div>
+         </div>
+		
         
         </td>
       </tr>

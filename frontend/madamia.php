@@ -3,6 +3,33 @@
 	
     ini_set("display_errors", $DISPLAY_ERROR);
     
+    $urlTituloMI = "../resources/img/LightBoxMadamia/FondoTituloMision.png";
+    $urlTituloMA = "../resources/img/LightBoxMadamia/FondoTituloMadamia.png";
+    $urlTituloVI = "../resources/img/LightBoxMadamia/FondoTituloVision.png";
+    
+    $urlFondoMI = "../resources/img/LightBoxMadamia/FondoMision.png";
+    $urlFondoMA = "../resources/img/LightBoxMadamia/FondoMadamia.png";
+    $urlFondoVI = "../resources/img/LightBoxMadamia/FondoVision.png";
+    
+    $urlFondo  = $urlFondoMA;
+    $urlTitulo = $urlTituloMA;
+    
+    if (isset ($_GET["token"]))
+    {
+        if ($_GET["token"]=="MI"){
+           $urlFondo  = $urlFondoMI;
+           $urlTitulo = $urlTituloMI;
+        }
+        else if ($_GET["token"]=="VI"){
+           $urlFondo  = $urlFondoVI;
+           $urlTitulo = $urlTituloVI;
+        }
+        else {
+           $urlFondo  = $urlFondoMA;
+           $urlTitulo = $urlTituloMA;
+        }
+    }
+    
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +38,7 @@
 
 <link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
 
-<link rel="stylesheet" href="../resources/plugins/Carousel/Slides/examples/Linking/css/global.css" />
+<link rel="stylesheet" href="../resources/css/madamiaCarousel.css" type="text/css" />
 	
 <script src="../resources/js/jquery-1.8.2.min.js"></script>
 	<script src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js"></script>
@@ -24,13 +51,13 @@
 				startSlide = window.location.hash.replace('#','');
 			}
 			// Initialize Slides
-			$('#slides').slides({
+			$('#slides_madamia').slides({
 				preload: true,
-				preloadImage: 'img/loading.gif',
-				generatePagination: true,
+				preloadImage: '../resources/img/General/loading.gif',
+				generatePagination: false,
 				play: 5000,
 				pause: 2500,
-				hoverPause: true,
+				hoverPause: false,
 				// Get the starting slide
 				start: startSlide,
 				animationComplete: function(current){
@@ -75,16 +102,16 @@ if($_GET)
 	
     $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($contenido->albumId); 
 
-    $aMadamia = 'madamia.php?IdContenido='.$contenidos[0]->id;
-    $aMision  = 'madamia.php?IdContenido='.$contenidos[1]->id;
-    $aVision  = 'madamia.php?IdContenido='.$contenidos[2]->id;
+    $aMadamia = 'madamia.php?IdContenido='.$contenidos[0]->id.'&token=MA';
+    $aMision  = 'madamia.php?IdContenido='.$contenidos[1]->id.'&token=MI';
+    $aVision  = 'madamia.php?IdContenido='.$contenidos[2]->id.'&token=VI';
 ?>
 
 
 <div style = "	margin: 0;
                 border: 0 none;
                 padding: 0;
-                background-image:url(<?PHP echo $listaFotos[0]->imagen; ?>);
+                background-image:url(<?PHP echo $urlFondo;?>);
                 width:975px;
                 height: 680px;
                 float:none;
@@ -113,11 +140,20 @@ if($_GET)
     </td>
   </tr>
 </table>
-
-    			<div class="fondoTituloLigthBox">
-                	<div class="textoTitulo">
-                    Madamia
+            <div style="
+                margin: 0;
+                border: 0 none;
+                padding: 0;
+                background-image:url(<?PHP echo $urlTitulo; ?>);
+                width:195px;
+                height: 44px;
+                float:none;
+                top: 0px;">
+                
+                    <div class="textoTitulo">
+                        Madamia
                     </div>
+                    
                 </div>
                 
                 <div class="capaTituloMadamia">
@@ -135,7 +171,32 @@ if($_GET)
                  ?>
                	  </div> 
               </div>
-                
+              
+               <div id="container_madamia">
+                    <div id="slides_madamia">
+                        <div class="slides_container">
+
+                    <?php
+
+                           $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($contenido->albumId);
+
+                           for ($i=0;$i<count($listaFotos);$i++)
+                           {
+
+                               $tmpPathImg =$listaFotos[0]->imagen;
+
+                               echo "<div >";
+                               echo "<img  width='535px' height='535px' src='".$tmpPathImg."'/>";         
+                               echo "</div>";
+
+
+                           }
+						   
+                    ?>
+
+                        </div>  
+		   </div>
+                </div>  
                 
                
             </td>

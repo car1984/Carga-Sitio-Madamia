@@ -173,15 +173,15 @@
 }
 
 /************************************************************
- * BANNER PUNTOS VENTA
+ * PUNTOS VENTA
  *************************************************************/
  
  #container_puntos_venta{
-	width	: 460px;
-	height	: 460px;
+	width	: 475px;
+	height	: 475px;
 	position: absolute;
 	top		: 45px;
-	left	: 485px;
+	left	: 500px;
 	z-index	: -1;
 }
 
@@ -192,8 +192,8 @@
 	Set to display none, prevents content flash
 */
 #slides_puntos_venta .slides_container {
-	width	: 460px;
-	height	: 460px;
+	width	: 475px;
+	height	: 475px;
 	display : none;
 }
 
@@ -206,7 +206,210 @@
 */
 
 #slides_puntos_venta .slides_container div {
-	width	: 460px;
-	height	: 460px;
+	width	: 475px;
+	height	: 475px;
 	display	: block;
+}
+
+/************************************************************
+ * MADAMIA
+ *************************************************************/
+ 
+ #container_madamia{
+	width	: 535px;
+	height	: 535px;
+	position: absolute;
+	top		: 75px;
+	left	: 0px;
+	z-index	: -1;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#slides_madamia .slides_container {
+	width	: 535px;
+	height	: 535px;
+	display : none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_madamia .slides_container div {
+	width	: 535px;
+	height	: 535px;
+	display	: block;
+}
+
+/************************************************************
+ * PRODUCTOS
+ *************************************************************/
+ 
+#container_carousel_productos {
+	position: absolute;
+	width	: 380px;
+	height	: 380px;
+	top		: 0px;
+	left	: 550px;
+	margin	: 0 auto;
+	z-index	: 0;
+}
+
+#frame {
+	position:absolute;
+	z-index:0;
+	width:639px;
+	height:521px;
+	top:-3px;
+	left:-80px;
+}
+
+#example {
+	width	: 380px;
+	height	: 380px;
+	position:relative;
+}
+
+/*
+	Slideshow style
+*/
+
+#slides_carousel_productos {
+	position:absolute;
+	top:15px;
+	left:4px;
+	z-index:100;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	If height not specified height will be set by the slide content
+	Set to display none, prevents content flash
+*/
+
+#slides_carousel_productos .slides_container {
+	width	: 380px;
+	height	: 380px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	Offeset for the 20px of padding
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_carousel_productos .slide {
+	padding:20px;
+	width	: 380px;
+	height	: 380px;
+	display:block;
+}
+
+/*
+	Next/prev buttons
+*/
+#slides_carousel_productos .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides_carousel_productos .next {
+	left:485px;
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	margin:26px auto 0;
+	width:50px;
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(../img/General/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+/*
+	Footer
+*/
+
+#footer {
+	text-align:center;
+	width:480px;
+	margin-top:9px;
+	padding:4.5px 0 18px;
+	border-top:1px solid #dfdfdf;
+}
+
+#footer p {
+	margin:4.5px 0;
+	font-size:1.0em;
+}
+
+/*
+	Type and anchors
+*/
+
+a:link,a:visited {
+	color:#599100;
+	text-decoration:none;
+}
+
+a:hover,a:active {
+	color:#599100;
+	text-decoration:underline;
+}
+
+h1 {
+	font-size:2em;
+}
+
+p {
+	font-size:1.3em;
+}
+
+#slides_carousel_productos .link {
+	display:block;
+	margin-top:10px;
+	font-weight:800;
 }

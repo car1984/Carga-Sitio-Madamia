@@ -11,7 +11,7 @@
  
 body{
 	padding:0;
-	margin:0;  
+	margin:0;
 }
 
 h3{
@@ -35,11 +35,68 @@ h5{
 	font-family:Verdana, Geneva, sans-serif;
 }
 
+/*
+select{
+	font-family: Georgia;
+	font-size: 16px;
+	color: #f6f6f6;
+	background-color:#00C1E1;
+	border: 0 none;
+	padding: 5px;
+}
+
+option{ background-color: #00C1E1}
+*/
+
+select {font-family: Segoe UI; 
+		font-size: 14px; 
+		color: #f6f6f6; 
+		background-color: transparent; 
+		border: 0 none; 
+		padding: 1px; 
+		width: 168px; 
+		height: 25px;
+		-webkit-appearance: none;
+		overflow:hidden;
+    	width: 120%;
+		} 
+
+.contenedor-select { width: 168px; 
+					height: 25px; 
+					overflow: hidden; 
+					background: url(../img/LightBoxProductos/Fondo-Calculador-de-precios.png) no-repeat right center #999999;
+					position: absolute;
+					top: 47px;
+					left: 10px; 
+}
+
+.contenedor-valor{
+	font-family: Segoe UI; 
+	font-size: 18px;
+	position: absolute;
+	width: 100px;
+	height:25px;
+	top: 47px;
+	left: 190px;
+	
+}
+
 .fondoLigthBox{
 	margin: 0;
 	border: 0 none;
 	padding: 0;
-	background-image:url(../img/General/Fondo.png);
+	background-image:url(../img/General/FondoContactenos.png);
+	width:975px;
+	height: 680px;
+	float:none;
+	top: 0px;
+}
+
+.fondoPuntosVenta{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	background-image:url(../img/LightBoxPuntosVenta/FondoPuntosVenta.png);
 	width:975px;
 	height: 680px;
 	float:none;
@@ -100,6 +157,10 @@ h5{
 
 .contenidoPie{
 	padding: 10px 15px 15px 15px;
+}
+
+.textoPie{
+	padding: 3px 3px 3px 3px;
 	font-size:14px;
 	font-family:Segoe UI;
 	text-align: center;
@@ -114,8 +175,9 @@ h5{
 	background-repeat: no-repeat;
 	width:315px;
 	height: 88px;
-	float:none;
-	top: 0px;
+	position: absolute;
+	top  	: 65px;
+	left	: 15px
 }
 
 .marcoAzul{
@@ -191,8 +253,8 @@ h5{
 	position: absolute;
 	width	: 370px;
 	height	: 157px;
-	top		: 140px;
-	left	: 620px;
+	top		: 155px;
+	left	: 610px;
 	z-index	: 0;
 	background-image: url(../img/Home/SloganSolo.png);
 	}
@@ -217,11 +279,10 @@ input.txtRegistro{
 	margin	: 0;
 	border	: 0 none;
 	position: absolute;
-	top		: 270px;
-	left	: 670px;
-	width 	: 411px;
-	height	: 182px;	
-	background-image:url(../img/Home/TituloNovedades.png);
+	top		: 290px;
+	left	: 720px;
+	width 	: 341px;
+	height	: 112px;	
 }
 	
 	
@@ -261,19 +322,20 @@ input.txtIngreso{
 
 .textoDescripcionProducto{
 	/*         	  a   d   i   c  */
-	padding		: 0px 5px 5px 5px;
-	font-size	: 14px;
+	padding		: 15px 10px 5px 10px;
+	font-size	: 12px;
 	font-family	: Segoe UI;
 	text-align	: justify;
+	color		: #8E1550;
 	overflow	: scroll;
-	width		: 245px;
-	height		: 80px;
+	width		: 235px;
+	height		: 55px;
 }
 .fondoProductos{
 	margin: 0;
 	border: 0 none;
 	padding: 0;
-	background-image:url(../img/LightBoxProductos/FondoProductos.png);
+	background-image:url(../img/LightBoxProductos/FondoProductos2.png);
 	width:970px;
 	height: 440px;
 	float:none;
@@ -304,12 +366,13 @@ input.txtIngreso{
 
 .capaTextoProductos{
 	position: absolute;
-	width: 251px;
+	width: 261px;
 	height:88px;
 	top: 330px;
 	left: 252px;
 	z-index: 1;
-	background-image: url(../img/LightBoxProductos/FondoTextoInformacion.png);
+	background-image: url(../img/LightBoxProductos/FondoContenido.png);
+	text-align: center;
 }
 
 .capaSeccionProductos{
