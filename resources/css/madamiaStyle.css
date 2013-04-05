@@ -322,12 +322,11 @@ input.txtIngreso{
 
 .textoDescripcionProducto{
 	/*         	  a   d   i   c  */
-	padding		: 15px 10px 5px 10px;
-	font-size	: 12px;
+	padding		: 0px 5px 5px 10px;
+	font-size	: 11px;
 	font-family	: Segoe UI;
 	text-align	: justify;
 	color		: #8E1550;
-	overflow	: scroll;
 	width		: 235px;
 	height		: 55px;
 }
@@ -558,12 +557,12 @@ textarea{
  
 .capaTituloMapa{
 	color:#B21F68;
-	font-size:16px;
-	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	font-family:Segoe UI;
 	margin: 0;
 	border: 0 none;
 	padding: 80px 0px 0px 15px;
-	width:200px;
+	width:300px;
 	height: 80px;
 	float:none;
 	top: 0px;

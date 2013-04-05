@@ -15,6 +15,7 @@
 
 <script type="text/javascript" src="../resources/plugins/Carousel/jquery.jcarousel/js/jquery-1.6.2.js"></script>
 <script type="text/javascript" src="../resources/plugins/Carousel/jquery.jcarousel/js/jquery.jcarousel.js"></script>
+<script type="text/javascript" src="../resources/plugins/Carousel/jquery.jcarousel/js/captify.tiny.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/plugins/Carousel/jquery.jcarousel/css/tango/skinProductos.css" />
 
 
@@ -29,6 +30,31 @@
               wrap: 'circular',
               visible: 5
             });
+	});
+	
+	//Captify
+	$(document).ready(function(){
+		$('img.captify').captify({
+		// all of these options are... optional
+		// speed of the mouseover effect
+		speedOver: 'fast',
+		// speed of the mouseout effect
+		speedOut: 'normal',
+		// how long to delay the hiding of the caption after mouseout (ms)
+		hideDelay: 500,
+		// 'fade', 'slide', 'always-on'
+		animation: 'slide',
+		// text/html to be placed at the beginning of every caption
+		prefix: '',
+		// opacity of the caption on mouse over
+		opacity: '0.7',
+		// the name of the CSS class to apply to the caption box
+		className: 'caption-bottom',
+		// position of the caption (top or bottom)
+		position: 'bottom',
+		// caption span % of the image
+		spanWidth: '100%'
+		});
 	});
 	
 </script>
@@ -148,9 +174,8 @@ if($_GET)
                             $url = 'puntosVenta.php?IdSeccion='.$IdSeccion.'&IdContenido='.$contenidos[$i]->id;
                             
                             echo "<li>";
-                            //echo $productos[$i]->nombreEsp;
                             echo "<a href='".$url."'>";
-                            echo "<img width='120' height='120' src='".$fotos[0]->imagen."' id='".$fotos[0]->id."' />";
+                            echo "<img width='120' height='120' src='".$fotos[0]->imagen."' id='".$fotos[0]->id."' alt='".$contenidos[$i]->nombreEsp."' class='captify'/>";
                             echo "</a>";
 							
                             echo "</li>";

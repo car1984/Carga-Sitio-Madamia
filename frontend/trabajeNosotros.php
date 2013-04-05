@@ -194,7 +194,7 @@
             <td ><input type="text" class="txtContactenos" name="txtTiempo" /></td>
            <tr>
             <td > 
-              <div class ="textoformulario" >Fecha deNacto</div>
+              <div class ="textoformulario" >Fecha de Nacimiento</div>
             </td>
             <td >
             <input type="text" class="txtFechas" name="txtDia" />

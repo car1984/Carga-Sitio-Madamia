@@ -4,8 +4,8 @@ require_once('funciones.php');
 
 ini_set("display_errors", $DISPLAY_ERROR);
 
-
 Cabecera('Fotos');
+
 ?>
 <script type="text/javascript">
     $().ready(function() {
@@ -409,6 +409,7 @@ function verModulo()
     verItems();
     verFormulario();
     echo "</div>";
+    pie(); 
 }
 
 
@@ -427,4 +428,3 @@ function eliminarItem()
     verModulo();
 }
 ?>
-

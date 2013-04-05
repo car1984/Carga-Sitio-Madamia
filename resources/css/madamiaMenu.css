@@ -43,7 +43,7 @@ ul#menu  ul {
   margin: 0;
   border: 0 none;
   padding: 0;
-  width: 160px;
+  width: 185px;
   list-style: none;
   display: none;
   position: absolute;
@@ -67,7 +67,7 @@ ul#menu ul:after /*From IE 7 lack of compliance*/{
 }
 
 ul#menu ul li {
-  width: 160px;
+  width: 185px;
   float: left; /*For IE 7 lack of compliance*/
   display: block !important;
   display: inline; /*For IE*/
@@ -154,7 +154,7 @@ ul#menu ul ul ul {
   display: none;
   position: absolute;
   top: 0;
-  left: 160px;
+  left: 185px;
 }
 
 /* Do Not Move - Must Come Before display:block for Gecko */

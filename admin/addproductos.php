@@ -241,3 +241,7 @@ ini_set("display_errors", $DISPLAY_ERROR);
             </form>
 
     </div>
+
+    <?php  
+        pie(); 
+    ?> 

@@ -108,15 +108,13 @@ function Cabecera($titulo)
 
 function pie()
 {
-   ?>
-            </div>
-            </div>
-            <div id="pie">
-                &copy; 2013 Carlos Andrés Ramírez | car1984@gmail.com
-            </div>
+   ?>   
+        <div >
+            &copy; 2013 Carlos Andrés Ramírez | car1984@gmail.com
         </div>
+
     </body>
-</html>
+   </html>
 <?php
 }
 

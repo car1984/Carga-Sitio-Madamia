@@ -118,6 +118,7 @@ function Formulario($aux)
         $ObjAux = DAOFactory::getSeccionDAO()->load($aux);
         $mostrarImg = 'visible';
         $mostrarUpl = 'hidden'; 
+        
     }
     
     ?>
@@ -329,11 +330,11 @@ function GuardarInfo()
         $tipo_archivo = $_FILES['fileimg']['type'];
         $tamano_archivo = $_FILES['fileimg']['size'];
         $ruta_archivo=$_FILES['fileimg']['tmp_name'];
-        if(!is_dir("../resources/img_cms/general/Seccion/"))
+        if(!is_dir("../resources/csm/img/Seccion/"))
         {
-            mkdir("../resources/img_cms/general/Seccion/");
+            mkdir("../resources/csm/img/Seccion/");
         }
-        $destination = '../resources/img_cms/general/Seccion/';
+        $destination = '../resources/csm/img/Seccion/';
         if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "jpg")|| strpos($tipo_archivo, "png")) && ($tamano_archivo < (500 * 1024) )))
         {
             echo '<span class="notification n-error">La extensión o el tamaño del fichero no es correcta.</span>';
@@ -421,6 +422,7 @@ function UpdateInfo($int)
         $seccion->posicion   =$_POST['TxtPosicion'];
         $seccion->tituloEsp  =$_POST['TxtEspanol'];
         $seccion->tituloEng  =$_POST['TxtIngles'];
+        $seccion->idPapa     =$_POST['cboSeccion'];
         $seccion->imagen     =$_POST['fileImage'];
 
         $guardar=true;
