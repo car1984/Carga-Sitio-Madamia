@@ -32,7 +32,7 @@ $(document).ready(function(){
 							$('.box-success').hide(0).html('Espera un momento&#133;');
 							$('.box-success').slideDown(timeSlide);
 							setTimeout(function(){
-								document.location.href = "Seccion.php";
+								document.location.href = "home.php";
                                                                 //window.location.href = ".";
 							},(timeSlide + 500));
 						}

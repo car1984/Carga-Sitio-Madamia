@@ -125,17 +125,17 @@ if($_GET)
     <td width="540px" height="10px">&nbsp;</td>
     <td width="140px" height="10px" align="left">
         <a href="<?php echo $aMadamia; ?>">
-     <img class="sm-img" src="../resources/img/LightBoxMadamia/PestaniaMadamia.png"/>
+     <img class="sm-img" src="../resources/img/LightBoxMadamia/PestaniaMadamia.png" width='139px' height='38px'/>
   	                   </a>
     </td>
     <td width="140px" height="10px" align="left">
         <a href="<?php echo $aMision; ?>">
-          <img class="sm-img" src="../resources/img/LightBoxMadamia/PestaniaMision.png" />
+          <img class="sm-img" src="../resources/img/LightBoxMadamia/PestaniaMision.png" width='139px' height='38px' />
         </a>
     </td>
     <td width="140px" height="10px" align="left">
         <a href="<?php echo $aVision; ?>">
-         <img class="sm-img" src="../resources/img/LightBoxMadamia/PestaniaVision.png"/>
+         <img class="sm-img" src="../resources/img/LightBoxMadamia/PestaniaVision.png" width='139px' height='38px'/>
         </a>
     </td>
   </tr>

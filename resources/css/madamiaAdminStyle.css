@@ -28,8 +28,6 @@
 	    text-decoration: none;
         color: #A94E7B;
         background: #FFF;
-        display: block;
-        padding: 3px 10px;
         border-top: 2px solid #A94E7B;
 	}
 
@@ -64,6 +62,12 @@
  /* FORMULARIOS ADMINISTRADOR
  /********************************************************************/
  
+ textarea { 	
+		border: 2px solid #A94E7B; 
+		margin-bottom: .5em;
+		border-radius: 5px; 
+ }
+		
  input { 	
 		border: 2px solid #A94E7B; 
 		margin-bottom: .5em;
@@ -121,7 +125,7 @@ espacio 1 y luego lo multiplicamos x 4 =            (2 + 2) 4 =  16px
 
 NOTA: si ponemos el width:auto del contenedor, todo se ira hacia el margen izquierdo. */
 text-align:center;
-height:auto;/*aqui puedes poner una altura deseada teniedo en cuenta que tiene que ser mayor o igual al de la imagen, y si tiene bordes la imagen se le suma a la altura, igual si el 
+height:390px;/*aqui puedes poner una altura deseada teniedo en cuenta que tiene que ser mayor o igual al de la imagen, y si tiene bordes la imagen se le suma a la altura, igual si el 
 div->espacio 1 tuviera bordes se lo sumarias a la altura=height,  y cuando hablo que le sumarias el borde seria el borde de arriba + el borde de abajo ahi que tenerlo en cuenta, por recomendación usar height=auto */
 background:transparent;
 }

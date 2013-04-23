@@ -27,7 +27,7 @@
                 $('#slides_carousel_productos').slides({
                         preload: true,
                         preloadImage: '../resources/img/General/loading.gif',
-                        generatePagination: true,
+                        generatePagination: false,
                         play: 5000,
                         pause: 2500,
                         hoverPause: false,
@@ -102,17 +102,16 @@
                       
                  ?> 
 
-                <div class="fondoTituloLigthBox">
+                <div class="capaTituloProductos">
                     <?php 
                     if($isSeccion)
-                       echo "<div class='textoTitulo'>".Idioma($seccion->tituloEsp, $seccion->tituloEng)."</div>";  
+                       echo "<div class='textoTituloProducto'>".Idioma($seccion->tituloEsp, $seccion->tituloEng)."</div>";  
                     else
-                       echo "<div class='textoTitulo'>".Idioma($producto->nombreEsp, $producto->nombreIng)."</div>";
+                       echo "<div class='textoTituloProducto'>".Idioma($producto->nombreEsp, $producto->nombreIng)."</div>";
                     ?>
                 </div>
-                
+
                 <div id="container_carousel_productos">
-                    <div id="example">
                         <div id="slides_carousel_productos">
                             <div class="slides_container">
                                 
@@ -132,50 +131,73 @@
                                 {
                                         $tmpPathImg =$fotos[$i]->imagen;
 
-                                        echo "<div class='slide'>";
-                                        echo "<img width='350px' height='350px'src='".$tmpPathImg."'/>";
+                                        echo "<div>";
+										echo "<a target='_parent' href='".$tmpPathImg."'>";
+                                        echo "<img height='425'src='".$tmpPathImg."'/>";
+										echo "</a>";
                                         echo "</div>";
                                 }
-                             }                
+                             }
+                             else
+                             {
+                                 $listaSecciones = DAOFactory::getSeccionDAO()->queryByIdPapa($seccion->id);
+                                 if (count($listaSecciones)>0)
+                                 {
+                                     echo "<div>";
+                                     echo "<img height='425'src='".$listaSecciones[0]->imagen."'/>";
+                                     echo "</div>";
+                                    }
+                             }
                               
                              ?>
 
                               
                             </div>
-                        </div>
-                    </div>              
+                        </div>             
                 </div>
-                
+
                 <div class="capaSeccionProductos">
-           	    <img src="<?php echo $seccion->imagen;?>" width="200" height="200" />
-                </div>
-                
-                <div class="capaTextoProductos">
-                	<div class="textoDescripcionProducto">
-                	
-                <?php 
-                   if(!$isSeccion) 
-                    echo Idioma($producto->descripcionEsp, $producto->descripcionIng);
-                 ?>
-                 	</div> 
-                </div>
-                
-                
+                    <?php   
+                   
+                    $seccionPadre = DAOFactory::getSeccionDAO()->load($seccion->idPapa);
+                    if($seccionPadre)
+                      echo '<img src="'.$seccionPadre->imagen.'" width="200" height="200" />';
+                    else
+                      echo '<img src="'.$seccion->imagen.'" width="200" height="200" />';        
+                    ?>
+
+      </div>
                 <?php
+                
                     
-                 }
+                    if(!$isSeccion)
+                    {
+                        if($producto->idTipoProducto==1)
+                        {
+                 ?>	
+                    <div class="contenedor-valor" id="valorPrecio"> </div>
+                    <div id="contenedor-select" class="contenedor-select">
+                         <select name="selPrecios" id="selPrecios" onChange="jsEventChangePrecio()">
+                            <?php ComboPrecioProducto_valor($producto->id); ?>
+                        </select>
+
+                     </div>
+               <?php
+                        }//Fin Validacición if($producto->idTipoProducto==1)
+                        
+                        
+                    }//Fin Validacición if(!$isSeccion)
+
+                    
+                 } //Fin Validacición if($_GET)
                     
                  ?>
+                    
+ 
             </td>
           </tr>
     </table>
-    <div class="contenedor-valor" id="valorPrecio"> </div>
-    <div id="contenedor-select" class="contenedor-select">
-             <select name="selPrecios" id="selPrecios" onChange="jsEventChangePrecio()">
-            	<?php ComboPrecioProducto_valor($producto->id); ?>
-            </select>
-        
-     <div>
+
          <br></br>
      
       

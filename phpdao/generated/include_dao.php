@@ -41,6 +41,10 @@
 	require_once('class/dto/Foto.class.php');
 	require_once('class/mysql/FotoMySqlDAO.class.php');
 	require_once('class/mysql/ext/FotoMySqlExtDAO.class.php');
+	require_once('class/dao/LinkDAO.class.php');
+	require_once('class/dto/Link.class.php');
+	require_once('class/mysql/LinkMySqlDAO.class.php');
+	require_once('class/mysql/ext/LinkMySqlExtDAO.class.php');
 	require_once('class/dao/ListaContenidoDAO.class.php');
 	require_once('class/dto/ListaContenido.class.php');
 	require_once('class/mysql/ListaContenidoMySqlDAO.class.php');
@@ -61,6 +65,10 @@
 	require_once('class/dto/Registro.class.php');
 	require_once('class/mysql/RegistroMySqlDAO.class.php');
 	require_once('class/mysql/ext/RegistroMySqlExtDAO.class.php');
+	require_once('class/dao/RolDAO.class.php');
+	require_once('class/dto/Rol.class.php');
+	require_once('class/mysql/RolMySqlDAO.class.php');
+	require_once('class/mysql/ext/RolMySqlExtDAO.class.php');
 	require_once('class/dao/SeccionDAO.class.php');
 	require_once('class/dto/Seccion.class.php');
 	require_once('class/mysql/SeccionMySqlDAO.class.php');

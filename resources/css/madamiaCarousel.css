@@ -256,26 +256,52 @@
  
 #container_carousel_productos {
 	position: absolute;
-	width	: 380px;
-	height	: 380px;
+	height	: 425px;
 	top		: 0px;
-	left	: 550px;
+	left	: 373px;
 	margin	: 0 auto;
 	z-index	: 0;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	If height not specified height will be set by the slide content
+	Set to display none, prevents content flash
+*/
+
+#slides_carousel_productos .slides_container {
+	height	: 425px;
+	overflow: hidden;
+	position: relative;
+	display : none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	Offeset for the 20px of padding
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_carousel_productos .slides_container div {
+	height	: 425px;
+	display: block;
 }
 
 #frame {
 	position:absolute;
 	z-index:0;
-	width:639px;
-	height:521px;
+	height	: 425px;
 	top:-3px;
 	left:-80px;
 }
 
 #example {
-	width	: 380px;
-	height	: 380px;
+	height	: 420px;
 	position:relative;
 }
 
@@ -290,37 +316,7 @@
 	z-index:100;
 }
 
-/*
-	Slides container
-	Important:
-	Set the width of your slides container
-	If height not specified height will be set by the slide content
-	Set to display none, prevents content flash
-*/
 
-#slides_carousel_productos .slides_container {
-	width	: 380px;
-	height	: 380px;
-	overflow:hidden;
-	position:relative;
-	display:none;
-}
-
-/*
-	Each slide
-	Important:
-	Set the width of your slides
-	Offeset for the 20px of padding
-	If height not specified height will be set by the slide content
-	Set to display block
-*/
-
-#slides_carousel_productos .slide {
-	padding:20px;
-	width	: 380px;
-	height	: 380px;
-	display:block;
-}
 
 /*
 	Next/prev buttons

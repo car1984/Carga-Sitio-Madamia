@@ -61,24 +61,24 @@ select {font-family: Segoe UI;
     	width: 120%;
 		} 
 
-.contenedor-select { width: 168px; 
-					height: 25px; 
-					overflow: hidden; 
-					background: url(../img/LightBoxProductos/Fondo-Calculador-de-precios.png) no-repeat right center #999999;
-					position: absolute;
-					top: 47px;
-					left: 10px; 
+.contenedor-select {
+	width: 168px;
+	height: 25px;
+	overflow: hidden;
+	background: url(../img/LightBoxProductos/Fondo-Calculador-de-precios.png) no-repeat right center #999999;
+	position: absolute;
+	top: 35px;
+	left: 10px;
 }
 
 .contenedor-valor{
-	font-family: Segoe UI; 
+	font-family: Segoe UI;
 	font-size: 18px;
 	position: absolute;
 	width: 100px;
 	height:25px;
-	top: 47px;
-	left: 190px;
-	
+	top: 35px;
+	left: 190px;	
 }
 
 .fondoLigthBox{
@@ -122,7 +122,23 @@ select {font-family: Segoe UI;
 	
 	}
 
+.textoTituloProducto{
+	color:#8E1550;
+	padding: 8px 30px 5px 25px;
+	font-size:62px;
+	font-family:Segoe;
+}
 
+.capaTituloProductos{
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	width : 384px;
+	height: 44px;
+	position: absolute;
+	left  : 30px;
+	top	  : 50px;
+}
 
 /******************************** HOME **************************************/
 .fondoPrincipal{
@@ -162,7 +178,7 @@ select {font-family: Segoe UI;
 .textoPie{
 	padding: 3px 3px 3px 3px;
 	font-size:14px;
-	font-family:Segoe UI;
+	font-family:Segoe;
 	text-align: center;
 	color:#FFF;
 }
@@ -279,10 +295,10 @@ input.txtRegistro{
 	margin	: 0;
 	border	: 0 none;
 	position: absolute;
-	top		: 290px;
-	left	: 720px;
-	width 	: 341px;
-	height	: 112px;	
+	top		: 300px;
+	left	: 780px;
+	width 	: 175px;
+	height	: 63px;	
 }
 	
 	

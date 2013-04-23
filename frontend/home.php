@@ -135,7 +135,10 @@
 			 $('#slides_ninios').cycle({
                         fx:    'zoom', 
                         sync:  false, 
-                        delay: -2000 
+                        delay: -2000,
+						speed: 400,
+						timeout: 4000  
+    					 
             });
 			
 
@@ -160,8 +163,8 @@
 		  $('.slide-out-registrese').tabSlideOut({
 			 tabHandle: '.handleRegistrese',                              //class of the element that will be your tab
 			 pathToTabImage: '../resources/img/Home/PestaniaRegistrese.png',          //path to the image for the tab (optionaly can be set using css)
-			 imageHeight: '131px',                               //height of tab image
-			 imageWidth: '39px',                               //width of tab image    
+			 imageHeight: '150px',                               //height of tab image
+			 imageWidth: '41px',                               //width of tab image    
 			 tabLocation: 'right',                               //side of screen where tab lives, top, right, bottom, or left
 			 speed: 300,                                        //speed of animation
 			 action: 'click',                                   //options: 'click' or 'hover', action to trigger animation
@@ -331,26 +334,32 @@
 
            <div class="capaRedesSociales">
 
-				<div class="social_nav">
+               <?php
+                   $urlFacebook = DAOFactory::getLinkDAO()->load($LINK_FACEBOOK);
+                   $urlTwitter  = DAOFactory::getLinkDAO()->load($LINK_TWITTER);
+                ?>
+                <div class="social_nav">
           
-            		<ul class="sm-icons">
+                    <ul class="sm-icons">
             
-               		 <li class="social">
-                             <a href="http://www.facebook.com/" target="_blank">
+                        <li class="social">
+                            <a href="<?php echo $urlFacebook->link;?>" target="_blank">
                 		<img class="sm-img" src="../resources/img/Home/LogoFacebook.png" alt="facebook"/>
   	                   </a>
-                	 </li>
+                	</li>
                 
-                    <li class="social">
-                       <a href="http://www.twiter.com/" target="_blank">
-                            <img src="../resources/img/Home/LogoTwiter.png" alt="twitter"/>
-                       </a>
-                   </li>
-              </ul>
+                        <li class="social">
+
+                           <a href="<?php echo $urlTwitter->link;?>" target="_blank">
+                                <img src="../resources/img/Home/LogoTwiter.png" alt="twitter"/>
+                           </a>
+                       </li>
+                        
+                    </ul>
               
           	</div>
             
-		</div>   
+	  </div>   
 
  		<div class="capaBuscador">
           <form action="../admin/index.php" method="post" enctype="multipart/form-data"> 
@@ -377,7 +386,7 @@
         </div>
 
         <div class="capaTituloNovedades">
-        <img src="../resources/img/Home/TituloNovedades.png" width="341" height="112" />
+        <img src="../resources/img/Home/TituloNovedades.png" width="175" height="63" />
         </div>
             
         <div class="slide-out-registrese">
@@ -455,7 +464,7 @@
 		<div class="fondoPie">
         	<div class="contenidoPie">
             	<div class="textoPie">
-            	Telefono: 7-1 671 – 25 50, Calle 161 N 76-54
+            	Telefono: 7-1 671 – 25 50, Calle 161 N 7G-54
             	</div>
             	<div class="textoPie">
             	Bogotá, Colombia
@@ -467,10 +476,7 @@
                 </div>
                 <div class="textoPie">
                 </div>
-                <div class="textoPie">
-                </div>
-                <div class="textoPie">
-                </div>
+
            </div>
             
          </div>

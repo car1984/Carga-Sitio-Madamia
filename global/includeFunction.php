@@ -32,6 +32,12 @@
     static $ALBUM_B_PRINCIPAL= 13;
     statiC $ALBUM_B_PRODUCTOS= 14;
     statiC $ALBUM_B_NOVEDADES= 15;
+    
+    static $LINK_FACEBOOK     = 1;
+    static $LINK_TWITTER      = 2;
+    static $LINK_TRABAJE      = 3;
+    static $LINK_CONTACTENOS  = 4;
+    
 
     //Se realiza la valición para el manejo del idioma
     if($IDIOMA_AVAIBLE){
@@ -100,6 +106,56 @@
 
     }
 
+     /**
+     * Funcion encargada de armar de imprimir un String del Menu Basado 
+     * en la seccion deseada
+     * @param type $IdPapa 
+     */
+    function displayMenuAdmin($IdSeccionPapa,$IdTipoProducto,$popUp)
+    {
+        $SeccionesPapa  = DAOFactory::getSeccionDAO()->queryByIdPapa($IdSeccionPapa);
+
+        for ($i = 0; $i< count($SeccionesPapa) ;$i++)
+        {
+            echo '<li>';
+            hrefMenuAdmin($SeccionesPapa[$i],$IdTipoProducto,$popUp);
+            $SeccionesHijo  = DAOFactory::getSeccionDAO()->queryByIdPapa($SeccionesPapa[$i]->id);
+
+            if(count($SeccionesHijo) > 0)
+              echo '<ul>';
+
+            for ($x = 0; $x< count($SeccionesHijo) ;$x++)
+            { 
+                 echo '<li>';
+                 hrefMenuAdmin($SeccionesHijo[$x],$IdTipoProducto,$popUp);
+
+                 $SeccionesNieto  = DAOFactory::getSeccionDAO()->queryByIdPapa($SeccionesHijo[$x]->id);
+
+                 if(count($SeccionesNieto) > 0)
+                    echo '<ul>';
+
+                 for ($y = 0; $y < count($SeccionesNieto) ;$y++)
+                 {
+                     echo '<li>';
+                     hrefMenuAdmin($SeccionesNieto[$y],$IdTipoProducto,$popUp);
+                     echo '</li>';
+                 }
+
+                 if(count($SeccionesNieto) > 0)
+                    echo '</ul>';
+
+                 echo '</li>';
+
+            }
+
+            if(count($SeccionesHijo) > 0)
+                echo '</ul>';
+
+            echo '</li>';
+        }
+
+    }
+    
     /**
      * Funcion encargada de armar un string href de la seccion determinando 
      * si debe generar un ligthbox
@@ -115,6 +171,20 @@
             echo '<a class="fancybox fancybox.iframe" href="'.$url.'">'.$seccion->nombre.'</a>';
         }else{
             echo '<a href="'.$url.'">'.$seccion->nombre.'</a>';
+        }
+
+    }
+    
+    function hrefMenuAdmin($seccion,$IdTipoProducto,$popUp)
+    {
+        $tipoSeccion = DAOFactory::getTipoSeccionDAO()->load($seccion->tipoSeccion);
+
+        $url = $tipoSeccion->uRLUsuraio."?IdSeccion=".$seccion->id."&IdTipoProducto=".$IdTipoProducto."&execute=open";
+
+        if($popUp){
+            echo '<a target="adminContain" class="fancybox fancybox.iframe" href="'.$url.'">'.$seccion->nombre.'</a>';
+        }else{
+            echo '<a target="adminContain" href="'.$url.'">'.$seccion->nombre.'</a>';
         }
 
     }
@@ -265,7 +335,7 @@
             return $ing;
     }
     function permisosRol($permiso)
-    {
+    {   
         return true;
     }
     
@@ -381,10 +451,28 @@
     // Funciones De Madamia
     // --------------------------------------------------------------------
 
+    function ComboRol($id){
+        $tablaconsulta = DAOFactory::getRolDAO()->queryAllOrderBy('id');
+        ComboGenerico($tablaconsulta,$id);  
+    }
     
     function ComboTipoProducto($id){
         $tablaconsulta = DAOFactory::getTipoProductoDAO()->queryAllOrderBy('id');
         ComboGenerico($tablaconsulta,$id);  
+    }
+    
+    function ComboTipoSeccion($id){
+        $tablaconsulta = DAOFactory::getTipoSeccionDAO()->queryAllOrderBy('id');
+        
+        echo '<option value="-1">--Seleccionar--</option>';
+        
+        for($fila=0;$fila<count($tablaconsulta);$fila ++)
+        {
+            $row = $tablaconsulta[$fila];
+            if ($row->id==$id) echo "<option value='".$row->id."' SELECTED >".$row->descripcion."</option>";
+            else echo "<option value='".$row->id."'>".$row->descripcion."</option>";
+        }
+        return "";
     }
     
     function ComboSeccion($id){

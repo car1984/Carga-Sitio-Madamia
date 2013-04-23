@@ -5,6 +5,11 @@ require_once('funciones.php');
 ini_set("display_errors", $DISPLAY_ERROR);
 
 
+if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
+{
+    header('Location: ./');
+}
+
     Cabecera('Productos');
     ?>
     <script language="javascript" type="text/javascript">
@@ -91,7 +96,7 @@ ini_set("display_errors", $DISPLAY_ERROR);
     <?php
    
     //Se determina el Tipo de producto 
-    $idTipoProducto  = $_SESSION['idTipoProducto'];
+    $idTipoProducto  = $_SESSION['IdTipoProducto'];
     $objTipoProducto = DAOFactory::getTipoProductoDAO()->load($idTipoProducto);
     
     //Variables Generales

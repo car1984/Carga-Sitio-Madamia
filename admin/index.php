@@ -1,92 +1,53 @@
 <?php
-    require_once '../global/include.php';
-    
-    ini_set("display_errors", $DISPLAY_ERROR);
+require_once '../global/include.php';
+require_once('funciones.php');	
+
+ini_set("display_errors", $DISPLAY_ERROR);
     
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>.::Madamia CSM::.</title>
+                <link rel="stylesheet" type="text/css" href="../resources/css/LoginStyles.css" />
+                <script type="text/javascript" src="../resources/js/jquery.js"></script>
+		<script type="text/javascript" src="../resources/js/functions.ajax.js"></script>
+	</head>
+	<body><div id="allContent">
+                <table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" height="100%" width="100%">
+                        <div id="alertBoxes"></div>
+                        <span class="loginBlock"><span class="inner">
+			<?php
 
-    <title>.:: Madamia Admin::.</title>
+if ( isset($_SESSION['username']) && isset($_SESSION['userid']) && $_SESSION['username'] != '' && $_SESSION['userid'] != '0' ){
+	echo '<div class="session_on">
+		Ya iniciaste sesi&oacute;n &#124; Ahora has un <a href="javascript:void(0);" id="sessionKiller">logout</a>.<span class="timer" id="timer"  style="margin-left: 10px;"></span>
+	</div>';
+}
+else{
+	echo '<form method="post" action="">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td>Usuario:</td>
+				<td><input type="text" name="login_username" id="login_username" /></td>
+			</tr>
+			<tr>
+				<td>Contrase&ntilde;a:</td>
+				<td><input type="password" name="login_userpass" id="login_userpass" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><span class="timer" id="timer"></span><button id="login_userbttn">Login</button></td>
+			</tr>
+		</table>
+	</form>';
+}
+			?>
 
-<link rel="stylesheet" href="../resources/css/madamiaMenu.css" type="text/css" />
-<link rel="stylesheet" href="../resources/css/madamiaStyle.css" type="text/css" />
+		</span></span>
 
-  <!-- Add jQuery library -->
-<script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/lib/jquery-1.8.2.min.js"></script>
-   
-<script src="../resources/plugins/TabSlideOut/tabSlideOut/js/jquery.tabSlideOut.v1.3.js" type="text/javascript"></script>
-
- 
-<!-- Add fancyBox main JS and CSS files -->
-<script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.js"></script>
-<link rel="stylesheet" type="text/css" href="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.css" media="screen" />
- 
-  <script>
-	
-	$(document).ready(function(){	
-	
-		 $('.fancybox').fancybox({"padding": 2,
-			 		"width": 1000,
-                    "height": 700,
-                    "autoScale": false,
-                    "transitionIn": "elastic",
-                    "transitionOut": "none", 
-                    "type": "iframe"});
-		 		 		 
-	 });
-	 
-
- </script>  
-  
-</head>
-<body> 
-
-<table width="1024px" height="600px" border="0" cellpadding="0" cellspacing="0" align="center">
-      <tr>
-        <td valign="top" height="20px">
-            
-            <ul id="menu">
-                <li>
-                    <a target='adminContain' href="Contenido.php?idListaContenido=3&execute=open">Inicio</a>
-                    <ul>
-                      <li><a target='adminContain' href="Contenido.php?idListaContenido=3&execute=open">Banner Principal</a></li>  
-                      <li><a target='adminContain' href="Registro.php?execute=open">Registros</a></li>
-                    </ul>
-                </li>
-                <li><a target='adminContain' href="productos.php?idTipoProducto=1&execute=open">Productos</a></li>
-                <li><a target='adminContain' href="productos.php?idTipoProducto=2&execute=open">Institucionales</a></li>
-                <li><a target='adminContain' href="productos.php?idTipoProducto=3&execute=open">Especiales</a></li>
-                <li><a target='adminContain' href="Contenido.php?idListaContenido=2&execute=open"">Puntos Venta</a></li>
-                <li><a target='adminContain' href="Contenido.php?idListaContenido=1&execute=open">Madamia</a></li>
-            </ul>
- 
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" height="560px">    
-         <iframe name="adminContain" 
-                      id="producto" 
-                      height="560px" 
-                      width="100%"  
-                      frameborder="0" 
-                      src="Contenido.php?idListaContenido=3&execute=open">
-                            
-              </iframe>
-	
-       </td>
-      </tr>
-      <td valign="top" height="20px"> 
-		<div class="fondoPie">
-		</div>
-        
-        </td>
-      
-    </table>
-
-</body>
+	</td></tr></table></div></body>
 </html>
-   

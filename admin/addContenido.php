@@ -5,6 +5,12 @@ require_once('funciones.php');
 ini_set("display_errors", $DISPLAY_ERROR);
 
 
+if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
+{
+    header('Location: ./');
+}
+
+
     Cabecera('Productos');
     ?>
     <script language="javascript" type="text/javascript">

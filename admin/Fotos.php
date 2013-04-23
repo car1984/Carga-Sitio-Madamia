@@ -4,6 +4,12 @@ require_once('funciones.php');
 
 ini_set("display_errors", $DISPLAY_ERROR);
 
+
+if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
+{
+    header('Location: ./');
+}
+
 Cabecera('Fotos');
 
 ?>
@@ -13,14 +19,11 @@ Cabecera('Fotos');
             $("#FrmSeccion").validate({
 
                 rules: {
-                        DescripEsp:"required",
-                        DescripIng:"required",
-                        fileimg:"required"
+                        DescripEsp:"required"
+                        
                     },
                     messages:{
-                        DescripEsp:"Se necesita la Descripcion en Español<br>",
-                        DescripIng:"Se nececita la Descripcion en Ingles<br>",
-                        fileimg:"Debe seleccionar una Imagen<br>"
+                        DescripEsp:"Requerido"
                     },
                     errorLabelContainer:$("#frmupload div.error")
             });
@@ -409,7 +412,7 @@ function verModulo()
     verItems();
     verFormulario();
     echo "</div>";
-    pie(); 
+    
 }
 
 

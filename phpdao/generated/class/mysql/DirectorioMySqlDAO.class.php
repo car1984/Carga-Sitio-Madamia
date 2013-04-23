@@ -3,7 +3,7 @@
  * Class that operate on table 'directorio'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-03-16 20:04
+ * @date: 2013-04-22 18:33
  */
 class DirectorioMySqlDAO implements DirectorioDAO{
 

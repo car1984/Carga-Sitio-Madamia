@@ -64,6 +64,13 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return LinkDAO
+	 */
+	public static function getLinkDAO(){
+		return new LinkMySqlExtDAO();
+	}
+
+	/**
 	 * @return ListaContenidoDAO
 	 */
 	public static function getListaContenidoDAO(){
@@ -96,6 +103,13 @@ class DAOFactory{
 	 */
 	public static function getRegistroDAO(){
 		return new RegistroMySqlExtDAO();
+	}
+
+	/**
+	 * @return RolDAO
+	 */
+	public static function getRolDAO(){
+		return new RolMySqlExtDAO();
 	}
 
 	/**

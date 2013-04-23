@@ -5,6 +5,13 @@ require_once('funciones.php');
 ini_set("display_errors", $DISPLAY_ERROR);
 
 
+if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
+{
+    header('Location: ./');
+}
+   
+
+
 function actualizarItem()
 {
 
@@ -233,43 +240,38 @@ function verItems()
 {
     ?>
 
-    <div class="module">
+      <form action="">
+            <table id="myTable"  cellpadding="2" cellspacing="2">
+                <?php
+                $idSeccion;
+                if(isComandDelete()){
+                    $idSeccion = $_SESSION['IdSeccion'];
+                }
+                else{
+                    $_SESSION['IdSeccion'] = $_GET["IdSeccion"];
+                    $idSeccion             = $_GET["IdSeccion"];
+                }
 
-            <div class="module-table-body">
-              <form action="">
-                    <table id="myTable"  cellpadding="2" cellspacing="2">
-                    </thead>
-                    <tbody>
-                        <?php
-                        $idTipoProducto;
-                        if(isComandDelete()){
-                            $idTipoProducto = $_SESSION['idTipoProducto'];
-                        }
-                        else{
-                            $_SESSION['idTipoProducto'] = $_GET["idTipoProducto"];
-                            $idTipoProducto             = $_GET["idTipoProducto"];
-                        }
-                        
-                        $tablaconsulta = DAOFactory::getProductoDAO()->queryByIdTipoProducto($idTipoProducto);
-                        for($fila=0;$fila<count($tablaconsulta);$fila ++)
-                        {
-                            $row = $tablaconsulta[$fila];
-                            
-                            echo "<tr height='40px'><td style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".DAOFactory::getSeccionDAO()->load($row->idSeccion)->nombre."</td>";
-                            echo "<td style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->nombreEsp."</td>";
-                            echo "<td style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->descripcionEsp."</td>";
-                            echo "<td align='center' class='tablaAdmin'>".linkAbrirFoto('Fotos.php', $row->idAlbum, 'Foto', 1)."</td>";
-                            echo "<td align='center' class='tablaAdmin'>".linkModificar('addproductos.php',$row->id,"Editar",1)."</td>";
-                            echo "<td align='center' class='tablaAdmin'>".linkEliminar('productos.php',$row->id,"Borrar",0)."</td></tr>";
+                $tablaconsulta = DAOFactory::getProductoDAO()->queryByIdSeccion($idSeccion);
+                for($fila=0;$fila<count($tablaconsulta);$fila ++)
+                {
+                    $row = $tablaconsulta[$fila];
 
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                </form>
+                    echo "<tr height='40px'><td width='100px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".DAOFactory::getSeccionDAO()->load($row->idSeccion)->nombre."</td>";
+                    echo "<td width='100px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->nombreEsp."</td>";
+                    echo "<td width='500px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->descripcionEsp."</td>";
+                    echo "<td align='center' class='tablaAdmin'>".linkAbrirFoto('Fotos.php', $row->idAlbum, 'Foto', 1)."</td>";
+                    echo "<td align='center' class='tablaAdmin'>".linkModificar('addproductos.php',$row->id,"Editar",1)."</td>";
+                    echo "<td align='center' class='tablaAdmin'>".linkEliminar('productos.php',$row->id,"Borrar",0)."</td></tr>";
 
-            </div>
-        </div>
+                }
+                ?>
+
+            </table>
+        </form>
+
+            
+        
 <?php
    return "";
 }//Fin funtion Grilla Productos
@@ -285,10 +287,13 @@ function verModulo()
 function verHeader()
 {
     $idTipoProducto;
-    if(isComandDelete())
-        $idTipoProducto = $_SESSION['idTipoProducto'];
-    else
-        $idTipoProducto = $_GET["idTipoProducto"];
+    if(isComandDelete()){
+        $idTipoProducto = $_SESSION['IdTipoProducto'];
+    }
+    else{
+        $idTipoProducto = $_GET["IdTipoProducto"];
+        $_SESSION['IdTipoProducto']=$idTipoProducto;
+    }
     
     $objTipoProducto = DAOFactory::getTipoProductoDAO()->load($idTipoProducto);
 ?>

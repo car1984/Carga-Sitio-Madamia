@@ -181,43 +181,37 @@ function verItems()
 {
     ?>
 
-    <div class="module">
+      <form action="">
+        <table id="myTable"  cellpadding="2" cellspacing="2">
 
-            <div class="module-table-body">
-              <form action="">
-                    <table id="myTable"  cellpadding="2" cellspacing="2">
-                    </thead>
-                    <tbody>
-                        <?php
-                        $idListaContenido;
-                        if(isComandDelete()){
-                            $idListaContenido = $_SESSION['idListaContenido'];
-                        }
-                        else{
-                            $_SESSION['idListaContenido'] = $_GET["idListaContenido"];
-                            $idListaContenido             = $_GET["idListaContenido"];
-                        }
-                        
-                        $tablaconsulta = DAOFactory::getContenidoDAO()->queryByIdLista($idListaContenido);
-                        for($fila=0;$fila<count($tablaconsulta);$fila ++)
-                        {
-                            $row = $tablaconsulta[$fila];
-                            
-                            echo "<tr height='40px'>";
-                            echo "<td width='100px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".DAOFactory::getListaContenidoDAO()->load($row->idLista)->nombre."</td>";
-                            echo "<td width='400px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->nombreEsp."</td>";
-                            echo "<td width='50px' align='center' class='tablaAdmin'>".linkAbrirFoto('Fotos.php', $row->albumId, 'Foto', 1)."</td>";
-                            echo "<td width='50px' align='center' class='tablaAdmin'>".linkModificar('addContenido.php',$row->id,"Editar",1)."</td>";
-                            echo "<td width='50px' align='center' class='tablaAdmin'>".linkEliminar('Contenido.php',$row->id,"Borrar",0)."</td></tr>";
+                <?php
+                $idListaContenido;
+                if(isComandDelete()){
+                    $idListaContenido = $_SESSION['idListaContenido'];
+                }
+                else{
+                    $_SESSION['idListaContenido'] = $_GET["idListaContenido"];
+                    $idListaContenido             = $_GET["idListaContenido"];
+                }
 
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                </form>
+                $tablaconsulta = DAOFactory::getContenidoDAO()->queryByIdLista($idListaContenido);
+                for($fila=0;$fila<count($tablaconsulta);$fila ++)
+                {
+                    $row = $tablaconsulta[$fila];
 
-            </div>
-        </div>
+                    echo "<tr height='40px'>";
+                    echo "<td width='200px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".DAOFactory::getListaContenidoDAO()->load($row->idLista)->nombre."</td>";
+                    echo "<td width='500px' style='background-color:#DAB0C8; color:#7C1147;font-family: Arial, Helvetica, sans-serif;'>".$row->nombreEsp."</td>";
+                    echo "<td width='50px' align='center' class='tablaAdmin'>".linkAbrirFoto('Fotos.php', $row->albumId, 'Foto', 1)."</td>";
+                    echo "<td width='50px' align='center' class='tablaAdmin'>".linkModificar('addContenido.php',$row->id,"Editar",1)."</td>";
+                    echo "<td width='50px' align='center' class='tablaAdmin'>".linkEliminar('Contenido.php',$row->id,"Borrar",0)."</td></tr>";
+
+                }
+    ?>
+
+         </table>
+        </form>
+
 <?php
    return "";
 }//Fin funtion Grilla Productos

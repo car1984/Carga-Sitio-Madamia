@@ -7,6 +7,8 @@
     //Para visualizar errores
     ini_set("display_errors", $DISPLAY_ERROR);
     
+    $displaySendMail =  "";
+    
      if ($_POST) {
     
         if ($_POST['action'] == "send") {
@@ -114,15 +116,18 @@
             }
             
 
-            $mail->AddAddress("car1984@gmail.com");
+            $mail->AddAddress(DAOFactory::getLinkDAO()->load($LINK_TRABAJE)->link);
             $mail->Body = $body_mail;
             $mail->IsHTML(true);
             
             if (!$mail->Send()) {
-                echo "Error: " . $mail->ErrorInfo;
+                $displaySendMail= "Error: " . $mail->ErrorInfo;
+            }
+            else{
+                $displaySendMail= "Mail enviado....";
             }
             
-            echo "Mail enviado....";
+            
 
 
         }
@@ -172,6 +177,7 @@
     <table width="960px"  border="0" cellpadding="0" cellspacing="0" align="center">
           <tr >
             <td colspan ='4' valign="top"> 
+                <?php    echo $displaySendMail;?>
               <div class="fondoTituloLigthBox">
                    <div class='textoTitulo'>Trabaje con Nosotros</div>
           		</div>

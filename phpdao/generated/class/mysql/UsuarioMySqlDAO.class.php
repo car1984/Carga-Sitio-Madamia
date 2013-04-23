@@ -3,7 +3,7 @@
  * Class that operate on table 'usuario'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-03-16 20:04
+ * @date: 2013-04-22 18:33
  */
 class UsuarioMySqlDAO implements UsuarioDAO{
 
@@ -57,9 +57,11 @@ class UsuarioMySqlDAO implements UsuarioDAO{
  	 * @param UsuarioMySql usuario
  	 */
 	public function insert($usuario){
-		$sql = 'INSERT INTO usuario (Usuario, Clave, Mail) VALUES (?, ?, ?)';
+		$sql = 'INSERT INTO usuario (idRol, idAlbum, Usuario, Clave, Mail) VALUES (?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
+		$sqlQuery->setNumber($usuario->idRol);
+		$sqlQuery->setNumber($usuario->idAlbum);
 		$sqlQuery->set($usuario->usuario);
 		$sqlQuery->set($usuario->clave);
 		$sqlQuery->set($usuario->mail);
@@ -75,9 +77,11 @@ class UsuarioMySqlDAO implements UsuarioDAO{
  	 * @param UsuarioMySql usuario
  	 */
 	public function update($usuario){
-		$sql = 'UPDATE usuario SET Usuario = ?, Clave = ?, Mail = ? WHERE Id = ?';
+		$sql = 'UPDATE usuario SET idRol = ?, idAlbum = ?, Usuario = ?, Clave = ?, Mail = ? WHERE Id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
+		$sqlQuery->setNumber($usuario->idRol);
+		$sqlQuery->setNumber($usuario->idAlbum);
 		$sqlQuery->set($usuario->usuario);
 		$sqlQuery->set($usuario->clave);
 		$sqlQuery->set($usuario->mail);
@@ -93,6 +97,20 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$sql = 'DELETE FROM usuario';
 		$sqlQuery = new SqlQuery($sql);
 		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function queryByIdRol($value){
+		$sql = 'SELECT * FROM usuario WHERE idRol = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByIdAlbum($value){
+		$sql = 'SELECT * FROM usuario WHERE idAlbum = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
 	}
 
 	public function queryByUsuario($value){
@@ -116,6 +134,20 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		return $this->getList($sqlQuery);
 	}
 
+
+	public function deleteByIdRol($value){
+		$sql = 'DELETE FROM usuario WHERE idRol = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByIdAlbum($value){
+		$sql = 'DELETE FROM usuario WHERE idAlbum = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
 
 	public function deleteByUsuario($value){
 		$sql = 'DELETE FROM usuario WHERE Usuario = ?';
@@ -149,6 +181,8 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$usuario = new Usuario();
 		
 		$usuario->id = $row['Id'];
+		$usuario->idRol = $row['idRol'];
+		$usuario->idAlbum = $row['idAlbum'];
 		$usuario->usuario = $row['Usuario'];
 		$usuario->clave = $row['Clave'];
 		$usuario->mail = $row['Mail'];
