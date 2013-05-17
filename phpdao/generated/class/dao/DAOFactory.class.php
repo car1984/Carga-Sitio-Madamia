@@ -64,6 +64,27 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return InstitucionalesDAO
+	 */
+	public static function getInstitucionalesDAO(){
+		return new InstitucionalesMySqlExtDAO();
+	}
+
+	/**
+	 * @return InstitucionalesCategoriasDAO
+	 */
+	public static function getInstitucionalesCategoriasDAO(){
+		return new InstitucionalesCategoriasMySqlExtDAO();
+	}
+
+	/**
+	 * @return InstitucionalesNovedadesDAO
+	 */
+	public static function getInstitucionalesNovedadesDAO(){
+		return new InstitucionalesNovedadesMySqlExtDAO();
+	}
+
+	/**
 	 * @return LinkDAO
 	 */
 	public static function getLinkDAO(){

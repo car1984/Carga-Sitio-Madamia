@@ -54,45 +54,6 @@
 	display	:block;
 }
 
-/************************************************************
- * BANNER NOVEDADES
- *************************************************************/
-
-#container_novedades_over {
-	width	: 300px;
-	height	: 250px;
-	position: absolute;
-	top		: 370px;
-	left	: 770px;
-	z-index	: 1;
-}
-
-
-/*
-	Slides container
-	Important:
-	Set the width of your slides container
-	Set to display none, prevents content flash
-*/
-#slides_novedades_over .slides_container {
-	width	: 300px;
-	height	: 250px;
-	display : none;
-}
-
-/*
-	Each slide
-	Important:
-	Set the width of your slides
-	If height not specified height will be set by the slide content
-	Set to display block
-*/
-
-#slides_novedades_over .slides_container div {
-	width	: 300px;
-	height	: 250px;
-	display	: block;
-}
 
 /************************************************************
  * BANNER PRODUCTOS
@@ -133,44 +94,6 @@
 	display	: block;
 }
 
-/************************************************************
- * BANNER PRODUCTOS OVER
- *************************************************************/
- 
- #container_productos_over{
-	width	: 300px;
-	height	: 250px;
-	position: absolute;
-	top		: 180px;
-	left	: 0px;
-	z-index	: 1;
-}
-
-/*
-	Slides container
-	Important:
-	Set the width of your slides container
-	Set to display none, prevents content flash
-*/
-#slides_productos_over .slides_container {
-	width	: 300px;
-	height	: 250px;
-	display : none;
-}
-
-/*
-	Each slide
-	Important:
-	Set the width of your slides
-	If height not specified height will be set by the slide content
-	Set to display block
-*/
-
-#slides_productos_over .slides_container div {
-	width	: 300px;
-	height	: 250px;
-	display	: block;
-}
 
 /************************************************************
  * PUNTOS VENTA
@@ -251,16 +174,98 @@
 }
 
 /************************************************************
+ * I N S T I T U C I O N A L E S
+ *************************************************************/
+ 
+ #container_institucionales{
+	width	: 465px;
+	height  : 595px;
+	position: absolute;
+	top		: 101px;
+	left	: 321px;
+	z-index	: 1;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#slides_institucionales .slides_container {
+	width	: 465px; 
+	height  : 595px;
+	display : none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_institucionales .slides_container div {
+	width	: 465px; 
+	height  : 595px;
+	display	: block;
+}
+
+/************************************************************
+ * I N S T I T U C I O N A L E S   C O N T A I N 
+ *************************************************************/
+ 
+ #container_institucionalesContain{
+	width	: 465px;
+	height  : 570px;
+	position: absolute;
+	top		: 103px;
+	left	: 0px;
+	z-index	: 1;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#slides_institucionalesContain .slides_container {
+	width	: 465px; 
+	height  : 570px;
+	display : none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides_institucionalesContain .slides_container div {
+	width	: 465px; 
+	height  : 570px;
+	display	: block;
+}
+
+
+/************************************************************
  * PRODUCTOS
  *************************************************************/
  
 #container_carousel_productos {
 	position: absolute;
+	width	: 590px;
 	height	: 425px;
 	top		: 0px;
 	left	: 373px;
 	margin	: 0 auto;
 	z-index	: 0;
+	vertical-align:baseline;
+	text-align:left;
 }
 
 /*
@@ -272,10 +277,12 @@
 */
 
 #slides_carousel_productos .slides_container {
-	height	: 425px;
-	overflow: hidden;
-	position: relative;
-	display : none;
+	width	  : 590px;
+	height	  : 425px;
+	overflow  : hidden;
+	position  : relative;
+	display   : none;
+	text-align: center;
 }
 
 /*
@@ -288,8 +295,18 @@
 */
 
 #slides_carousel_productos .slides_container div {
-	height	: 425px;
 	display: block;
+	position: relative;
+	width	  : 590px;
+	height	  : 425px; 
+}
+
+.imgPro{
+	position: absolute;
+	top: 50%;
+	left: 50;
+	margin-top: -50px;
+	margin-left: -50px;
 }
 
 #frame {
@@ -409,3 +426,88 @@ p {
 	margin-top:10px;
 	font-weight:800;
 }
+
+/************/
+
+  /************************/
+    
+    .mianimacion1
+    {
+        -webkit-animation:mymove1 30s; 
+        animation:mymove1 30s;
+    }
+
+    @-webkit-keyframes mymove1 
+    {
+    0%   {width:100%; height: 100%; opacity: 50%}
+    100% {width:300%; height: 300%; top: -90%; left: -40%; opacity: 0%}
+    }
+    @keyframes mymove1{
+    0%   {width:100%; height: 100%; top: 0%; left: 0%;}
+    100% {width:300%; height: 300%; top: -90%; left: -40%}
+    }
+
+    
+    .mianimacion2
+    {
+        -webkit-animation:mymove2 30s; 
+        animation:mymove2 30s;
+    }
+
+    @-webkit-keyframes mymove2 
+    {
+    0%   {width:100%; height: 100%; opacity: 50% }
+    100% {width:300%; height: 300%; top: -50%; opacity: 0%}
+    }
+    @keyframes mymove2{
+     0%   {width:100%; height: 100%;}
+    100% {width:300%; height: 300%; top: -50%}
+    }
+
+    .mianimacion3
+    {
+        -webkit-animation:mymove3 30s;
+        animation:mymove3 30s;
+    }
+ 
+    @-webkit-keyframes mymove3 
+    {
+    0%   {width:100%; height: 100%; }
+    100% {width:300%; height: 300%; top: -20%; left: -30%; }
+    }
+    @keyframes mymove3{
+    0%   {width:100%; height: 100%; }
+    100% {width:300%; height: 300%; top: -20%; left: -30%; }
+    }
+    
+    .mianimacion4
+    {
+        -webkit-animation:mymove4 30s;
+        animation:mymove4 30s;
+    }
+
+    @-webkit-keyframes mymove4 
+    {
+    0%   {width:100%; height: 100%; }
+    100% {width:300%; height: 300%; top: -50%; left: -30%; }
+    }
+    @keyframes mymove4{
+    0%   {width:100%; height: 100%; }
+    100% {width:300%; height: 300%; top: -50%; left: -30%; }
+    }
+    
+    .mianimacion5
+    {
+        -webkit-animation:mymove5 30s;
+        animation:mymove5 30s;
+    }
+ 
+    @-webkit-keyframes mymove5 
+    {
+    0%   {width:100%; height: 100%; }
+    100% {width:200%; height: 200%; top: -20%; left: -40%; }
+    }
+    @keyframes mymove5{
+    0%   {width:100%; height: 100%; }
+    100% {width:200%; height: 200%; top: -20%; left: -40%; }
+    }

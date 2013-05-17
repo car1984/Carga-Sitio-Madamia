@@ -14,7 +14,7 @@
 <body background="../resources/img/Home/FondoLaterales.png">
 <table width="1024" border="0"  cellpadding="0" cellspacing="0" align="center" >
   <tr>
-    <td>
+    <td >
     <iframe src="home.php" height="790px" width="1024px"  frameborder="0" align="middle" >
 	</iframe>
 </td>

@@ -337,6 +337,9 @@
     function permisosRol($permiso)
     {   
         return true;
+        
+        //echo $_SERVER['PHP_SELF'];
+        //echo basename($_SERVER['PHP_SELF'], ".php").PHP_EOL;
     }
     
     function executeComand()

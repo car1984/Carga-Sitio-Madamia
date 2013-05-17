@@ -132,7 +132,7 @@ function Formulario($aux)
                             </div>
                       </td>
                        <td >
-                           <label>Sección Padre:</label></br>
+                           <label>Sección Padre:</label>
                             <select name="cboSeccion" title="Seleccione una Seccion" id="cboSeccion"  class="required ui-widget-content">
                                 <?php ComboSeccion($ObjAux->idPapa);?>
                             </select>
@@ -141,12 +141,11 @@ function Formulario($aux)
                     <tr>
                         <td width="40%">
                             <input type="hidden" name ="TxtAux" value="<?php echo $ObjAux->id ?>">
-                            <label><br />
-                          Nombre De La Seccion:</label><br />
+                            <label>Nombre De La Seccion:</label>
                             <input type="text" name="TxtSeccion" size="50" value="<?php echo $ObjAux->nombre ?>">
                         </td>
                         <td width="40%">
-                            <label>Tipo Seccion</label><br />
+                            <label>Tipo Seccion</label>
                             <select name="ListTipoSeccion" id="ListTipoSeccion" class="required ui-widget-content">
                                 <?php ComboTipoSeccion($ObjAux->tipoSeccion); ?>
                             </select>
@@ -155,11 +154,11 @@ function Formulario($aux)
                     </tr>
                     <tr>
                         <td width="40%">
-                            <label>Titulo Español:</label><br />
+                            <label>Titulo Español:</label>
                             <input type="text" name="TxtEspanol" size="50" value="<?php echo $ObjAux->tituloEsp ?>">
                         </td>
                         <td width="40%">
-                            <label>Titulo Ingles:</label><br />
+                            <label>Titulo Ingles:</label>
                             <input type="text" name="TxtIngles" size="50" value="<?php echo $ObjAux->tituloEng ?>">
                         </td>
                     </tr>

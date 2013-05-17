@@ -95,6 +95,7 @@ if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
                     <ul>
                       <li><a target='adminContain' href="usuarios.php?execute=open">Usuarios</a></li>
                       <li><a target='adminContain' href="links.php?execute=open">Links</a></li>
+                      <li><a target='adminContain' href="secciones.php?execute=open">Secciones</a></li>
                     </ul>
                 </li>
                 <li><a href="logout.php">Salir</a></li>

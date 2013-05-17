@@ -3,7 +3,7 @@
 	 * Object represents table 'promociones'
 	 *
      	 * @author: http://phpdao.com
-     	 * @date: 2013-04-22 18:33	 
+     	 * @date: 2013-05-15 22:01	 
 	 */
 	class Promocione{
 		

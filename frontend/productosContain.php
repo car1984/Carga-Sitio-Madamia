@@ -104,22 +104,20 @@
 
                 <div class="capaTituloProductos">
                     <?php 
-                    if($isSeccion)
-                       echo "<div class='textoTituloProducto'>".Idioma($seccion->tituloEsp, $seccion->tituloEng)."</div>";  
-                    else
+                    if(!$isSeccion)
                        echo "<div class='textoTituloProducto'>".Idioma($producto->nombreEsp, $producto->nombreIng)."</div>";
                     ?>
                 </div>
 
                 <div id="container_carousel_productos">
-                        <div id="slides_carousel_productos">
+                    <div id="slides_carousel_productos">
                             <div class="slides_container">
-                                
                                     
                              <?php
                              
                              if(!$isSeccion)
                              {
+                                                                        
 				//Se obtiene el album del producto
                             	$album = DAOFactory::getAlbumDAO()->load($producto->idAlbum);
                                 
@@ -132,21 +130,71 @@
                                         $tmpPathImg =$fotos[$i]->imagen;
 
                                         echo "<div>";
-										echo "<a target='_parent' href='".$tmpPathImg."'>";
-                                        echo "<img height='425'src='".$tmpPathImg."'/>";
-										echo "</a>";
+                                        echo "<a target='_parent' href='foto.php?IdSeccion=".$seccion->id."&IdProducto=".$producto->id."&foto=".$tmpPathImg."'>";
+                                        echo "<img height='425' src='".$tmpPathImg."'/>";
+					echo "</a>";
                                         echo "</div>";
                                 }
                              }
                              else
                              {
-                                 $listaSecciones = DAOFactory::getSeccionDAO()->queryByIdPapa($seccion->id);
-                                 if (count($listaSecciones)>0)
-                                 {
-                                     echo "<div>";
-                                     echo "<img height='425'src='".$listaSecciones[0]->imagen."'/>";
-                                     echo "</div>";
+                                //Flag para determinar si se debe dibujar la foto
+                                $isFoto = false;
+    
+                                 
+                                $listaSecciones = DAOFactory::getSeccionDAO()->queryByIdPapa($seccion->id);
+
+                                //Se recorren las secciones encontradas
+                                for ($i=0;$i<count ($listaSecciones);$i++)
+                                {
+                                    $isFoto = false;
+                                    
+                                    $listaProSec1 = DAOFactory::getProductoDAO()->queryByIdSeccion($listaSecciones[$i]->id);
+
+                                    if ($listaProSec1)
+                                    {         
+                                        //Se obtienen las fotos pertenecientes al album del Producto
+                                        $fotos = DAOFactory::getFotoDAO()->queryByIdAlbun($listaProSec1[0]->idAlbum);
+                                        
+                                        if ($fotos)
+                                            //Se coloca en true para que la foto se pinte
+                                            $isFoto = true;
+
                                     }
+                                    else //Primer Nivel 
+                                    {
+                                        //Se realiza la busque de las secciones hijas 
+                                        $listaSecciones2 = DAOFactory::getSeccionDAO()->queryByIdPapa($listaSecciones[$i]->id);
+
+                                        //Se valida si tiene secciones hijas
+                                        if ($listaSecciones2)
+                                        {
+                                            //Se busca los productos de la seccion Hija
+                                            $listaProSec2 = DAOFactory::getProductoDAO()->queryByIdSeccion($listaSecciones2[$i]->id);
+
+                                            //Se valida que existan productos creados en la seccion hija.
+                                            if ($listaProSec2)
+                                            {
+                                                //Se obtienen las fotos pertenecientes al album del primer producto 
+                                                //de la seccion hija.
+                                                $fotos = DAOFactory::getFotoDAO()->queryByIdAlbun($listaProSec2[0]->idAlbum);
+                                                
+                                                if ($fotos)
+                                                    //Se coloca en true para que la foto se pinte
+                                                    $isFoto = true;
+                                            }
+                                        }
+                                    }
+
+                                    if ($isFoto)
+                                    {
+                                        echo "<div >";
+                                        echo "<img height='425' src='".$fotos[0]->imagen."'/>";
+                                        echo "</div>";
+                                    }
+                                }
+                                 
+
                              }
                               
                              ?>
@@ -158,12 +206,7 @@
 
                 <div class="capaSeccionProductos">
                     <?php   
-                   
-                    $seccionPadre = DAOFactory::getSeccionDAO()->load($seccion->idPapa);
-                    if($seccionPadre)
-                      echo '<img src="'.$seccionPadre->imagen.'" width="200" height="200" />';
-                    else
-                      echo '<img src="'.$seccion->imagen.'" width="200" height="200" />';        
+                      echo '<img src="'.$seccion->imagen.'"  height="220" />';        
                     ?>
 
       </div>
@@ -175,7 +218,7 @@
                         if($producto->idTipoProducto==1)
                         {
                  ?>	
-                    <div class="contenedor-valor" id="valorPrecio"> </div>
+  <div class="contenedor-valor" id="valorPrecio"> </div>
                     <div id="contenedor-select" class="contenedor-select">
                          <select name="selPrecios" id="selPrecios" onChange="jsEventChangePrecio()">
                             <?php ComboPrecioProducto_valor($producto->id); ?>

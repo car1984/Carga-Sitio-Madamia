@@ -39,12 +39,15 @@
  
 <!-- jQuery library -->
 <script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/lib/jquery-1.8.2.min.js"></script>
-   
+
 <!-- jQuery FancyBox main -->
 <script type="text/javascript" src="../resources/plugins/Lightbox/fancybox/source/jquery.fancybox.js" ></script>
 
 <!-- jQuery Slides -->
 <script type="text/javascript" src="../resources/plugins/Carousel/Slides/examples/Linking/js/slides.min.jquery.js" ></script>
+
+<!-- jQuery Slides Min-->
+<script type="text/javascript" src="../resources/js/jquery.slides.min.js" ></script>
 
 <!-- jQuery Cycle -->
 <script type="text/javascript" src="../resources/plugins/Carousel/jcycle/jquery.cycle.all.js"></script>
@@ -66,34 +69,23 @@
                         startSlide = window.location.hash.replace('#','');
                 }
                 // Initialize Slides
-                $('#slides_productos').slides({
-                        preload: true,
-                        preloadImage: '../resources/img/General/loading.gif',
-                        generatePagination: false,
-                        play: 5000,
-                        pause: 2500,
-                        hoverPause: false,
-                        // Get the starting slide
-                        start: startSlide,
-                        animationComplete: function(current){
-                                // Set the slide number as a hash
-                                window.location.hash = '#' + current;
-                        }
-                });
-				 // Initialize Slides
-                $('#slides_productos_over').slides({
-                        preload: true,
-                        preloadImage: 'img/loading.gif',
-                        generatePagination: false,
-                        play: 5000,
-                        pause: 2500,
-                        hoverPause: false,
-                        // Get the starting slide
-                        start: startSlide,
-                        animationComplete: function(current){
-                                // Set the slide number as a hash
-                                window.location.hash = '#' + current;
-                        }
+                $('#slides_productos').slidesjs({
+						generateNextPrev: false,
+						width: 250,
+        				height: 250,
+						play: {
+						  active: true,
+						  auto: true,
+						  interval: 30000,
+						  swap: true
+						},
+						pagination: {
+						  active: false,
+							// [boolean] Create pagination items.
+							// You cannot use your own pagination. Sorry.
+						  effect: "slide"
+							// [string] Can be either "slide" or "fade".
+    					}
                 });
                 
                    // Initialize Slides
@@ -112,21 +104,7 @@
                         }
                 });
                 
-                   // Initialize Slides
-                $('#slides_novedades_over').slides({
-                        preload: true,
-                        preloadImage: 'img/loading.gif',
-                        generatePagination: false,
-                        play: 5000,
-                        pause: 2500,
-                        hoverPause: false,
-                        // Get the starting slide
-                        start: startSlide,
-                        animationComplete: function(current){
-                                // Set the slide number as a hash
-                                window.location.hash = '#' + current;
-                        }
-                });
+  
                 
                 
         });
@@ -204,43 +182,23 @@
     <div class="logoMadamia">
     </div>
     
-    <div id="container_productos_over">
-    	<div id="slides_productos_over">
-          	<div class="slides_container">
-            
-             <?php
-				
-               //Se obtienen las fotos pertenecientes al album del Productos
-               $fotosBannerP = DAOFactory::getFotoDAO()->queryByIdAlbun($ALBUM_B_PRODUCTOS);
-
-               //Se recorren las fotos encontradas
-                for ($i=0;$i<count ($fotosBannerP);$i++)
-                {
-                        echo "<div >";
-                        //Se coloca las imagenes que contenga el Album
-                        echo "<a  class='fancybox fancybox.iframe' href='productos.php?IdSeccion=5'>";
-                        echo "<div style='height:250px; height:'250px'>";
-                        echo "</div >";
-                        echo "</a>";
-                        echo "</div >";
-                }
-
-
-           ?>
-            </div>
-         </div>
-    </div>
-    
      <div id="container_productos">
          <div id="slides_productos">
           	<div class="slides_container">
            <?php
 
+               //Se obtienen las fotos pertenecientes al album del Productos
+               $fotosBannerP = DAOFactory::getFotoDAO()->queryByIdAlbun($ALBUM_B_PRODUCTOS);
+			   
                //Se recorren las fotos encontradas
                 for ($i=0;$i<count ($fotosBannerP);$i++){
+					
+					$var_aux = $i+1;
+					$class_name = "mianimacion".$var_aux;
+					 
                     echo "<div >";
                     //Se coloca las imagenes que contenga el Album
-                    echo "<img  height='250px' height='250px'src='" . $fotosBannerP[$i]->imagen . "'/>";
+                    echo "<img  height='250px' src='" . $fotosBannerP[$i]->imagen . "' class='".$class_name."'/>";
 
                     echo "</div >";
                 }
@@ -280,20 +238,19 @@
                 <div class="slides_container">
                     <?php
 				
-                           $listaProdutos = DAOFactory::getProductoDAO()->queryByTop10(1);
+              //Se obtienen las fotos pertenecientes al album del Productos
+               $fotosBannerN = DAOFactory::getFotoDAO()->queryByIdAlbun($ALBUM_B_NOVEDADES);
 
-                           for ($i=0;$i<count($listaProdutos);$i++)
+                           for ($i=0;$i<count($fotosBannerN);$i++)
                            {
-                               //Se obtienen las fotos pertenecientes al album del Producto
-                               $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($listaProdutos[$i]->idAlbum);
 
-                               $tmpPathImg =$listaFotos[0]->imagen;
+
+                               $tmpPathImg =$fotosBannerN[$i]->imagen;
 
                                echo "<div >";
 
-                               echo "<a class='fancybox fancybox.iframe' href='productos.php?IdSeccion=".$listaProdutos[$i]->idSeccion."&IdProducto=".$listaProdutos[$i]->id."' >";
-                               echo "<img  height='250px' height='250px'src='".$tmpPathImg."'/>";
-                               echo "</a>";
+                               echo "<img  height='250px' height='250px' src='".$tmpPathImg."'/>";
+
                               
                                echo "</div>";
 
@@ -305,33 +262,7 @@
             </div>
        </div>
           
-       <div id="container_novedades_over">
-            <div id="slides_novedades_over">
-                <div class="slides_container">
-                    <?php
-
-                           for ($i=0;$i<count($listaProdutos);$i++)
-                           {
-                               //Se obtienen las fotos pertenecientes al album del Producto
-                               $listaFotos = DAOFactory::getFotoDAO()->queryByIdAlbun($listaProdutos[$i]->idAlbum);
-
-                               $tmpPathImg =$listaFotos[0]->imagen;
-
-                                echo "<div >";
-                                //Se coloca las imagenes que contenga el Album
-                                echo "<a  class='fancybox fancybox.iframe' href='productos.php?IdSeccion=".$listaProdutos[$i]->idSeccion."&IdProducto=".$listaProdutos[$i]->id."'>";
-                                echo "<div style='height:250px; height:'250px'></div >";
-                                echo "</a>";
-                                echo "</div >";
-
-
-                           }
-
-                   ?>
-                </div>
-            </div>
-       </div>
-
+       
            <div class="capaRedesSociales">
 
                <?php
@@ -390,7 +321,7 @@
         </div>
             
         <div class="slide-out-registrese">
-    <div class="formRegistrese">
+<div class="formRegistrese">
               <form action="" method="post" enctype="multipart/form-data"> 
                 <a class="handleRegistrese" href="http://link-for-non-js-users">Content</a>
                 <br />
@@ -460,21 +391,17 @@
         </td>
       </tr>
       <tr>
-      <td valign="top"> 
+      <td valign="top" height="127px" > 
 		<div class="fondoPie">
         	<div class="contenidoPie">
             	<div class="textoPie">
-            	Telefono: 7-1 671 – 25 50, Calle 161 N 7G-54
+            	Telefono: (57+1) 671-25 50 
             	</div>
             	<div class="textoPie">
             	Bogotá, Colombia
                 </div>
                 <div class="textoPie">
            		<a href="mailto:info@madamia.com">  E-Mail: info@madamia.com</a>
-                </div>
-                <div class="textoPie">
-                </div>
-                <div class="textoPie">
                 </div>
 
            </div>

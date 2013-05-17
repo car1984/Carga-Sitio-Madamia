@@ -167,9 +167,9 @@ function verFormulario()
                          </td>
                     </tr>
                     <tr>
-                      <td width="150px" rowspan="3">
+                      <td width="150px" rowspan="3" align="center">
                       <div id ="capaImagen" style="visibility:<?php echo $mostrarImg; ?>; font-size: 9px; font-size: 12px; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; color: #096;">
-                            <img src='<?php echo $ObjAux->imagen; ?>' height='150' width='150'/> <a onclick="mostrar('capaILoad')"> <br />Cambiar Imagen</a> 
+                            <img src='<?php echo $ObjAux->imagen; ?>' height='150' width='150'/> <a href ='#' onclick="mostrar('capaILoad')"> <br />Cambiar Imagen</a> 
                             <input type="hidden" name ="fileImage" value="<?php echo $ObjAux->imagen ?>">
                             </div>
                       </td>

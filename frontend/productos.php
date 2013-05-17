@@ -22,7 +22,7 @@
 	
 			jQuery('#mycarousel').jcarousel({
               wrap: 'circular',
-              visible: 4
+              visible: 3
             });
 	});
 	
@@ -96,7 +96,7 @@
 
                                 echo "<li>";
                                 echo "<a href='".$url."' target='producto'>";
-                                echo "<img width='120' height='120' src='".$tmpPathImg."' id='".$fotos[0]->id."' alt='".$productos[$i]->nombreEsp."' class='captify' />";
+                                echo "<img height='100' src='".$tmpPathImg."' id='".$fotos[0]->id."' alt='".$productos[$i]->nombreEsp."' class='captify' />";
                                 echo "</a>";
 
                                 echo "</li>";
@@ -116,7 +116,7 @@
 
                                 echo "<li>";
                                 echo "<a href='".$url."' >";
-                                echo "<img width='120' height='120' src='".$tmpPathImg."' id='".$seccionesHijas[$i]->id."' alt='".$seccionesHijas[$i]->nombre."' class='captify'/>";
+                                echo "<img width='120' src='".$tmpPathImg."' id='".$seccionesHijas[$i]->id."' alt='".$seccionesHijas[$i]->nombre."' class='captify'/>";
                                 echo "</a>";
 
                                 echo "</li>";
@@ -137,8 +137,14 @@
               <?php
                 //Se selecciona la seccion pertienente
                 $seccion = DAOFactory::getSeccionDAO()->load($IdSeccion);
+				
+				$seccionPadre = DAOFactory::getSeccionDAO()->load($seccion->idPapa);
+                    if($seccionPadre)
+                      echo '<img src="'.$seccionPadre->imagen.'"  height="130" />';
+                    else
+					  echo '<img src="'.$seccion->imagen.'"  height="130" />';        
               ?>
-           	    <img src="<?php echo $seccion->imagen;?>" width="150" height="150" />
+
              </div>
                 
             </td>

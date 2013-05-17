@@ -173,8 +173,7 @@ if ( !isset($_SESSION['username']) && !isset($_SESSION['userid']) )
                             Nombre:</label><br>
                             <input type="text" name="txtNomProEsp" size="50" value="<?php echo $producto->nombreEsp;?>" ><br>
                         </td>
-                        <td ><label><br />
-                        Top 10:</label><br>
+                        <td ><label>¿Presente en el Banner de Novedades?</label><br>
                             
                             <?php 
                                 $CHECKED_SI='checked';

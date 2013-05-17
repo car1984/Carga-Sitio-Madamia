@@ -243,6 +243,8 @@ function verItems()
       <form action="">
             <table id="myTable"  cellpadding="2" cellspacing="2">
                 <?php
+                
+                echo $_SERVER['REQUEST_URI'];
                 $idSeccion;
                 if(isComandDelete()){
                     $idSeccion = $_SESSION['IdSeccion'];
